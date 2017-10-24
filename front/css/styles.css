@@ -1,0 +1,13 @@
+
+@media print {
+	body {print-color-adjust: exact;}
+	.botao, #botoes { display: none; }
+	table > tr > td {text-align: left; padding: 5px;}
+	td, th {text-align: left; padding: 5px;}
+}
+
+td, th {text-align: left; padding: 5px;}
+.left {text-align: left;}
+.botao {height: 27px;}
+
+input[type="submit1"] {height: 27px;}
