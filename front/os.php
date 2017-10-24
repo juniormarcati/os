@@ -23,11 +23,26 @@ $TelefonePlugin = $Plugin['phone'];
 $CidadePlugin = $Plugin['city'];
 $CorPlugin = $Plugin['color'];
 $CorTextoPlugin = $Plugin['textcolor'];
+<<<<<<< HEAD
+$SelTicket = "SELECT * FROM glpi_tickets WHERE id = '".$_GET['id']."'";
+=======
 $SelTicket = "SELECT date,name,content,date_format(date, '%d/%m/%Y %H:%i') AS DataInicio,due_date,date_format(solvedate, '%d/%m/%Y %H:%i') AS DataFim,solution,entities_id FROM glpi_tickets WHERE id = '".$_GET['id']."'";
+>>>>>>> 0.0.8a
 $ResTicket = $DB->query($SelTicket);
 $Ticket = $DB->fetch_assoc($ResTicket);
 $OsId = $_GET['id'];
 $OsNome = $Ticket['name'];
+<<<<<<< HEAD
+$SelDataInicial = "SELECT date,date_format(date, '%d/%m/%Y %H:%i') AS DataInicio FROM glpi_tickets WHERE id = '".$_GET['id']."'";
+$ResDataInicial = $DB->query($SelDataInicial);
+$DataInicial = $DB->fetch_assoc($ResDataInicial);
+$OsData = $DataInicial['DataInicio'];
+$OsDescricao = $Ticket['content'];
+$SelDataFinal = "SELECT due_date,date_format(solvedate, '%d/%m/%Y %H:%i') AS DataFim FROM glpi_tickets WHERE id = '".$_GET['id']."'";
+$ResDataFinal = $DB->query($SelDataFinal);
+$DataFinal = $DB->fetch_assoc($ResDataFinal);
+$OsDataEntrega = $DataFinal['DataFim'];
+=======
 $OsData = $Ticket['DataInicio'];
 $OsDescricao = $Ticket['content'];
 $SelItemsLista = "SELECT group_concat(glpi_computers.name SEPARATOR '<br>') AS computers_names FROM `glpi_items_tickets` INNER JOIN glpi_computers ON glpi_items_tickets.items_id = glpi_computers.id WHERE tickets_id = '".$_GET['id']."'";
@@ -39,6 +54,7 @@ $ResListaPrinters = $DB->query($SelListaPrinters);
 $ListaPrinters = $DB->fetch_assoc($ResListaPrinters);
 $Impressoras = $ListaPrinters ['printers_names'];
 $OsDataEntrega = $Ticket['DataFim'];
+>>>>>>> 0.0.8a
 $OsSolucao = $Ticket['solution'];
 $SelTicketUsers = "SELECT * FROM glpi_tickets_users WHERE tickets_id = '".$OsId."'";
 $ResTicketUsers = $DB->query($SelTicketUsers);
@@ -126,8 +142,11 @@ $seconds -= $minutes * 60;
 <tr><td width="50%"><b>Data/Hora de Início: </b><?php echo ($OsData);?></td><td><b>Data/Hora de Término: </b><?php echo ($OsDataEntrega);?>
 <tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important";><center><b><font color="<?php echo $CorTextoPlugin; ?>">DESCRIÇÃO</font></b></center></td></tr>
 <tr><td height="150" colspan="2" valign="top" style="padding:10px;"><?php echo html_entity_decode($OsDescricao);?></td></tr>
+<<<<<<< HEAD
+=======
 <tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important";><center><b><font color="<?php echo $CorTextoPlugin; ?>">EQUIPAMENTOS</font></b></center></td></tr>
 <tr><td colspan="2" valign="top" style="padding:10px;"><?php echo html_entity_decode($Equipamentos."<br>".$Impressoras);?></td></tr>
+>>>>>>> 0.0.8a
 <tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important";><center><b><font color="<?php echo $CorTextoPlugin; ?>">SOLUÇÃO</font></b></center></td></tr>
 <tr><td height="5" colspan="2" valign="top" style="padding:10px;">
 <?php 
@@ -192,4 +211,8 @@ $seconds -= $minutes * 60;
 <style media="print">
 </style>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 0.0.8a

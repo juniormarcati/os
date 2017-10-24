@@ -37,10 +37,17 @@ function plugin_version_os(){
 	global $DB, $LANG;
 
 	return array('name'			=> __('Os','os'),
+<<<<<<< HEAD
+					'version' 			=> '0.0.7',
+					'author'			   => '<a href="mailto:juniormarcati@gmail.com"> Júnior Marcati </b> </a>',
+					'license'		 	=> 'GPLv2+',
+					'homepage'			=> 'http://glpi-os.sourceforge.net',
+=======
 					'version' 			=> '0.0.7.1a',
 					'author'			   => '<a href="mailto:itaymbere@gmail.com"> Itaymbere </b> </a>',
 					'license'		 	=> 'GPLv2+',
 					'homepage'			=> 'https://itaymbere.github.io/glpi-os',
+>>>>>>> 0.0.8a
 					'minGlpiVersion'	=> '0.85'
 					);
 }
