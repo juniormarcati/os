@@ -1,6 +1,6 @@
 # glpi-os PT_BR
-GLPI OS Plugin Fork from Junior Marcati (https://plus.google.com/+JuniorMarcati)
-Forked from: https://github.com/juniormarcati/glpi_os or https://sourceforge.net/projects/glpi-os/
+GLPI Plugin to create Service Orders and able to be printed
+This plugin enable print tickets formatted as Service Orders. With your company logo, costs, taks duration, in the name of ticket requester or its related entity (selectable).
 
 # Improvements
 1. Queries optimized to connect less times to Database;
