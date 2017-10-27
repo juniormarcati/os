@@ -9,6 +9,13 @@ Para instalar o Plug-in siga os passos abaixo:
 - Encontre o Plug-in "OS" e click em Instalar;
 - Click em Habilitar.
 
+Para atualizar o Plug-in siga os passos abaixo:
+
+- Faça o download do projeto e extraia na pasta "plugins" que encontra-se na raiz do GLPI;
+- Acesse o GLPI, vá em Configurar > Plug-ins;
+- Encontre o Plug-in "OS" e click em Atualizar;
+- Click em Habilitar.
+
 Modo de uso:
 
 - Após instalar e habilitar o Plug-in, surgirá um ítem Os no menu Plug-ins.
