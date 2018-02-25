@@ -15,12 +15,10 @@ $ResTicket = $DB->query($SelTicket);
 $Ticket = $DB->fetch_assoc($ResTicket);
 $OsId = $_GET['id'];
 $OsNome = $Ticket['name'];
-// jrm(i) selecionando data para os (somente dia, sem horas)
 $SelDataOs = "SELECT date,date_format(date, '%d/%m/%Y') AS DataOs FROM glpi_tickets WHERE id = '".$_GET['id']."'";
 $ResSelData = $DB->query($SelDataOs);
 $ResSelDataFinal = $DB->fetch_assoc($ResSelData);
 $DataOs = $ResSelDataFinal['DataOs'];
-// jrm(f) final de data para os
 $SelDataInicial = "SELECT date,date_format(date, '%d/%m/%Y %H:%i') AS DataInicio FROM glpi_tickets WHERE id = '".$_GET['id']."'";
 $ResDataInicial = $DB->query($SelDataInicial);
 $DataInicial = $DB->fetch_assoc($ResDataInicial);
@@ -84,7 +82,6 @@ $hours = floor($seconds / 3600);
 $seconds -= $hours * 3600;
 $minutes = floor($seconds / 60);
 $seconds -= $minutes * 60;
-// jrm(i) localizacao do ticket
 $SelLocId = "SELECT locations_id FROM `glpi_tickets` WHERE id = '".$OsId."'";
 $ResLocId = $DB->query($SelLocId);
 $LocId = $DB->fetch_assoc($ResLocId);
@@ -93,23 +90,20 @@ $SelNameLoc = "SELECT name FROM glpi_locations WHERE id = '".$LocationsId."'";
 $ResNameLoc = $DB->query($SelNameLoc);
 $Loc = $DB->fetch_assoc($ResNameLoc);
 $Locations = $Loc['name']; 
-// jrm(f) localizacao do ticket 
-// jrm(i) parte de usuarios
- $SelTicketUsers = "SELECT * FROM glpi_tickets_users WHERE tickets_id = '".$OsId."'";
- $ResTicketUsers = $DB->query($SelTicketUsers);
- $TicketUsers = $DB->fetch_assoc($ResTicketUsers);
- $OsUserId = $TicketUsers['users_id'];
- $SelUsers = "SELECT * FROM glpi_users WHERE id = '".$OsUserId."'";
- $ResUsers = $DB->query($SelUsers);
- $Users = $DB->fetch_assoc($ResUsers);
- $UserName = $Users['firstname']. " " .$Users['realname'];
- $UserCpf = $Users['registration_number'];
- $UserTelefone = $Users['mobile'];
- $UserEndereco = $Users['comment'];
- $UserCep = $Users['phone2'];
- $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
- $ResEmail = $DB->query($SelEmail);
- $Email = $DB->fetch_assoc($ResEmail);
- $UserEmail = $Email['email'];
-// jrm(f) parte de usuarios
+$SelTicketUsers = "SELECT * FROM glpi_tickets_users WHERE tickets_id = '".$OsId."'";
+$ResTicketUsers = $DB->query($SelTicketUsers);
+$TicketUsers = $DB->fetch_assoc($ResTicketUsers);
+$OsUserId = $TicketUsers['users_id'];
+$SelUsers = "SELECT * FROM glpi_users WHERE id = '".$OsUserId."'";
+$ResUsers = $DB->query($SelUsers);
+$Users = $DB->fetch_assoc($ResUsers);
+$UserName = $Users['firstname']. " " .$Users['realname'];
+$UserCpf = $Users['registration_number'];
+$UserTelefone = $Users['mobile'];
+$UserEndereco = $Users['comment'];
+$UserCep = $Users['phone2'];
+$SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
+$ResEmail = $DB->query($SelEmail);
+$Email = $DB->fetch_assoc($ResEmail);
+$UserEmail = $Email['email'];
 ?>

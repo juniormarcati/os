@@ -1,5 +1,4 @@
 <?php
-// inclue as configs necessarias do glpi
 include ('../../../inc/includes.php');
 include ('../../../config/config.php');
 global $DB;
@@ -10,19 +9,12 @@ Html::header('OS', "", "plugins", "os");
 <head>
 <title>Configuração: Ordem de Serviço</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 <link href="css/styles.css" rel="stylesheet" type="text/css">
 <?php
-      //  CSS from GLPI
       echo Html::css($CFG_GLPI["root_doc"]."/css/styles.css");
-
-      // CSS theme link
       if (isset($_SESSION["glpipalette"])) {
          echo Html::css($CFG_GLPI["root_doc"]."/css/palettes/".$_SESSION["glpipalette"].".css");
       }
-
-// comunicando com o BD do plugin para trazer os dados inseridos anteriormente
-
 $SelPlugin = "SELECT * FROM glpi_plugin_os_config";
 $ResPlugin = $DB->query($SelPlugin);
 $Plugin = $DB->fetch_assoc($ResPlugin);
@@ -34,7 +26,6 @@ $CidadePlugin = $Plugin['city'];
 $CorPlugin = $Plugin['color'];
 $CorTextoPlugin = $Plugin['textcolor'];
 $SitePlugin = $Plugin['site'];
-
 ?>
 </head>
 <body>
@@ -45,11 +36,9 @@ $SitePlugin = $Plugin['site'];
 <tr><td><div align="center"><h1>GLPI_OS: Configuração</h1></div></td></tr>
 </table> 
 </center>
-
 <center>
 <tr><td><div align="center"><h3>PASSO 1 - CABEÇALHO </h3></div></td></tr>
 <tr><td><div align="center"><h4>Informações da Empresa.</h4></div></td></tr>
-
 <table width="500" border="0" cellpadding="0" cellspacing="0">
 <form action="config.php" method="get">
 <pre>
@@ -74,7 +63,6 @@ $SitePlugin = $Plugin['site'];
 <tr><td><div align="center"><h3>PASSO 2 - Logotipo da OS</h3></div></td></tr>
 <tr><td><div align="center"><h4>Faça UPLOAD do logotipo (50x50) que será utilizado na OS. (obs: pasta pics precisa ter permissão de escrita.)</h4></div></td></tr>
 <table width="500" border="0" cellpadding="0" cellspacing="0">
-
 <form method="post" enctype="multipart/form-data" action="recebeLogo.php">
 <br/>
 Selecione uma imagem: <input name="arquivo" type="file" required="required" />

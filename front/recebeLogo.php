@@ -8,7 +8,6 @@
 <body>
 <div style="width:55%; margin:auto;">
 <?php
-// verifica se foi enviado um arquivo 
 if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
 {
 
@@ -19,32 +18,16 @@ if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
 
 	$arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 	$nome = $_FILES['arquivo']['name'];
-	
-
-	// Pega a extensao
 	$extensao = strrchr($nome, '.');
-
-	// Converte a extensao para mimusculo
 	$extensao = strtolower($extensao);
-
-	// Somente imagens, .jpg;.jpeg;.gif;.png
-	// Aqui eu enfilero as extesões permitidas e separo por ';'
-	// Isso server apenas para eu poder pesquisar dentro desta String
 	if(strstr('.jpg;.jpeg;.gif;.png', $extensao))
 	{
-		// Cria um nome único para esta imagem
-		// Evita que duplique as imagens no servidor.
 		$novoNome = "logo_os.png";
-		
-		// Concatena a pasta com o nome
 		$destino = '../pics/' . $novoNome; 
-		
-		// tenta mover o arquivo para o destino
 		if( @move_uploaded_file( $arquivo_tmp, $destino  ))
 		{
 			echo "Arquivo salvo com sucesso em : <strong>" . $destino . "</strong><br />";
 			echo "<img src=\"" . $destino . "\" />";
-			//echo "<script language='javascript'>history.back()</script>";
 			echo '<br><p> <a href="#" class="vsubmit" onclick="history.back();"> Voltar </a>';
 		}
 		else

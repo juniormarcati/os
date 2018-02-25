@@ -16,9 +16,7 @@ if (isset($_SESSION["glpipalette"])) {
 	echo Html::css($CFG_GLPI["root_doc"]."/css/palettes/".$_SESSION["glpipalette"].".css");
 }
 ?>
-
 <body>
-<!-- inicio dos botoes -->
 <div id="botoes" style="width:55%; background:#fff; margin:auto; padding-bottom:10px;"> 
 	<form action="os_cli.php" method="get">	
 	<input type="text" name="id" value="Digite a ID" onfocus="if (this.value=='Digite a ID') this.value='';" onblur="if (this.value=='') this.value='Digite a ID'" />
@@ -30,7 +28,6 @@ if (isset($_SESSION["glpipalette"])) {
 	<a href='os.php?id=<?php echo $OsId; ?>' class="vsubmit"> Entidade </a>
 	<a href="index.php" class="vsubmit" style="float:right;"> Configurar </a>
 </div>
-<!-- inicio das tabelas -->
 <table style="width:55%; background:#fff; margin:auto;" border="0" cellpadding="0" cellspacing="0"> 
 <tr>
 <td style="padding: 0px !important;" >
@@ -38,11 +35,8 @@ if (isset($_SESSION["glpipalette"])) {
 <tr>
 <td width="100" colspan="3">
 <table style="width:100%;" border="0" cellpadding="0" cellspacing="0">
-<!-- tabela do logotipo -->
 <tr><td height="60" valign="middle" style="width:20%; text-align:center; margin:auto;"><img src="../pics/logo_os.png" width="50" height="50" align="absmiddle"></td>
-<!-- tabela do titulo -->
 <td style="text-align:center;"><font size="3"><?php echo ($EmpresaPlugin);?></font><br />
-<!-- jrm(i) configuracao do cnpj -->
 <font size="1">
 <?php
 	if ( $CnpjPlugin == null ) {
@@ -52,22 +46,17 @@ if (isset($_SESSION["glpipalette"])) {
 	}
 ?>
 </font><br />
-<!-- jrm(f) configuracao do cnpj -->
 <font size="1"><?php echo ("$EnderecoPlugin - $CidadePlugin"); ?></font><br />
 <font size="1"><?php echo ("$SitePlugin - $TelefonePlugin"); ?></font><br />
 <td height="50" valign="middle" style="width:20%; text-align:center;"><font size="4"> OS Nº &nbsp;<b></font><font size="5" color=#FF0000><?php echo $OsId;?></b></font><br \><font size="1"><?php echo $DataOs;?></font></td></tr>
-<!-- fecha a tabela de titulo -->
 </table></td>
-<!-- segunda tabela -->
 <tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important"><center><b><font color="<?php echo $CorTextoPlugin; ?>">DADOS DO CLIENTE</font></b></center></td> </tr>
 <tr><td width="50%"><b>Nome: </b><?php echo ($UserName) ?></td><td ><b>Telefone: </b><?php echo ($UserTelefone)?></td></tr>
 <tr><td width="50%"><b>Endereço: </b><?php echo ($UserEndereco)?></td><td><b>E-Mail: </b><?php echo ($UserEmail)?></td></tr>
 <tr><td width="50%"><b>CPF: </b><?php echo ($UserCpf)?></td><td ><b>CEP: </b><?php echo ($UserCep)?></td></tr>
-<!-- tabela OS -->
 <tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important";><center><b><font color="<?php echo $CorTextoPlugin; ?>">DETALHES DA ORDEM DE SERVIÇO</font></b></center></td></tr>
 <tr><td width="50%"><b>Título:</b> <?php echo $OsNome;?></td><td width="50%"><b>Responsável:</b> <?php echo $OsResponsavel;?></td></tr>
 <tr><td width="50%"><b>Data/Hora de Início: </b><?php echo ($OsData);?></td><td><b>Data/Hora de Término: </b><?php echo ($OsDataEntrega);?></td></tr>
-<!-- jrm: inicio das configs para adicionar localizacao -->
 <tr>
 <td>
 <?php
@@ -78,7 +67,6 @@ if (isset($_SESSION["glpipalette"])) {
 		echo "</tr></td>";
 	}
 ?>
-<!-- jrm: fim localizacao -->
 <tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important";><center><b><font color="<?php echo $CorTextoPlugin; ?>">DESCRIÇÃO</font></b></center></td></tr>
 <tr><td height="90" colspan="2" valign="top" style="padding:10px;"><?php echo html_entity_decode($OsDescricao);?></td></tr>
 <tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important";><center><b><font color="<?php echo $CorTextoPlugin; ?>">SOLUÇÃO</font></b></center></td></tr>
@@ -138,7 +126,6 @@ if (isset($_SESSION["glpipalette"])) {
 <tr align="center"><td style="text-align:center;" ><?php echo ($UserName);?></td><td style="text-align:center;" ><?php echo ($EmpresaPlugin);?></td></tr>
 </table>
 </table> 
-<!-- estilo do botao para nao aparecer em impressao --> 
 <style media="print">
 </style>
 </body>
