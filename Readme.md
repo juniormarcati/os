@@ -1,19 +1,12 @@
 # Português (PT_BR)
 
-Este Plug-in foi criado para gerar Ordem de Serviço baseado nos dados do chamado.
+Este Plug-in foi desenvolvido para gerar "Ordem de Serviço" baseado nos dados do ticket.
 
 Para instalar o Plug-in siga os passos abaixo:
 
 - Faça o download do projeto e extraia na pasta "plugins" que encontra-se na raiz do GLPI;
 - Acesse o GLPI, vá em Configurar > Plug-ins;
-- Encontre o Plug-in "OS" e click em Instalar;
-- Click em Habilitar.
-
-Para atualizar o Plug-in siga os passos abaixo:
-
-- Faça o download do projeto e extraia na pasta "plugins" que encontra-se na raiz do GLPI;
-- Acesse o GLPI, vá em Configurar > Plug-ins;
-- Encontre o Plug-in "OS" e click em Atualizar;
+- Encontre o Plug-in "os" e click em Instalar;
 - Click em Habilitar.
 
 Modo de uso:

@@ -37,7 +37,7 @@ if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
 		$novoNome = "logo_os.png";
 		
 		// Concatena a pasta com o nome
-		$destino = './img/' . $novoNome; 
+		$destino = '../pics/' . $novoNome; 
 		
 		// tenta mover o arquivo para o destino
 		if( @move_uploaded_file( $arquivo_tmp, $destino  ))
