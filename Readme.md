@@ -17,9 +17,7 @@ Configurar:
 Modo de usar:
 
 - Dentro de cada Ticket surgirá uma aba "Ordem de Serviço" com duas opções:
-Opção 1: Gerar OS - Entidade 
-Nessa opção a impressão baseará nas informações da Entidade com nome da entidade, endereço, telefone, etc.
-Opção 2: Gerar OS - Cliente
-Na opção de cliente a impressão sairá com informações do usuário que abriu o chamado.
+- Gerar OS - Entidade: Nessa opção a impressão baseará nas informações da Entidade com nome da entidade, endereço, telefone, etc.
+- Gerar OS - Cliente: Na opção de cliente a impressão sairá com informações do usuário que abriu o chamado.
 
 # FIM (PT_BR).
