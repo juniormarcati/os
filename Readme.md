@@ -6,17 +6,20 @@ Para instalar o Plug-in siga os passos abaixo:
 
 - Faça o download do projeto e extraia na pasta "plugins" que encontra-se na raiz do GLPI;
 - Acesse o GLPI, vá em Configurar > Plug-ins;
-- Encontre o Plug-in "os" e click em Instalar;
-- Click em Habilitar.
-
-Modo de uso:
-
-- Após instalar e habilitar o Plug-in, surgirá um ítem Os no menu Plug-ins.
-- Digite o número do chamado em: "Digite a ID" e click em Enviar.
+- Encontre o Plug-in "OS" na lista e clique em Instalar;
+- Clique em Habilitar.
 
 Configurar:
 
-No menu configurar é possível customizar o layout da OS.
-Preencha os ítens solicitados e configure a cor de sua OS em código html (Ex: #000000 = preto).
+- Após instalar e habilitar o Plug-in, surgirá um ítem "Ordem de Serviços" no menu Plug-ins.
+- Configure as informações solicitadas que serão exibidas na impressão.
+
+Modo de usar:
+
+- Dentro de cada Ticket surgirá uma aba "Ordem de Serviço" com duas opções:
+Opção 1: Gerar OS - Entidade 
+Nessa opção a impressão baseará nas informações da Entidade com nome da entidade, endereço, telefone, etc.
+Opção 2: Gerar OS - Cliente
+Na opção de cliente a impressão sairá com informações do usuário que abriu o chamado.
 
 # FIM (PT_BR).
