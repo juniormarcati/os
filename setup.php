@@ -1,6 +1,6 @@
 <?php
 // define glpi_os version
-define('PLUGIN_OS_VERSION', '0.0.9');
+define('PLUGIN_OS_VERSION', '0.1.0');
 
 class PluginOsConfig extends CommonDBTM {
 
@@ -18,20 +18,82 @@ class PluginOsConfig extends CommonDBTM {
    
     $menu = array();
 
-      $menu['title']   = __('Os','os');
-      $menu['page']    = "/plugins/os/front/os.php";
-    return $menu;
+      $menu['title']   = __('Ordem de Serviço','os');
+      $menu['page']    = "/plugins/os/front/index.php";
+      return $menu;
+   }	
+
+// Criar Tab	
+   function getTabNameForItem(CommonGLPI $item, $withtemplate = 0) {
+      switch (get_class($item)) {
+         case 'Ticket':
+            return array(1 => __('Ordem de Serviço','os'));
+         default:
+            return '';
+      }
+   }
+
+   static function displayTabContentForItem(CommonGLPI $item, $tabnum = 1, $withtemplate = 0) {
+      switch (get_class($item)) {
+         case 'Ticket':
+            $config = new self();
+            $config->showFormDisplay();
+            break;
+      }
+      return true;
+   }
+
+  /**
+    * Print the config form for display
+    *
+    * @return Nothing (display)
+    * */
+   function showFormDisplay() {
+      global $CFG_GLPI, $DB;
+      $ID = $_REQUEST['id'];
+      // entidade
+      $botao = Session::haveRight(Config::$rightname, UPDATE);
+      echo "<form name='form' action='../plugins/os/front/os.php' method='get'>\n";
+      echo Html::hidden('config_context', ['value' => 'os']);
+      echo Html::hidden('config_class', ['value' => __CLASS__]);
+      echo "<input type='hidden' name='id' value='".$ID."'>";
+      echo "<div class='center' id='tabsbody'>\n";
+      echo "<table class='tab_cadre_fixe' style='width:95%;'>\n";
+      echo "<tr class='tab_bg_2'>\n";
+      echo "<td colspan='4' class='center'>\n";
+      echo "<input type='submit' name='update' class='submit' value=\"" . __('Gerar OS - Entidade', 'os') . "\">\n";
+      echo "</td></tr>\n";
+      echo "</table></div>";
+      Html::closeForm();
+      // cli
+      $botao_cli = Session::haveRight(Config::$rightname, UPDATE);
+      echo "<form name='form' action='../plugins/os/front/os_cli.php' method='get'>\n";
+      echo Html::hidden('config_context', ['value' => 'os']);
+      echo Html::hidden('config_class', ['value' => __CLASS__]);
+      echo "<input type='hidden' name='id' value='".$ID."'>";
+      echo "<div class='center' id='tabsbody2'>\n";
+      echo "<table class='tab_cadre_fixe' style='width:95%;'>\n";
+      echo "<tr class='tab_bg_2'>\n";
+      echo "<td colspan='4' class='center'>\n";
+      echo "<input type='submit' name='update2' class='submit' value=\"" . __('Gerar OS - Cliente', 'os') . "\">\n";
+      echo "</td></tr>\n";
+      echo "</table></div>";
+      Html::closeForm();
+
    }
 }
 
 function plugin_init_os() {
+  global $PLUGIN_HOOKS, $LANG;
   
-   global $PLUGIN_HOOKS, $LANG ;
-       
-    $PLUGIN_HOOKS['csrf_compliant']['os'] = true;   
-    $PLUGIN_HOOKS["menu_toadd"]['os'] = array('plugins'  => 'PluginOsConfig');
-    $PLUGIN_HOOKS['config_page']['os'] = 'front/index.php'; 
-                
+  $PLUGIN_HOOKS['csrf_compliant']['os'] = true;
+
+   Plugin::registerClass('PluginOsConfig', [
+      'addtabon' => ['Ticket']
+   ]);   
+  
+  $PLUGIN_HOOKS["menu_toadd"]['os'] = array('plugins'  => 'PluginOsConfig');
+  $PLUGIN_HOOKS['config_page']['os'] = 'front/index.php';
 }
 
 

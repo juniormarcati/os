@@ -18,14 +18,8 @@ if (isset($_SESSION["glpipalette"])) {
 ?>
 <body>
 <div id="botoes" style="width:55%; background:#fff; margin:auto; padding-bottom:10px;"> 
-	<form action="os_cli.php" method="get">	
-	<input type="text" name="id" value="Digite a ID" onfocus="if (this.value=='Digite a ID') this.value='';" onblur="if (this.value=='') this.value='Digite a ID'" />
-	<input class="submit" type="submit" value="Enviar">
-	</form>
-	<br \>
 	<a href="#" class="vsubmit" onclick="window.print();"> Imprimir </a>
-	<a href='os_cli.php?id=<?php echo $OsId; ?>' class="vsubmit"> Usuário </a>
-	<a href='os.php?id=<?php echo $OsId; ?>' class="vsubmit"> Entidade </a>
+	<a href="#" class="vsubmit" onclick="history.back();"> Voltar </a>
 	<a href="index.php" class="vsubmit" style="float:right;"> Configurar </a>
 </div>
 <table style="width:55%; background:#fff; margin:auto;" border="0" cellpadding="0" cellspacing="0"> 

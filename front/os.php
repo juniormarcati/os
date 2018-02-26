@@ -17,15 +17,9 @@ if (isset($_SESSION["glpipalette"])) {
 }
 ?>
 <body>
-<div id="botoes" style="width:55%; background:#fff; margin:auto; padding-bottom:10px;"> 
-	<form action="os.php" method="get">	
-	<input type="text" name="id" value="Digite a ID" onfocus="if (this.value=='Digite a ID') this.value='';" onblur="if (this.value=='') this.value='Digite a ID'" />
-	<input class="submit" type="submit" value="Enviar">
-	</form>
-	<br \>
+<div id="botoes" style="width:55%; background:#fff; margin:auto; padding-bottom:10px;">
 	<a href="#" class="vsubmit" onclick="window.print();"> Imprimir </a>
-	<a href='os_cli.php?id=<?php echo $OsId; ?>' class="vsubmit"> Usuário </a>
-	<a href='os.php?id=<?php echo $OsId; ?>' class="vsubmit"> Entidade </a>
+	<a href="#" class="vsubmit" onclick="history.back();"> Voltar </a>
 	<a href="index.php" class="vsubmit" style="float:right;"> Configurar </a>
 </div>
 <table style="width:55%; background:#fff; margin:auto;" border="0" cellpadding="0" cellspacing="0"> 
@@ -50,7 +44,7 @@ if (isset($_SESSION["glpipalette"])) {
 <font size="1"><?php echo ("$SitePlugin - $TelefonePlugin"); ?></font><br />
 <td height="50" valign="middle" style="width:20%; text-align:center;"><font size="4"> OS Nº &nbsp;<b></font><font size="5" color=#FF0000><?php echo $OsId;?></b></font><br \><font size="1"><?php echo $DataOs;?></font></td></tr>
 </table></td>
-<tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important";><center><b><font color="<?php echo $CorTextoPlugin; ?>">DADOS DO CLIENTE</font></b></center></td> </tr>
+<tr><td colspan="2" style="background-color:<?php echo $CorPlugin; ?> !important"><center><b><font color="<?php echo $CorTextoPlugin; ?>">DADOS DO CLIENTE</font></b></center></td> </tr>
 <tr><td width="50%"><b>Empresa: </b><?php echo ($EntidadeName) ?></td><td width="50%"><b>Telefone: </b><?php echo ($EntidadePhone)?></td></tr>
 <tr><td width="50%"><b>Endereço: </b><?php echo ($EntidadeEndereco)?></td><td><b>E-Mail: </b><?php echo ($EntidadeEmail)?></td></tr>
 <tr><td width="50%"><b>CNPJ: </b><?php echo ($EntidadeCnpj)?></td><td ><b>CEP: </b><?php echo ($EntidadeCep)?></td></tr>
