@@ -1,6 +1,6 @@
 <?php
 // define glpi_os version
-define('PLUGIN_OS_VERSION', '0.1.0');
+define('PLUGIN_OS_VERSION', '0.1.1');
 
 class PluginOsConfig extends CommonDBTM {
 
