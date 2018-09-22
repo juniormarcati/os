@@ -28,7 +28,10 @@ $SelDataFinal = "SELECT time_to_resolve,date_format(solvedate, '%d/%m/%Y %H:%i')
 $ResDataFinal = $DB->query($SelDataFinal);
 $DataFinal = $DB->fetch_assoc($ResDataFinal);
 $OsDataEntrega = $DataFinal['DataFim'];
-$OsSolucao = $Ticket['solution'];
+$SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND status = '3'";
+$ResSolucaoTicket = $DB->query($SelSolucaoTicket);
+$SolucaoTicket = $DB->fetch_assoc($ResSolucaoTicket);
+$OsSolucao = $SolucaoTicket['content'];
 $SelTicketUsers = "SELECT * FROM glpi_tickets_users WHERE tickets_id = '".$OsId."'";
 $ResTicketUsers = $DB->query($SelTicketUsers);
 $TicketUsers = $DB->fetch_assoc($ResTicketUsers);
