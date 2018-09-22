@@ -4,7 +4,7 @@ function plugin_os_install() {
 	global $DB;
 	
           $query_conf = "CREATE TABLE IF NOT EXISTS `glpi_plugin_os_config` (
-          `ID` int(1) unsigned NOT NULL default '1',
+          `id` int(1) unsigned NOT NULL default '1',
           `name` varchar(255) NOT NULL default '0',
           `cnpj`  varchar(50) NOT NULL default '0',
           `address` varchar(50) NOT NULL default '0',
