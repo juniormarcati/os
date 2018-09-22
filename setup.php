@@ -1,14 +1,9 @@
 <?php
-// define glpi_os version
 define('PLUGIN_OS_VERSION', '0.1.1');
 
 class PluginOsConfig extends CommonDBTM {
 
    static protected $notable = true;
-   
-   /**
-    * @see CommonGLPI::getMenuName()
-   **/
    static function getMenuName() {
       return __('Os');
    }
@@ -22,8 +17,6 @@ class PluginOsConfig extends CommonDBTM {
       $menu['page']    = "/plugins/os/front/index.php";
       return $menu;
    }	
-
-// Criar Tab	
    function getTabNameForItem(CommonGLPI $item, $withtemplate = 0) {
       switch (get_class($item)) {
          case 'Ticket':
@@ -43,15 +36,9 @@ class PluginOsConfig extends CommonDBTM {
       return true;
    }
 
-  /**
-    * Print the config form for display
-    *
-    * @return Nothing (display)
-    * */
    function showFormDisplay() {
       global $CFG_GLPI, $DB;
       $ID = $_REQUEST['id'];
-      // entidade
       $botao = Session::haveRight(Config::$rightname, UPDATE);
       echo "<form name='form' action='../plugins/os/front/os.php' method='get'>\n";
       echo Html::hidden('config_context', ['value' => 'os']);
@@ -65,7 +52,6 @@ class PluginOsConfig extends CommonDBTM {
       echo "</td></tr>\n";
       echo "</table></div>";
       Html::closeForm();
-      // cli
       $botao_cli = Session::haveRight(Config::$rightname, UPDATE);
       echo "<form name='form' action='../plugins/os/front/os_cli.php' method='get'>\n";
       echo Html::hidden('config_context', ['value' => 'os']);
@@ -105,15 +91,15 @@ function plugin_version_os(){
           'author'         => '<a href="mailto:junior@marcati.com.br"> Júnior Marcati </b> </a>',
           'license'     => 'GPLv2+',
           'homepage'      => 'http://glpi-os.sourceforge.net',
-          'minGlpiVersion'  => '9.2'
+          'minGlpiVersion'  => '9.3'
           );
 }
 
 function plugin_os_check_prerequisites(){
-        if (GLPI_VERSION>=9.2){
+        if (GLPI_VERSION>=9.3){
                 return true;
         } else {
-                echo "GLPI version NOT compatible. Requires GLPI 9.2";
+                echo "GLPI version NOT compatible. Requires GLPI 9.3";
         }
 }
 
