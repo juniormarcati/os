@@ -20,4 +20,4 @@ Modo de usar:
 - Gerar OS - Entidade: Nessa opção a impressão baseará nas informações da Entidade com nome da entidade, endereço, telefone, etc.
 - Gerar OS - Cliente: Na opção de cliente a impressão sairá com informações do usuário que abriu o chamado.
 
-# FIM (PT_BR).
+# FIM (PT_BR) 
