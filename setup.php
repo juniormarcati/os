@@ -90,7 +90,7 @@ function plugin_version_os(){
           'version'   => PLUGIN_OS_VERSION ,
           'author'         => '<a href="mailto:junior@marcati.com.br"> Júnior Marcati </b> </a>',
           'license'     => 'GPLv2+',
-          'homepage'      => 'http://glpi-os.sourceforge.net',
+          'homepage'      => 'https://github.com/juniormarcati/glpi_os',
           'minGlpiVersion'  => '9.3'
           );
 }
