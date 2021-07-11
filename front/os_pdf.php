@@ -92,8 +92,7 @@ class PDF extends FPDF {
 		$this->Cell(20,5,"",0,0,'C');
 		$this->Ln(20);
 	}
-	// Page footer
-
+// Page footer
 function Footer()
 	{
 		// Position at 1.5 cm from bottom
@@ -149,7 +148,7 @@ $pdf->Cell(20,5,"CEP:",1,0,'L');
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(70,5,"$EntidadeCep",1,0,'L');
 $pdf->Ln();
-// OS details
+// SO details
 $pdf->setFillColor(230,230,230);
 $pdf->Cell(1);
 $pdf->SetFont('Arial','B',12);
@@ -196,11 +195,13 @@ if ( $OsSolucao == null ) {
 	$pdf->Ln();
 	$pdf->Cell(1);
 	$pdf->Cell(190,55,utf8_decode("Descreva a solução:"),1,0,'L',0);
+	$pdf->Ln();
 } else {
+	$pdf->Ln();
+	$pdf->Cell(1);
 	$pdf->MultiCell(190,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsSolucao"))),1,J);
 }
 // Signatures
-$pdf->Ln();
 $pdf->setFillColor(230,230,230);
 $pdf->Cell(1);
 $pdf->SetFont('Arial','B',12);
@@ -220,7 +221,6 @@ $pdf->SetFont('Arial','',7);
 $pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'C');
 $pdf->SetFont('Arial','',7);
 $pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeName"))),0,0,'C');
-
 // QR Code
 $url = $CFG_GLPI['url_base'];
 $url2 = "/front/ticket.form.php?id=".$_GET['id']."";
@@ -233,7 +233,6 @@ $options = new QROptions([
   'imageBase64' => false
 ]);
 file_put_contents('../pics/qr.png',(new QRCode($options))->render("$url$url2"));
-
 // Output PDF
 $fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
 $pdf->Output('I',$fileName);
