@@ -1,5 +1,35 @@
 <?php
-define('PLUGIN_OS_VERSION', '0.1.2');
+
+/*
+   ------------------------------------------------------------------------
+   Plugin OS
+   Copyright (C) 2016-2021 by Junior Marcati
+   https://github.com/juniormarcati/glpi_os
+   ------------------------------------------------------------------------
+   LICENSE
+   This file is part of Plugin OS project.
+   Plugin OS is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Affero General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   Plugin OS is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU Affero General Public License for more details.
+   You should have received a copy of the GNU Affero General Public License
+   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
+   ------------------------------------------------------------------------
+   @package   Plugin OS
+   @author    Junior Marcati
+   @co-author
+   @copyright Copyright (c) 2016-2021 OS Plugin Development team
+   @license   AGPL License 3.0 or (at your option) any later version
+              http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   @link      https://github.com/juniormarcati/glpi_os
+   @since     2016
+   ------------------------------------------------------------------------
+ */
+define('PLUGIN_OS_VERSION', '0.2.0b');
 
 class PluginOsConfig extends CommonDBTM {
 
@@ -39,33 +69,27 @@ class PluginOsConfig extends CommonDBTM {
    function showFormDisplay() {
       global $CFG_GLPI, $DB;
       $ID = $_REQUEST['id'];
-      $botao = Session::haveRight(Config::$rightname, UPDATE);
-      echo "<form name='form' action='../plugins/os/front/os.php' method='get'>\n";
-      echo Html::hidden('config_context', ['value' => 'os']);
-      echo Html::hidden('config_class', ['value' => __CLASS__]);
-      echo "<input type='hidden' name='id' value='".$ID."'>";
-      echo "<div class='center' id='tabsbody'>\n";
-      echo "<table class='tab_cadre_fixe' style='width:95%;'>\n";
-      echo "<tr class='tab_bg_2'>\n";
-      echo "<td colspan='4' class='center'>\n";
-      echo "<input type='submit' name='update' class='submit' value=\"" . __('Gerar OS - Entidade', 'os') . "\">\n";
-      echo "</td></tr>\n";
-      echo "</table></div>";
-      Html::closeForm();
-      $botao_cli = Session::haveRight(Config::$rightname, UPDATE);
-      echo "<form name='form' action='../plugins/os/front/os_cli.php' method='get'>\n";
-      echo Html::hidden('config_context', ['value' => 'os']);
-      echo Html::hidden('config_class', ['value' => __CLASS__]);
-      echo "<input type='hidden' name='id' value='".$ID."'>";
-      echo "<div class='center' id='tabsbody2'>\n";
-      echo "<table class='tab_cadre_fixe' style='width:95%;'>\n";
-      echo "<tr class='tab_bg_2'>\n";
-      echo "<td colspan='4' class='center'>\n";
-      echo "<input type='submit' name='update2' class='submit' value=\"" . __('Gerar OS - Cliente', 'os') . "\">\n";
-      echo "</td></tr>\n";
-      echo "</table></div>";
-      Html::closeForm();
-
+      echo "<head>";
+      echo "<script type='text/javascript'>";
+      echo "function setIframeSource() {";
+      echo "var theSelect = document.getElementById('PageType');";
+      echo "var theIframe = document.getElementById('OsIframe');";
+      echo "var theUrl;";
+      echo "theUrl = theSelect.options[theSelect.selectedIndex].value;";
+      echo "theIframe.src = theUrl;";
+      echo "}";
+      echo "</script>";
+      echo "</head>";
+      echo "<body>";
+      echo "<form id='form1' method='post'>";
+      echo "<label>Selecione o Layout </label>";
+      echo "<select id='PageType' onchange='setIframeSource()'>";
+      echo "<option value='../plugins/os/front/os_pdf.php?id=$ID'>A4</option>";
+      echo "<option value='../plugins/os/front/os_pdflabel.php?id=$ID'>Label</option>";
+      echo "</select>";
+      echo "</form>";
+      echo "<iframe id='OsIframe' src='../plugins/os/front/os_pdf.php?id=$ID' frameborder='0' marginwidth='0' marginheight='0' width='90%' height='500'></iframe>";
+      echo "</body>";
    }
 }
 
@@ -86,20 +110,20 @@ function plugin_init_os() {
 function plugin_version_os(){
   global $DB, $LANG;
 
-  return array('name'     => __('Os','os'),
+  return array('name'     => __('OS','os'),
           'version'   => PLUGIN_OS_VERSION ,
           'author'         => '<a href="mailto:junior@marcati.com.br"> Júnior Marcati </b> </a>',
-          'license'     => 'GPLv2+',
-          'homepage'      => 'https://github.com/juniormarcati/glpi_os',
-          'minGlpiVersion'  => '9.3'
+          'license'     => 'AGPLv3+',
+          'homepage'      => 'http://glpi-os.sourceforge.net',
+          'minGlpiVersion'  => '9.4'
           );
 }
 
 function plugin_os_check_prerequisites(){
-        if (GLPI_VERSION>=9.3){
+        if (GLPI_VERSION>=9.4){
                 return true;
         } else {
-                echo "GLPI version NOT compatible. Requires GLPI 9.3";
+                echo "GLPI version NOT compatible. Requires GLPI 9.4";
         }
 }
 

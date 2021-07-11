@@ -1,4 +1,34 @@
 <?php 
+
+/*
+   ------------------------------------------------------------------------
+   Plugin OS
+   Copyright (C) 2016-2021 by Junior Marcati
+   https://github.com/juniormarcati/glpi_os
+   ------------------------------------------------------------------------
+   LICENSE
+   This file is part of Plugin OS project.
+   Plugin OS is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Affero General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   Plugin OS is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU Affero General Public License for more details.
+   You should have received a copy of the GNU Affero General Public License
+   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
+   ------------------------------------------------------------------------
+   @package   Plugin OS
+   @author    Junior Marcati
+   @co-author
+   @copyright Copyright (c) 2016-2021 OS Plugin Development team
+   @license   AGPL License 3.0 or (at your option) any later version
+              http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   @link      https://github.com/juniormarcati/glpi_os
+   @since     2016
+   ------------------------------------------------------------------------
+ */
 $SelPlugin = "SELECT * FROM glpi_plugin_os_config";
 $ResPlugin = $DB->query($SelPlugin);
 $Plugin = $DB->fetch_assoc($ResPlugin);
@@ -28,7 +58,7 @@ $SelDataFinal = "SELECT time_to_resolve,date_format(solvedate, '%d/%m/%Y %H:%i')
 $ResDataFinal = $DB->query($SelDataFinal);
 $DataFinal = $DB->fetch_assoc($ResDataFinal);
 $OsDataEntrega = $DataFinal['DataFim'];
-$SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND status > '1'";
+$SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND status = '3'";
 $ResSolucaoTicket = $DB->query($SelSolucaoTicket);
 $SolucaoTicket = $DB->fetch_assoc($ResSolucaoTicket);
 $OsSolucao = $SolucaoTicket['content'];
