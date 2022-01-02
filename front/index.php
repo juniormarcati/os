@@ -87,7 +87,7 @@ $SitePlugin = $Plugin['site'];
 <tr><td><div align="center"><h3>PASSO 2 - Logotipo da OS</h3></div></td></tr>
 <tr><td><div align="center"><h4>Faça UPLOAD do logotipo (300x100) que será utilizado na OS. (obs: pasta pics precisa ter permissão de escrita.)</h4></div></td></tr>
 <table width="500" border="0" cellpadding="0" cellspacing="0">
-<form method="post" enctype="multipart/form-data" action="recebeLogo.php">
+<form method="post" enctype="multipart/form-data" action="insert_logo.php">
 <br/>
 Selecione uma imagem: <input name="arquivo" type="file" required="required" />
 <br />

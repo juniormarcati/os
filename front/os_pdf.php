@@ -1,5 +1,4 @@
 <?php
-
 /*
    ------------------------------------------------------------------------
    Plugin OS
@@ -49,13 +48,14 @@ class PDF extends FPDF {
 		global $OsId;
 		// Logo
 		$this->Cell(30);
-		$this->Image('../pics/logo_os.png',10,15,45);
+		$this->Image('../pics/logo_os.png',8,15,45);
 		// Title - Line 1: Company name & OS
 		$this->Cell(20);
 		$this->SetFont('Arial','B',12);
 		$this->Cell(90,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'C');
 		$this->Cell(20,5,"",0,0,'C');
 		$this->Cell(33,5,"",0,0,'C');
+
 		// Title - Line 2: Phone number & OS Number
 		$this->Ln();
 		$this->Cell(50);
@@ -63,6 +63,7 @@ class PDF extends FPDF {
 		$this->SetFont('Arial','B',12);
 		$this->Cell(33,5,utf8_decode("OS Nº"),0,0,'C');
 		$this->Cell(20,5,"",0,0,'C');
+
 		// Title - Line 3: Company registration number & Os date
 		$this->Ln();
 		$this->SetFont('Arial','',10);
@@ -88,7 +89,7 @@ class PDF extends FPDF {
 		$this->Cell(90,5,"$SitePlugin",0,0,'C');
 		$this->Cell(33,5,"",0,0,'C');
 		$this->Cell(20,5,"",0,0,'C');
-		$this->Ln(7);
+		$this->Ln(20);
 	}
 // Page footer
 function Footer()
@@ -108,69 +109,49 @@ $pdf->AddPage();
 // Entity data
 $pdf->setFillColor(230,230,230); 
 $pdf->Cell(1);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(190,7,utf8_decode("DADOS DA EMPRESA"),1,1,'C',1);
-$pdf->Cell(1);
 $pdf->SetFont('Arial','B',10);
+$pdf->Cell(190,4,utf8_decode("DADOS DO CLIENTE"),1,1,'C',1);
+$pdf->Cell(1);
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(23,5,utf8_decode("Empresa:"),1,0,'L');
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(167,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeName"))),1,0,'L');
 $pdf->SetFont('Arial','B',10);
 $pdf->Ln();
 $pdf->Cell(1);
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(23,5,utf8_decode("Endereço:"),1,0,'L');
-$pdf->SetFont('Arial','',10);
-$pdf->Cell(167,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeEndereco - $EntidadeCep"))),1,0,'L');
-$pdf->Ln();
-$pdf->Cell(1);
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(23,5,"CNPJ:",1,0,'L');
-$pdf->SetFont('Arial','',10);
-$pdf->Cell(77,5,"$EntidadeCnpj",1,0,'L');
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(20,5,utf8_decode("Telefone:"),1,0,'L');
-$pdf->SetFont('Arial','',10);
-$pdf->Cell(70,5,"$EntidadePhone",1,0,'L');
-$pdf->Ln();
-// User data
-$pdf->setFillColor(230,230,230); 
-$pdf->Cell(1);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(190,7,utf8_decode("DADOS DO USUÁRIO"),1,1,'C',1);
-$pdf->Cell(1);
-$pdf->SetFont('Arial','B',10);
 $pdf->Cell(23,5,utf8_decode("Requerente:"),1,0,'L');
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(77,5,"$UserName",1,0,'L');
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(20,5,utf8_decode("Telefone:"),1,0,'L');
 $pdf->SetFont('Arial','',10);
-$pdf->Cell(70,5,"$UserTelefone $UserMobile",1,0,'L');
-$pdf->Ln();
-$pdf->Cell(1);
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(23,5,utf8_decode("CPF:"),1,0,'L');
-$pdf->SetFont('Arial','',10);
-$pdf->Cell(77,5,"$UserCpf",1,0,'L');
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(20,5,utf8_decode("E-mail:"),1,0,'L');
-$pdf->SetFont('Arial','',10);
-$pdf->Cell(70,5,"$UserEmail",1,0,'L');
+$pdf->Cell(70,5,"$EntidadePhone",1,0,'L');
 $pdf->Ln();
 $pdf->Cell(1);
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(23,5,utf8_decode("Endereço:"),1,0,'L');
 $pdf->SetFont('Arial','',10);
-$pdf->Cell(167,5,utf8_decode(strip_tags(htmlspecialchars_decode("$UserEndereco"))),1,0,'L');
+$pdf->Cell(77,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeEndereco"))),1,0,'L');
 $pdf->SetFont('Arial','B',10);
+$pdf->Cell(20,5,utf8_decode("E-mail:"),1,0,'L');
+$pdf->SetFont('Arial','',10);
+$pdf->Cell(70,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeEmail"))),1,0,'L');
 $pdf->Ln();
-
+$pdf->Cell(1);
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(23,5,"CNPJ:",1,0,'L');
+$pdf->SetFont('Arial','',10);
+$pdf->Cell(77,5,"$EntityRn",1,0,'L');
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(20,5,"CEP:",1,0,'L');
+$pdf->SetFont('Arial','',10);
+$pdf->Cell(70,5,"$EntidadeCep",1,0,'L');
+$pdf->Ln();
 // SO details
 $pdf->setFillColor(230,230,230);
 $pdf->Cell(1);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(190,7,utf8_decode("DETALHES DA ORDEM DE SERVIÇO"),1,1,'C',1);
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(190,4,utf8_decode("DETALHES DA ORDEM DE SERVIÇO"),1,1,'C',1);
 $pdf->Cell(1);
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(14,5,utf8_decode("Título:"),1,0,'L');
@@ -193,26 +174,72 @@ $pdf->Cell(26,5,utf8_decode("Conclusão:"),1,0,'L');
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(60,5,"$OsDataEntrega",1,0,'L');
 $pdf->Ln();
+// Itens
+if ( $ItensId == null ) {
+} else {
+	$pdf->Cell(1);
+	$pdf->SetFont('Arial','B',10);
+	$pdf->Cell(190,4,utf8_decode("ITENS RELACIONADOS"),1,1,'C',1);
+	$pdf->Cell(1);
+	$pdf->SetFont('Arial','B',10);
+	$pdf->Cell(14,5,utf8_decode("Nome:"),1,0,'L');
+	$pdf->SetFont('Arial','',10);
+	if ( $ItemType == 'Computer' ) {
+		$pdf->Cell(60,5,utf8_decode(strip_tags(htmlspecialchars_decode("$ComputerName"))),1,0,'L');
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(31,5,utf8_decode("Número de série:"),1,0,'L');
+		$pdf->SetFont('Arial','',10);
+		$pdf->Cell(85,5,utf8_decode(strip_tags(htmlspecialchars_decode("$ComputerSerial"))),1,0,'L');
+		$pdf->Ln();
+	} else if ( $ItemType == 'Monitor' ) {
+		$pdf->Cell(60,5,utf8_decode(strip_tags(htmlspecialchars_decode("$MonitorName"))),1,0,'L');
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(31,5,utf8_decode("Número de série:"),1,0,'L');
+		$pdf->SetFont('Arial','',10);
+		$pdf->Cell(85,5,utf8_decode(strip_tags(htmlspecialchars_decode("$MonitorSerial"))),1,0,'L');
+		$pdf->Ln();
+	} else if ( $ItemType == 'Printer' ) {
+		$pdf->Cell(60,5,utf8_decode(strip_tags(htmlspecialchars_decode("$PrinterName"))),1,0,'L');
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(31,5,utf8_decode("Número de série:"),1,0,'L');
+		$pdf->SetFont('Arial','',10);
+		$pdf->Cell(85,5,utf8_decode(strip_tags(htmlspecialchars_decode("$PrinterSerial"))),1,0,'L');
+		$pdf->Ln();
+	}
+}
+//Cost
+if ( $CustoTotalFinal == 0 ) {
+} else {
+	$pdf->Cell(1);
+	$pdf->SetFont('Arial','B',10);
+	$pdf->Cell(190,4,utf8_decode("CUSTOS"),1,1,'C',1);
+	$pdf->Cell(1);
+	$pdf->SetFont('Arial','B',10);
+	$pdf->Cell(14,5,utf8_decode("Total:"),1,0,'L');
+	$pdf->SetFont('Arial','',10);
+	$pdf->Cell(176,5,utf8_decode(strip_tags(htmlspecialchars_decode("$CustoTotalFinal"))),1,0,'L');
+	$pdf->Ln();
+}
 // Description
 $pdf->setFillColor(230,230,230);
 $pdf->Cell(1);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(190,7,utf8_decode("DESCRIÇÃO"),1,1,'C',1);
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(190,4,utf8_decode("DESCRIÇÃO"),1,1,'C',1);
 $pdf->Cell(1);
 $pdf->SetFont('Arial','',10);
 $pdf->Multicell(190,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsDescricao"))),1,J);
 // Solution
 $pdf->setFillColor(230,230,230);
 $pdf->Cell(1);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(190,7,utf8_decode("SOLUÇÃO"),1,1,'C',1);
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(190,4,utf8_decode("SOLUÇÃO"),1,1,'C',1);
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(1);
 // Lines if solution is empty
 if ( $OsSolucao == null ) {
 	$pdf->Ln();
 	$pdf->Cell(1);
-	$pdf->Cell(190,55,utf8_decode("Descreva a solução:"),1,0,'L',0);
+	$pdf->Cell(190,55,utf8_decode("Descreva a solução:"),1,0,'J',0);
 	$pdf->Ln();
 } else {
 	$pdf->Ln();
@@ -222,8 +249,8 @@ if ( $OsSolucao == null ) {
 // Signatures
 $pdf->setFillColor(230,230,230);
 $pdf->Cell(1);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(190,7,utf8_decode("ASSINATURAS"),1,1,'C',1);
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(190,5,utf8_decode("ASSINATURAS"),1,1,'C',1);
 // Signatures Lines
 $pdf->Cell(1);
 $pdf->Cell(190,40,"",1,0,'L');
@@ -236,14 +263,9 @@ $pdf->Cell(95,5,utf8_decode("_______________________________________"),0,0,'C');
 $pdf->Ln();
 $pdf->Cell(1);
 $pdf->SetFont('Arial','',7);
-$pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsResponsavel"))),0,0,'C');
-$pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$UserName"))),0,0,'C');
-$pdf->Ln();
-$pdf->Cell(1);
 $pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'C');
+$pdf->SetFont('Arial','',7);
 $pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeName"))),0,0,'C');
-
-
 // QR Code
 $url = $CFG_GLPI['url_base'];
 $url2 = "/front/ticket.form.php?id=".$_GET['id']."";

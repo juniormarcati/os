@@ -1,5 +1,4 @@
 <?php 
-
 /*
    ------------------------------------------------------------------------
    Plugin OS
@@ -95,7 +94,11 @@ $EntidadeCep = $Empresa['postcode'];
 $EntidadeEndereco = $Empresa['address'];
 $EntidadeEmail = $Empresa['email'];
 $EntidadePhone = $Empresa['phonenumber'];
-$EntidadeCnpj = $Empresa['comment'];
+// select entity rn
+$SelEntityRn = "SELECT * FROM glpi_plugin_os_rn WHERE entities_id = '".$EntidadeId."'";
+$ResEntityRn = $DB->query($SelEntityRn);
+$EntityRnQuery = $DB->fetch_assoc($ResEntityRn);
+$EntityRn = $EntityRnQuery['rn'];
 $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
 $Email = $DB->fetch_assoc($ResEmail);
@@ -132,12 +135,35 @@ $ResUsers = $DB->query($SelUsers);
 $Users = $DB->fetch_assoc($ResUsers);
 $UserName = $Users['firstname']. " " .$Users['realname'];
 $UserCpf = $Users['registration_number'];
-$UserTelefone = $Users['phone'];
-$UserMobile = $Users['mobile'];
+$UserTelefone = $Users['mobile'];
 $UserEndereco = $Users['comment'];
-// $UserCep = $Users['phone2'];
+$UserCep = $Users['phone2'];
 $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
 $Email = $DB->fetch_assoc($ResEmail);
 $UserEmail = $Email['email'];
+// select itens
+$SelItens = "SELECT * FROM glpi_items_tickets WHERE tickets_id = '".$OsId."'";
+$ResItens = $DB->query($SelItens);
+$ItensQuery = $DB->fetch_assoc($ResItens);
+$ItemType = $ItensQuery['itemtype'];
+$ItensId = $ItensQuery['items_id']; 
+// select items computers
+$SelComputers = "SELECT * FROM glpi_computers WHERE id = '".$ItensId."'";
+$ResSelComputers = $DB->query($SelComputers);
+$ComputersQuery = $DB->fetch_assoc($ResSelComputers);
+$ComputerName = $ComputersQuery['name'];
+$ComputerSerial = $ComputersQuery['serial']; 
+// select items monitor
+$SelMonitors = "SELECT * FROM glpi_monitors WHERE id = '".$ItensId."'";
+$ResSelMonitors = $DB->query($SelMonitors);
+$MonitorsQuery = $DB->fetch_assoc($ResSelMonitors);
+$MonitorName = $MonitorsQuery['name'];
+$MonitorSerial = $MonitorsQuery['serial']; 
+// select items printers
+$SelPrinters = "SELECT * FROM glpi_printers WHERE id = '".$ItensId."'";
+$ResSelPrinters = $DB->query($SelPrinters);
+$PrintersQuery = $DB->fetch_assoc($ResSelPrinters);
+$PrinterName = $PrintersQuery['name'];
+$PrinterSerial = $PrintersQuery['serial']; 
 ?>

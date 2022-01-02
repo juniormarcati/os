@@ -1,5 +1,4 @@
 <?php
-
 /*
    ------------------------------------------------------------------------
    Plugin OS
@@ -29,46 +28,37 @@
    @since     2016
    ------------------------------------------------------------------------
  */
-function plugin_os_install() {
-  
-  global $DB, $LANG;
-  
-  // conf
-  $query_conf = "CREATE TABLE IF NOT EXISTS `glpi_plugin_os_config` (
-    `id` int(1) unsigned NOT NULL default '1',
-    `name` varchar(255) NOT NULL default '0',
-    `cnpj`  varchar(50) NOT NULL default '0',
-    `address` varchar(50) NOT NULL default '0',
-    `phone` varchar(255) NOT NULL default '0',
-    `city`  varchar(255) NOT NULL default '0',
-    `site`  varchar(50) NOT NULL default '0',
-    PRIMARY KEY (`id`))
-  ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;";
-  $DB->query($query_conf) or die("error creating table glpi_plugin_os_config " . $DB->error());
-  
-  // rn
-  $query_rn = "CREATE TABLE IF NOT EXISTS `glpi_plugin_os_rn` (
-	  `id` int(4) NOT NULL AUTO_INCREMENT,
-	  `entities_id` int(4) NOT NULL,
-	  `rn` varchar(50) NOT NULL,
-    PRIMARY KEY (`id`,`entities_id`))
-  ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;";
-  $DB->query($query_rn) or die("error creating table glpi_plugin_os_rn " . $DB->error());
-  $query_alt_rn = "ALTER TABLE `glpi_plugin_os_rn` ADD UNIQUE (`entities_id`); ";		
-	$DB->query($query_alt_rn) or die("error update table glpi_plugin_os_rn primary key " . $DB->error());
-  return true;
-}
-function plugin_os_uninstall(){
-  global $DB;
-  
-  // drop conf
-  $drop_config = "DROP TABLE glpi_plugin_os_config";
-	$DB->query($drop_config);
+if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
+{
 
-  // drop rn
-  $drop_rn = "DROP TABLE glpi_plugin_os_rn";
-	$DB->query($drop_rn);
-	
-  return true;
+	echo "Você enviou o arquivo: <strong>" . $_FILES['arquivo']['name'] . "</strong><br />";
+	echo "Este arquivo é do tipo: <strong>" . $_FILES['arquivo']['type'] . "</strong><br />";
+	echo "Temporáriamente foi salvo em: <strong>" . $_FILES['arquivo']['tmp_name'] . "</strong><br />";
+	echo "Seu tamanho é: <strong>" . $_FILES['arquivo']['size'] . "</strong> Bytes<br /><br />";
+
+	$arquivo_tmp = $_FILES['arquivo']['tmp_name'];
+	$nome = $_FILES['arquivo']['name'];
+	$extensao = strrchr($nome, '.');
+	$extensao = strtolower($extensao);
+	if(strstr('.png', $extensao))
+	{
+		$novoNome = "logo_os.png";
+		$destino = '../pics/' . $novoNome; 
+		if( @move_uploaded_file( $arquivo_tmp, $destino  ))
+		{
+			echo "Arquivo salvo com sucesso em : <strong>" . $destino . "</strong><br />";
+			echo "<img src=\"" . $destino . "\" />";
+			echo '<br><p> <a href="#" class="vsubmit" onclick="history.back();"> Voltar </a>';
+		}
+		else
+			echo "Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />";
+	}
+	else
+		echo "Você poderá enviar apenas arquivos \"*.png\"<br />";
+}
+else
+{
+	echo "Você não enviou nenhum arquivo!";
+	echo "<script language='javascript'>history.back()</script>";
 }
 ?>
