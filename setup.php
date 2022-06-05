@@ -1,5 +1,5 @@
 <?php
-define('PLUGIN_OS_VERSION', '0.1.2');
+define('PLUGIN_OS_VERSION', '0.2.0-beta2');
 
 class PluginOsConfig extends CommonDBTM {
 
