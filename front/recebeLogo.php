@@ -8,36 +8,6 @@
 <body>
 <div style="width:55%; margin:auto;">
 <?php
-
-/*
-   ------------------------------------------------------------------------
-   Plugin OS
-   Copyright (C) 2016-2021 by Junior Marcati
-   https://github.com/juniormarcati/glpi_os
-   ------------------------------------------------------------------------
-   LICENSE
-   This file is part of Plugin OS project.
-   Plugin OS is free software: you can redistribute it and/or modify
-   it under the terms of the GNU Affero General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   Plugin OS is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-   GNU Affero General Public License for more details.
-   You should have received a copy of the GNU Affero General Public License
-   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
-   ------------------------------------------------------------------------
-   @package   Plugin OS
-   @author    Junior Marcati
-   @co-author
-   @copyright Copyright (c) 2016-2021 OS Plugin Development team
-   @license   AGPL License 3.0 or (at your option) any later version
-              http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/glpi_os
-   @since     2016
-   ------------------------------------------------------------------------
- */
 if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
 {
 
