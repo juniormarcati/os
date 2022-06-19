@@ -34,7 +34,7 @@
 // Minimal GLPI version
 define('PLUGIN_OS_MIN_GLPI', '9.4');
 // Maximum GLPI version
-define('PLUGIN_OS_MAX_GLPI', '9.6');
+define('PLUGIN_OS_MAX_GLPI', '10.1');
 
 function plugin_init_os() {
   global $PLUGIN_HOOKS, $LANG;
