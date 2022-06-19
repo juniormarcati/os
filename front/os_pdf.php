@@ -227,7 +227,7 @@ $pdf->SetFont('Arial','B',10);
 $pdf->Cell(190,4,utf8_decode("DESCRIÇÃO"),1,1,'C',1);
 $pdf->Cell(1);
 $pdf->SetFont('Arial','',10);
-$pdf->Multicell(190,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsDescricao"))),1,J);
+$pdf->Multicell(190,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsDescricao"))),1,'J');
 // Solution
 $pdf->setFillColor(230,230,230);
 $pdf->Cell(1);
@@ -244,7 +244,7 @@ if ( $OsSolucao == null ) {
 } else {
 	$pdf->Ln();
 	$pdf->Cell(1);
-	$pdf->MultiCell(190,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsSolucao"))),1,J);
+	$pdf->MultiCell(190,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsSolucao"))),1,'J');
 }
 // Signatures
 $pdf->setFillColor(230,230,230);

@@ -46,7 +46,7 @@ Html::header('OS', "", "plugins", "os");
       }
 $SelPlugin = "SELECT * FROM glpi_plugin_os_config";
 $ResPlugin = $DB->query($SelPlugin);
-$Plugin = $DB->fetch_assoc($ResPlugin);
+$Plugin = $DB->fetchAssoc($ResPlugin);
 $EmpresaPlugin = $Plugin['name'];
 $CnpjPlugin = $Plugin['cnpj'];
 $EnderecoPlugin = $Plugin['address'];

@@ -30,7 +30,7 @@
  */
 $SelPlugin = "SELECT * FROM glpi_plugin_os_config";
 $ResPlugin = $DB->query($SelPlugin);
-$Plugin = $DB->fetch_assoc($ResPlugin);
+$Plugin = $DB->fetchAssoc($ResPlugin);
 $EmpresaPlugin = $Plugin['name'];
 $CnpjPlugin = $Plugin['cnpj'];
 $EnderecoPlugin = $Plugin['address'];
@@ -41,37 +41,37 @@ $CorTextoPlugin = $Plugin['textcolor'];
 $SitePlugin = $Plugin['site'];
 $SelTicket = "SELECT * FROM glpi_tickets WHERE id = '".$_GET['id']."'";
 $ResTicket = $DB->query($SelTicket);
-$Ticket = $DB->fetch_assoc($ResTicket);
+$Ticket = $DB->fetchAssoc($ResTicket);
 $OsId = $_GET['id'];
 $OsNome = $Ticket['name'];
 $SelDataOs = "SELECT date,date_format(date, '%d/%m/%Y') AS DataOs FROM glpi_tickets WHERE id = '".$_GET['id']."'";
 $ResSelData = $DB->query($SelDataOs);
-$ResSelDataFinal = $DB->fetch_assoc($ResSelData);
+$ResSelDataFinal = $DB->fetchAssoc($ResSelData);
 $DataOs = $ResSelDataFinal['DataOs'];
 $SelDataInicial = "SELECT date,date_format(date, '%d/%m/%Y %H:%i') AS DataInicio FROM glpi_tickets WHERE id = '".$_GET['id']."'";
 $ResDataInicial = $DB->query($SelDataInicial);
-$DataInicial = $DB->fetch_assoc($ResDataInicial);
+$DataInicial = $DB->fetchAssoc($ResDataInicial);
 $OsData = $DataInicial['DataInicio'];
 $OsDescricao = $Ticket['content'];
 $SelDataFinal = "SELECT time_to_resolve,date_format(solvedate, '%d/%m/%Y %H:%i') AS DataFim FROM glpi_tickets WHERE id = '".$_GET['id']."'";
 $ResDataFinal = $DB->query($SelDataFinal);
-$DataFinal = $DB->fetch_assoc($ResDataFinal);
+$DataFinal = $DB->fetchAssoc($ResDataFinal);
 $OsDataEntrega = $DataFinal['DataFim'];
 $SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND status = '3'";
 $ResSolucaoTicket = $DB->query($SelSolucaoTicket);
-$SolucaoTicket = $DB->fetch_assoc($ResSolucaoTicket);
+$SolucaoTicket = $DB->fetchAssoc($ResSolucaoTicket);
 $OsSolucao = $SolucaoTicket['content'];
 $SelTicketUsers = "SELECT * FROM glpi_tickets_users WHERE tickets_id = '".$OsId."'";
 $ResTicketUsers = $DB->query($SelTicketUsers);
-$TicketUsers = $DB->fetch_assoc($ResTicketUsers);
+$TicketUsers = $DB->fetchAssoc($ResTicketUsers);
 $OsUserId = $TicketUsers['users_id'];
 $SelIdOsResponsavel = "SELECT users_id FROM glpi_tickets_users WHERE tickets_id = '".$OsId."' AND type = 2";
 $ResIdOsResponsavel = $DB->query($SelIdOsResponsavel);
 $OsResponsavel = "";
-while ($IdOsResponsavel = $DB->fetch_assoc($ResIdOsResponsavel)) {
+while ($IdOsResponsavel = $DB->fetchAssoc($ResIdOsResponsavel)) {
 	$SelOsResponsavelName = "SELECT * FROM glpi_users WHERE id = '".$IdOsResponsavel['users_id']."'";
 	$ResOsResponsavelName = $DB->query($SelOsResponsavelName);
-	$OsResponsavelFull = $DB->fetch_assoc($ResOsResponsavelName);
+	$OsResponsavelFull = $DB->fetchAssoc($ResOsResponsavelName);
 	$OsResponsavel .= $OsResponsavelFull['firstname']. " " .$OsResponsavelFull['realname']. ", ";
 }
 if(strlen($OsResponsavel)>2){
@@ -80,7 +80,7 @@ if(strlen($OsResponsavel)>2){
 $SelAtendimento = "select max(date_format(date_mod, '%d/%m/%Y %H:%i')) as date_mod from glpi_logs where itemtype like 'Ticket' and id_search_option=12 and new_value=15 and items_id=".$OsId;
 $ResDtAtendimento = $DB->query($SelAtendimento);
 if($ResDtAtendimento){
-	$dtatend = $DB->fetch_assoc($ResDtAtendimento);
+	$dtatend = $DB->fetchAssoc($ResDtAtendimento);
 	if($dtatend){
 		$OsDataAtendimento = $dtatend['date_mod'];
 	}	
@@ -88,7 +88,7 @@ if($ResDtAtendimento){
 $EntidadeId = $Ticket['entities_id'];
 $SelEmpresa = "SELECT * FROM glpi_entities WHERE id = '".$EntidadeId."'";
 $ResEmpresa = $DB->query($SelEmpresa);
-$Empresa = $DB->fetch_assoc($ResEmpresa);
+$Empresa = $DB->fetchAssoc($ResEmpresa);
 $EntidadeName = $Empresa['name'];
 $EntidadeCep = $Empresa['postcode'];
 $EntidadeEndereco = $Empresa['address'];
@@ -97,22 +97,22 @@ $EntidadePhone = $Empresa['phonenumber'];
 // select entity rn
 $SelEntityRn = "SELECT * FROM glpi_plugin_os_rn WHERE entities_id = '".$EntidadeId."'";
 $ResEntityRn = $DB->query($SelEntityRn);
-$EntityRnQuery = $DB->fetch_assoc($ResEntityRn);
+$EntityRnQuery = $DB->fetchAssoc($ResEntityRn);
 $EntityRn = $EntityRnQuery['rn'];
 $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
-$Email = $DB->fetch_assoc($ResEmail);
+$Email = $DB->fetchAssoc($ResEmail);
 $UserEmail = $Email['email'];
 $SelCustoLista = "SELECT actiontime, sec_to_time(actiontime) AS Hora,name,cost_time,cost_fixed,cost_material,FORMAT(cost_time,2,'de_DE') AS cost_time2, FORMAT(cost_fixed,2,'de_DE') AS cost_fixed2, FORMAT(cost_material,2,'de_DE') AS cost_material2, SUM(cost_material + cost_fixed + cost_time * actiontime/3600) AS CustoItem FROM glpi_ticketcosts WHERE tickets_id = '".$OsId."' GROUP BY id";
 $ResCustoLista = $DB->query($SelCustoLista);
 $SelCusto = "SELECT SUM(cost_material + cost_fixed + cost_time * actiontime/3600) AS SomaTudo FROM glpi_ticketcosts WHERE tickets_id = '".$OsId."'";
 $ResCusto = $DB->query($SelCusto);
-$Custo = $DB->fetch_assoc($ResCusto);
+$Custo = $DB->fetchAssoc($ResCusto);
 $CustoTotal =  $Custo['SomaTudo'];
 $CustoTotalFinal = number_format($CustoTotal, 2, ',', ' ');
 $SelTempoTotal = "SELECT SUM(actiontime) AS TempoTotal FROM glpi_ticketcosts WHERE tickets_id = '".$OsId."'";
 $ResTempoTotal = $DB->query($SelTempoTotal);
-$TempoTotal = $DB->fetch_assoc($ResTempoTotal);
+$TempoTotal = $DB->fetchAssoc($ResTempoTotal);
 $seconds = $TempoTotal['TempoTotal'];
 $hours = floor($seconds / 3600);
 $seconds -= $hours * 3600;
@@ -120,19 +120,19 @@ $minutes = floor($seconds / 60);
 $seconds -= $minutes * 60;
 $SelLocId = "SELECT locations_id FROM `glpi_tickets` WHERE id = '".$OsId."'";
 $ResLocId = $DB->query($SelLocId);
-$LocId = $DB->fetch_assoc($ResLocId);
+$LocId = $DB->fetchAssoc($ResLocId);
 $LocationsId = $LocId['locations_id'];
 $SelNameLoc = "SELECT name FROM glpi_locations WHERE id = '".$LocationsId."'";
 $ResNameLoc = $DB->query($SelNameLoc);
-$Loc = $DB->fetch_assoc($ResNameLoc);
+$Loc = $DB->fetchAssoc($ResNameLoc);
 $Locations = $Loc['name']; 
 $SelTicketUsers = "SELECT * FROM glpi_tickets_users WHERE tickets_id = '".$OsId."'";
 $ResTicketUsers = $DB->query($SelTicketUsers);
-$TicketUsers = $DB->fetch_assoc($ResTicketUsers);
+$TicketUsers = $DB->fetchAssoc($ResTicketUsers);
 $OsUserId = $TicketUsers['users_id'];
 $SelUsers = "SELECT * FROM glpi_users WHERE id = '".$OsUserId."'";
 $ResUsers = $DB->query($SelUsers);
-$Users = $DB->fetch_assoc($ResUsers);
+$Users = $DB->fetchAssoc($ResUsers);
 $UserName = $Users['firstname']. " " .$Users['realname'];
 $UserCpf = $Users['registration_number'];
 $UserTelefone = $Users['mobile'];
@@ -140,30 +140,29 @@ $UserEndereco = $Users['comment'];
 $UserCep = $Users['phone2'];
 $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
-$Email = $DB->fetch_assoc($ResEmail);
+$Email = $DB->fetchAssoc($ResEmail);
 $UserEmail = $Email['email'];
 // select itens
 $SelItens = "SELECT * FROM glpi_items_tickets WHERE tickets_id = '".$OsId."'";
 $ResItens = $DB->query($SelItens);
-$ItensQuery = $DB->fetch_assoc($ResItens);
+$ItensQuery = $DB->fetchAssoc($ResItens);
 $ItemType = $ItensQuery['itemtype'];
 $ItensId = $ItensQuery['items_id']; 
 // select items computers
 $SelComputers = "SELECT * FROM glpi_computers WHERE id = '".$ItensId."'";
 $ResSelComputers = $DB->query($SelComputers);
-$ComputersQuery = $DB->fetch_assoc($ResSelComputers);
+$ComputersQuery = $DB->fetchAssoc($ResSelComputers);
 $ComputerName = $ComputersQuery['name'];
 $ComputerSerial = $ComputersQuery['serial']; 
 // select items monitor
 $SelMonitors = "SELECT * FROM glpi_monitors WHERE id = '".$ItensId."'";
 $ResSelMonitors = $DB->query($SelMonitors);
-$MonitorsQuery = $DB->fetch_assoc($ResSelMonitors);
+$MonitorsQuery = $DB->fetchAssoc($ResSelMonitors);
 $MonitorName = $MonitorsQuery['name'];
 $MonitorSerial = $MonitorsQuery['serial']; 
 // select items printers
 $SelPrinters = "SELECT * FROM glpi_printers WHERE id = '".$ItensId."'";
 $ResSelPrinters = $DB->query($SelPrinters);
-$PrintersQuery = $DB->fetch_assoc($ResSelPrinters);
+$PrintersQuery = $DB->fetchAssoc($ResSelPrinters);
 $PrinterName = $PrintersQuery['name'];
 $PrinterSerial = $PrintersQuery['serial']; 
-?>
