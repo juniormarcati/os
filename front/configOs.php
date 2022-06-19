@@ -1,4 +1,33 @@
 <?php 
+/*
+   ------------------------------------------------------------------------
+   Plugin OS
+   Copyright (C) 2016-2021 by Junior Marcati
+   https://github.com/juniormarcati/glpi_os
+   ------------------------------------------------------------------------
+   LICENSE
+   This file is part of Plugin OS project.
+   Plugin OS is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Affero General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   Plugin OS is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU Affero General Public License for more details.
+   You should have received a copy of the GNU Affero General Public License
+   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
+   ------------------------------------------------------------------------
+   @package   Plugin OS
+   @author    Junior Marcati
+   @co-author
+   @copyright Copyright (c) 2016-2021 OS Plugin Development team
+   @license   AGPL License 3.0 or (at your option) any later version
+              http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   @link      https://github.com/juniormarcati/glpi_os
+   @since     2016
+   ------------------------------------------------------------------------
+ */
 $SelPlugin = "SELECT * FROM glpi_plugin_os_config";
 $ResPlugin = $DB->query($SelPlugin);
 $Plugin = $DB->fetch_assoc($ResPlugin);
@@ -65,7 +94,11 @@ $EntidadeCep = $Empresa['postcode'];
 $EntidadeEndereco = $Empresa['address'];
 $EntidadeEmail = $Empresa['email'];
 $EntidadePhone = $Empresa['phonenumber'];
-$EntidadeCnpj = $Empresa['comment'];
+// select entity rn
+$SelEntityRn = "SELECT * FROM glpi_plugin_os_rn WHERE entities_id = '".$EntidadeId."'";
+$ResEntityRn = $DB->query($SelEntityRn);
+$EntityRnQuery = $DB->fetch_assoc($ResEntityRn);
+$EntityRn = $EntityRnQuery['rn'];
 $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
 $Email = $DB->fetch_assoc($ResEmail);
@@ -109,4 +142,28 @@ $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
 $Email = $DB->fetch_assoc($ResEmail);
 $UserEmail = $Email['email'];
+// select itens
+$SelItens = "SELECT * FROM glpi_items_tickets WHERE tickets_id = '".$OsId."'";
+$ResItens = $DB->query($SelItens);
+$ItensQuery = $DB->fetch_assoc($ResItens);
+$ItemType = $ItensQuery['itemtype'];
+$ItensId = $ItensQuery['items_id']; 
+// select items computers
+$SelComputers = "SELECT * FROM glpi_computers WHERE id = '".$ItensId."'";
+$ResSelComputers = $DB->query($SelComputers);
+$ComputersQuery = $DB->fetch_assoc($ResSelComputers);
+$ComputerName = $ComputersQuery['name'];
+$ComputerSerial = $ComputersQuery['serial']; 
+// select items monitor
+$SelMonitors = "SELECT * FROM glpi_monitors WHERE id = '".$ItensId."'";
+$ResSelMonitors = $DB->query($SelMonitors);
+$MonitorsQuery = $DB->fetch_assoc($ResSelMonitors);
+$MonitorName = $MonitorsQuery['name'];
+$MonitorSerial = $MonitorsQuery['serial']; 
+// select items printers
+$SelPrinters = "SELECT * FROM glpi_printers WHERE id = '".$ItensId."'";
+$ResSelPrinters = $DB->query($SelPrinters);
+$PrintersQuery = $DB->fetch_assoc($ResSelPrinters);
+$PrinterName = $PrintersQuery['name'];
+$PrinterSerial = $PrintersQuery['serial']; 
 ?>

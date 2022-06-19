@@ -1,6 +1,35 @@
 <?php
+
+/*
+   ------------------------------------------------------------------------
+   Plugin OS
+   Copyright (C) 2016-2021 by Junior Marcati
+   https://github.com/juniormarcati/glpi_os
+   ------------------------------------------------------------------------
+   LICENSE
+   This file is part of Plugin OS project.
+   Plugin OS is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Affero General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   Plugin OS is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU Affero General Public License for more details.
+   You should have received a copy of the GNU Affero General Public License
+   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
+   ------------------------------------------------------------------------
+   @package   Plugin OS
+   @author    Junior Marcati
+   @co-author
+   @copyright Copyright (c) 2016-2021 OS Plugin Development team
+   @license   AGPL License 3.0 or (at your option) any later version
+              http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   @link      https://github.com/juniormarcati/glpi_os
+   @since     2016
+   ------------------------------------------------------------------------
+ */
 include ('../../../inc/includes.php');
-include ('../../../config/config.php');
 global $DB;
 Session::checkLoginUser();
 Html::header('OS', "", "plugins", "os");
@@ -47,23 +76,18 @@ $SitePlugin = $Plugin['site'];
 <tr><td>Endereço de sua empresa: </td><td><input type="text" size="35" maxlength="256" name="address_form" value="<?php print $EnderecoPlugin; ?>"></td></tr>
 <tr><td>Telefone: </td><td><input type="text" size="35" maxlength="256" name="phone_form" value="<?php print $TelefonePlugin; ?>"></td></tr>
 <tr><td>Cidade/Estado: </td><td><input type="text" size="35" maxlength="256" name="city_form" value="<?php print $CidadePlugin; ?>"></td></tr>
-<tr><td>Site: </td><td><input type="text" size="35" maxlength="256" name="site_form" value="<?php print $SitePlugin; ?>"></td></tr>
+<tr><td>Site: </td><td><input type="text" size="35" maxlength="256" name="site_form" value="<?php echo $SitePlugin; ?>"></td></tr>
 </table>
-<tr><td><div align="center"><h4>Cores - Personalize com as cores da sua empresa.</h4></div></td></tr>
-<table width="500" border="0" cellpadding="0" cellspacing="0">
-<tr><td>Cor do texto: </td><td><input type="text" size="15" maxlength="256" name="textcolor_form" value="#FFFFFF"<?php print $CorTextoPlugin; ?>"></td></tr><td>
-<tr><td>Cor padrão: </td><td><input type="text" size="15" maxlength="256" name="color_form" value="#000000" <?php print $CorPlugin; ?>"></td></tr>
 <tr><td colspan="2" style="text-align:center;"><input type="submit" class="submit" value="Salvar" name="enviar"></td></tr>
-<tr><td>
 </pre>
-</table>
+</table> 
 </form>
 </center>
 <center>
 <tr><td><div align="center"><h3>PASSO 2 - Logotipo da OS</h3></div></td></tr>
-<tr><td><div align="center"><h4>Faça UPLOAD do logotipo (50x50) que será utilizado na OS. (obs: pasta pics precisa ter permissão de escrita.)</h4></div></td></tr>
+<tr><td><div align="center"><h4>Faça UPLOAD do logotipo (300x100) que será utilizado na OS. (obs: pasta pics precisa ter permissão de escrita.)</h4></div></td></tr>
 <table width="500" border="0" cellpadding="0" cellspacing="0">
-<form method="post" enctype="multipart/form-data" action="recebeLogo.php">
+<form method="post" enctype="multipart/form-data" action="insert_logo.php">
 <br/>
 Selecione uma imagem: <input name="arquivo" type="file" required="required" />
 <br />
