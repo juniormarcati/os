@@ -57,7 +57,7 @@ $SelDataFinal = "SELECT time_to_resolve,date_format(solvedate, '%d/%m/%Y %H:%i')
 $ResDataFinal = $DB->query($SelDataFinal);
 $DataFinal = $DB->fetchAssoc($ResDataFinal);
 $OsDataEntrega = $DataFinal['DataFim'];
-$SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND status = '3'";
+$SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND status = '2'";
 $ResSolucaoTicket = $DB->query($SelSolucaoTicket);
 $SolucaoTicket = $DB->fetchAssoc($ResSolucaoTicket);
 $OsSolucao = $SolucaoTicket['content'];

@@ -105,4 +105,3 @@ Selecione uma imagem: <input name="arquivo" type="file" required="required" />
 </html>
 <?php  
 Html::footer();
-?>

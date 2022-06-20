@@ -61,4 +61,3 @@ else
 	echo "Você não enviou nenhum arquivo!";
 	echo "<script language='javascript'>history.back()</script>";
 }
-?>

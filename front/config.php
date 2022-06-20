@@ -41,4 +41,3 @@ $query = "REPLACE INTO glpi_plugin_os_config (name, cnpj, address, phone, city, 
         VALUES ('".$name_form."', '".$cnpj_form."', '".$address_form."', '".$phone_form."', '".$city_form."', '".$site_form."')";
 $result = $DB->query($query);
 echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
-?>

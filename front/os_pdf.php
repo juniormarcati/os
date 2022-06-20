@@ -263,6 +263,12 @@ $pdf->Cell(95,5,utf8_decode("_______________________________________"),0,0,'C');
 $pdf->Ln();
 $pdf->Cell(1);
 $pdf->SetFont('Arial','',7);
+$pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$OsResponsavel"))),0,0,'C');
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$UserName"))),0,0,'C');
+$pdf->Ln();
+$pdf->Cell(1);
+$pdf->SetFont('Arial','',7);
 $pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'C');
 $pdf->SetFont('Arial','',7);
 $pdf->Cell(95,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeName"))),0,0,'C');
@@ -281,4 +287,3 @@ file_put_contents('../pics/qr.png',(new QRCode($options))->render("$url$url2"));
 // Output PDF
 $fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
 $pdf->Output('I',$fileName);
-?>

@@ -37,4 +37,3 @@ if($_POST["rn"] == "") {
 	
 	echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=".$CFG_GLPI['root_doc']."/front/entity.form.php?id=".$ent_id."'>";	
 }
-?>

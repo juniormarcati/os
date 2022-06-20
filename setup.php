@@ -30,7 +30,7 @@
  */
 
 //plugin version
- define('PLUGIN_OS_VERSION', '0.2.0-beta2');
+ define('PLUGIN_OS_VERSION', '0.2.0-beta3');
 // Minimal GLPI version
 define('PLUGIN_OS_MIN_GLPI', '9.4');
 // Maximum GLPI version

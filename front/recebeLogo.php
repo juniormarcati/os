@@ -8,7 +8,6 @@
 <body>
 <div style="width:55%; margin:auto;">
 <?php
-
 /*
    ------------------------------------------------------------------------
    Plugin OS
@@ -70,7 +69,7 @@ else
 {
 	echo "Você não enviou nenhum arquivo!";
 	echo "<script language='javascript'>history.back()</script>";
-}
+} 
 ?>
 </div>
 </body>

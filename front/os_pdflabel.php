@@ -92,4 +92,3 @@ $pdf->Image('../pics/qr.png',20,55,30);
 // Generating pdf file
 $fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
 $pdf->Output('I',$fileName);
-?>

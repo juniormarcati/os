@@ -19,8 +19,8 @@
    </authors>
    <versions>
       <version>
-         <num>0.2.0-beta2</num>
-         <compatibility>~9.5.0</compatibility>
+         <num>0.2.0-beta3</num>
+         <compatibility>~10.0.1</compatibility>
          <download_url>https://github.com/juniormarcati/glpi_os/archive/refs/tags/v0.2.0-beta1.tar.gz</download_url>
       </version>
    <langs>
