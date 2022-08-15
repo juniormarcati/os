@@ -2,7 +2,7 @@
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2021 by Junior Marcati
+   Copyright (C) 2016-2022 by Junior Marcati
    https://github.com/juniormarcati/glpi_os
    ------------------------------------------------------------------------
    LICENSE
@@ -21,7 +21,7 @@
    @package   Plugin OS
    @author    Junior Marcati
    @co-author
-   @copyright Copyright (c) 2016-2021 OS Plugin Development team
+   @copyright Copyright (c) 2016-2022 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
    @link      https://github.com/juniormarcati/glpi_os
@@ -57,7 +57,7 @@ $SelDataFinal = "SELECT time_to_resolve,date_format(solvedate, '%d/%m/%Y %H:%i')
 $ResDataFinal = $DB->query($SelDataFinal);
 $DataFinal = $DB->fetchAssoc($ResDataFinal);
 $OsDataEntrega = $DataFinal['DataFim'];
-$SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND status = '2'";
+$SelSolucaoTicket = "SELECT * FROM glpi_itilsolutions WHERE items_id = '".$_GET['id']."' AND (status = '2' OR status = '3')";
 $ResSolucaoTicket = $DB->query($SelSolucaoTicket);
 $SolucaoTicket = $DB->fetchAssoc($ResSolucaoTicket);
 $OsSolucao = $SolucaoTicket['content'];
