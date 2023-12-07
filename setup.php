@@ -30,7 +30,7 @@
  */
 
 //plugin version
- define('PLUGIN_OS_VERSION', '0.2.0-beta3');
+ define('PLUGIN_OS_VERSION', '0.2.0-beta5');
 // Minimal GLPI version
 define('PLUGIN_OS_MIN_GLPI', '9.4');
 // Maximum GLPI version
@@ -47,18 +47,18 @@ function plugin_init_os() {
   $PLUGIN_HOOKS['config_page']['os'] = 'front/index.php';
 }
 
-function plugin_version_os(){
+function plugin_version_os() {
   global $DB, $LANG;
   return [
-    'name'          => __('OS','os'),
+    'name'          => 'OS',
     'version'       => PLUGIN_OS_VERSION ,
-    'author'        => '<a href="mailto:junior@marcati.com.br"> Júnior Marcati </b> </a>',
+    'author'        => 'Junior Marcati',
     'license'       => 'AGPLv3+',
-    'homepage'      => 'https://github.com/juniormarcati/glpi_os/',
+    'homepage'      => 'https://github.com/juniormarcati/glpi_os',
     'requirements'  => [
-      'glpi'        => [
-        'min'       => PLUGIN_OS_MIN_GLPI,
-        'max'       => PLUGIN_OS_MAX_GLPI,
+      'glpi'  => [
+        'min' => PLUGIN_OS_MIN_GLPI,
+        'max' => PLUGIN_OS_MAX_GLPI,
       ]
     ]
   ];

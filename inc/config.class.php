@@ -96,7 +96,7 @@ class PluginOsConfig extends CommonDBTM {
       echo "<option value='../plugins/os/front/os_pdflabel.php?id=$ID'>Label</option>";
       echo "</select>";
       echo "</form>";
-      echo "<iframe id='OsIframe' src='../plugins/os/front/os_pdf.php?id=$ID' frameborder='0' marginwidth='0' marginheight='0' width='90%' height='500'></iframe>";
+      echo "<iframe id='OsIframe' src='../plugins/os/front/os_pdf.php?id=$ID' frameborder='0' marginwidth='0' marginheight='0' width='80%' height='700'></iframe>";
       echo "</body>";
    }
    // entity tab

@@ -38,6 +38,19 @@ Session::checkLoginUser();
 $pdf = new FPDF('P','mm',array(95,70));
 $pdf->AddPage();
 $pdf->Ln(7);
+// QR Code
+$url = $CFG_GLPI['url_base'];
+$url2 = "/front/ticket.form.php?id=".$_GET['id']."";
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
+$options = new QROptions([
+  'version' => 5,
+  'eccLevel' => QRCode::ECC_L,
+  'outputType' => QRCode::OUTPUT_IMAGE_PNG,
+  'imageBase64' => false
+]);
+file_put_contents('../pics/qr.png',(new QRCode($options))->render("$url$url2"));
+$pdf->Image('../pics/qr.png',20,55,30);
 // Logo
 $pdf->Image('../pics/logo_os.png',15,3,40);
 $pdf->Ln();
@@ -76,19 +89,6 @@ $pdf->Ln();
 $pdf->SetFont('Arial','',5);
 $pdf->Cell(50,2,utf8_decode("$OsResponsavel"),0,0,'L');
 $pdf->Ln(15);
-// QR Code
-$url = $CFG_GLPI['url_base'];
-$url2 = "/front/ticket.form.php?id=".$_GET['id']."";
-use chillerlan\QRCode\QRCode;
-use chillerlan\QRCode\QROptions;
-$options = new QROptions([
-  'version' => 5,
-  'eccLevel' => QRCode::ECC_L,
-  'outputType' => QRCode::OUTPUT_IMAGE_PNG,
-  'imageBase64' => false
-]);
-file_put_contents('../pics/qr.png',(new QRCode($options))->render("$url$url2"));
-$pdf->Image('../pics/qr.png',20,55,30);
 // Generating pdf file
 $fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
 $pdf->Output('I',$fileName);

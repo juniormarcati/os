@@ -52,8 +52,8 @@ $CnpjPlugin = $Plugin['cnpj'];
 $EnderecoPlugin = $Plugin['address'];
 $TelefonePlugin = $Plugin['phone'];
 $CidadePlugin = $Plugin['city'];
-$CorPlugin = $Plugin['color'];
-$CorTextoPlugin = $Plugin['textcolor'];
+#$CorPlugin = $Plugin['color'];
+#$CorTextoPlugin = $Plugin['textcolor'];
 $SitePlugin = $Plugin['site'];
 ?>
 </head>
