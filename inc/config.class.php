@@ -2,8 +2,8 @@
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2022 by Junior Marcati
-   https://github.com/juniormarcati/glpi_os
+   Copyright (C) 2016-2024 by Junior Marcati
+   https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
    This file is part of Plugin OS project.
@@ -21,10 +21,10 @@
    @package   Plugin OS
    @author    Junior Marcati
    @co-author
-   @copyright Copyright (c) 2016-2022 OS Plugin Development team
+   @copyright Copyright (c) 2016-2024 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/glpi_os
+   @link      https://github.com/juniormarcati/os
    @since     2016
    ------------------------------------------------------------------------
  */
@@ -35,9 +35,7 @@ class PluginOsConfig extends CommonDBTM {
    }
    static function getMenuContent() {
    	global $CFG_GLPI;
-   
    	$menu = array();
-
       $menu['title']   = __('Ordem de Serviço','os');
       $menu['page']    = "/plugins/os/front/index.php";
    	return $menu;
@@ -77,6 +75,7 @@ class PluginOsConfig extends CommonDBTM {
    function showFormDisplay() {
       global $CFG_GLPI, $DB;
       $ID = $_REQUEST['id'];
+      $url = $CFG_GLPI['url_base'];
       echo "<head>";
       echo "<script type='text/javascript'>";
       echo "function setIframeSource() {";
@@ -92,11 +91,11 @@ class PluginOsConfig extends CommonDBTM {
       echo "<form id='form1' method='post'>";
       echo "<label>Selecione o Layout </label>";
       echo "<select id='PageType' onchange='setIframeSource()'>";
-      echo "<option value='../plugins/os/front/os_pdf.php?id=$ID'>A4</option>";
-      echo "<option value='../plugins/os/front/os_pdflabel.php?id=$ID'>Label</option>";
+      echo "<option value='$url/plugins/os/front/os_pdf.php?id=$ID'>A4</option>";
+      echo "<option value='$url/plugins/os/front/os_pdflabel.php?id=$ID'>Label</option>";
       echo "</select>";
       echo "</form>";
-      echo "<iframe id='OsIframe' src='../plugins/os/front/os_pdf.php?id=$ID' frameborder='0' marginwidth='0' marginheight='0' width='80%' height='700'></iframe>";
+      echo "<iframe id='OsIframe' src='$url/plugins/os/front/os_pdf.php?id=$ID' frameborder='0' marginwidth='0' marginheight='0' width='80%' height='700'></iframe>";
       echo "</body>";
    }
    // entity tab

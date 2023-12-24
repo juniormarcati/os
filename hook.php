@@ -1,10 +1,9 @@
 <?php
-
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2022 by Junior Marcati
-   https://github.com/juniormarcati/glpi_os
+   Copyright (C) 2016-2024 by Junior Marcati
+   https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
    This file is part of Plugin OS project.
@@ -22,10 +21,10 @@
    @package   Plugin OS
    @author    Junior Marcati
    @co-author
-   @copyright Copyright (c) 2016-2022 OS Plugin Development team
+   @copyright Copyright (c) 2016-2024 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/glpi_os
+   @link      https://github.com/juniormarcati/os
    @since     2016
    ------------------------------------------------------------------------
  */
@@ -33,6 +32,19 @@ function plugin_os_install() {
   
   global $DB, $LANG;
   
+  function plugin_change_profile_os() {
+    if (Session::haveRight('config', UPDATE)) {
+       $_SESSION["glpi_plugin_os_profile"] = ['os' => 'w'];
+ 
+    } else if (Session::haveRight('config', READ)) {
+       $_SESSION["glpi_plugin_os_profile"] = ['os' => 'r'];
+ 
+    } else {
+       unset($_SESSION["glpi_plugin_os_profile"]);
+    }
+ }
+ 
+
   // conf
   $query_conf = "CREATE TABLE IF NOT EXISTS `glpi_plugin_os_config` (
     `id` int(1) unsigned NOT NULL default '1',
@@ -71,4 +83,3 @@ function plugin_os_uninstall(){
 	
   return true;
 }
-?>

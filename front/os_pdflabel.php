@@ -2,8 +2,8 @@
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2022 by Junior Marcati
-   https://github.com/juniormarcati/glpi_os
+   Copyright (C) 2016-2024 by Junior Marcati
+   https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
    This file is part of Plugin OS project.
@@ -21,10 +21,10 @@
    @package   Plugin OS
    @author    Junior Marcati
    @co-author
-   @copyright Copyright (c) 2016-2022 OS Plugin Development team
+   @copyright Copyright (c) 2016-2024 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/glpi_os
+   @link      https://github.com/juniormarcati/os
    @since     2016
    ------------------------------------------------------------------------
  */
@@ -34,10 +34,73 @@ include ('../inc/pdf/fpdf.php');
 include ('../inc/qrcode/vendor/autoload.php');
 global $DB;
 Session::checkLoginUser();
+// font size definition
+$titleSize = 14;
+$titleSizeCn = 8;
+$fontSize = 7;
 // Print details
 $pdf = new FPDF('P','mm',array(95,70));
 $pdf->AddPage();
-$pdf->Ln(7);
+$pdf->Ln(3);
+// Logo
+$pdf->Image('../pics/logo_os.png',15,0,40);
+$pdf->Ln();
+// Title
+$pdf->SetFont('Arial','B',$titleSize);
+$pdf->Cell(50,6,utf8_decode("OS Nº $OsId"),0,0,'C');
+$pdf->Ln();
+// Cabecalho
+$pdf->SetFont('Arial','B',$titleSizeCn);
+$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','',$fontSize);
+$pdf->Cell(50,2.5,"CNPJ: $CnpjPlugin",0,0,'L');
+$pdf->Ln();
+$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("FONE: $TelefonePlugin"))),0,0,'L');
+$pdf->Ln();
+$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$EnderecoPlugin - $CidadePlugin"))),0,0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','',$fontSize);
+$pdf->Cell(50,2.5,utf8_decode("RESPONSÁVEL: $OsResponsavel"),0,0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','',$fontSize);
+$pdf->Cell(50,1,"-------------------------------------------------------------",0,0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','',$fontSize);
+$pdf->Cell(50,2.5,utf8_decode("CLIENTE: $EntidadeName"),0,0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','',$fontSize);
+$pdf->Cell(50,2.5,utf8_decode("REQUERENTE: $UserName"),0,0,'L');
+$pdf->Ln();
+$pdf->Cell(50,2.5,utf8_decode("DATA: $DataOs"),0,0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','',$fontSize);
+$pdf->Cell(50,1,"-------------------------------------------------------------",0,0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','b',$fontSize);
+$pdf->Cell(50,2.5,utf8_decode("ITENS"),0,0,'L');
+$pdf->Ln();
+// Itens
+if ( $ItensId == null ) {
+} else {
+	$pdf->SetFont('Arial','',$fontSize);
+  if ( $ItemType == 'Computer' ) {
+    $pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$ComputerName - $ComputerSerial"))),0,0,'L');
+		$pdf->Ln();
+	} else if ( $ItemType == 'Monitor' ) {
+		$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$MonitorName - $MonitorSerial"))),0,0,'L');
+		$pdf->Ln();
+	} else if ( $ItemType == 'Printer' ) {
+		$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$PrinterName - $PrinterSerial"))),0,0,'L');
+		$pdf->Ln();
+	}
+}
+$pdf->SetFont('Arial','',$fontSize);
+$pdf->Cell(50,1,"-------------------------------------------------------------",0,0,'L');
+$pdf->Ln();
+$pdf->Cell(50,2.5,"$SitePlugin",0,0,'C');
+$pdf->Ln(10);
+
 // QR Code
 $url = $CFG_GLPI['url_base'];
 $url2 = "/front/ticket.form.php?id=".$_GET['id']."";
@@ -50,45 +113,16 @@ $options = new QROptions([
   'imageBase64' => false
 ]);
 file_put_contents('../pics/qr.png',(new QRCode($options))->render("$url$url2"));
-$pdf->Image('../pics/qr.png',20,55,30);
-// Logo
-$pdf->Image('../pics/logo_os.png',15,3,40);
-$pdf->Ln();
-// Cabecalho
-$pdf->SetFont('Arial','B',7);
-$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'C');
-$pdf->Ln();
-$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$TelefonePlugin"))),0,0,'C');
-$pdf->SetFont('Arial','',6);
-$pdf->Ln();
-$pdf->Cell(50,2.5,"CNPJ: $CnpjPlugin",0,0,'C');
-$pdf->Ln();
-$pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$EnderecoPlugin - $CidadePlugin"))),0,0,'C');
-$pdf->Ln();
-$pdf->Cell(50,2.5,"$SitePlugin",0,0,'C');
-$pdf->Ln(5);
-// OS details
-$pdf->SetFont('Arial','B',14);
-$pdf->Cell(50,6,utf8_decode("OS Nº $OsId"),0,0,'C');
-$pdf->Ln(7);
-$pdf->SetFont('Arial','B',5);
-$pdf->Cell(50,2,utf8_decode("Empresa: "),0,0,'L');
-$pdf->Ln();
-$pdf->SetFont('Arial','',5);
-$pdf->Cell(50,2,utf8_decode("$EntidadeName"),0,0,'L');
-$pdf->Ln();
-$pdf->SetFont('Arial','B',5);
-$pdf->Cell(50,2,utf8_decode("Requerente: "),0,0,'L');
-$pdf->Ln();
-$pdf->SetFont('Arial','',5);
-$pdf->Cell(50,2,utf8_decode("$UserName"),0,0,'L');
-$pdf->Ln();
-$pdf->SetFont('Arial','B',5);
-$pdf->Cell(50,2,utf8_decode("Responsável: "),0,0,'L');
-$pdf->Ln();
-$pdf->SetFont('Arial','',5);
-$pdf->Cell(50,2,utf8_decode("$OsResponsavel"),0,0,'L');
-$pdf->Ln(15);
+
+// Setting the image size.
+$width = 30;
+$height = 0;
+
+// Saves the current vertical position before adding the image.
+$currentPosition = $pdf->GetY();
+
+#$pdf->Image('../pics/qr.png',20,55,30);
+$pdf->Image('../pics/qr.png', $x = 20, $currentPosition + 2, $width, $height);
 // Generating pdf file
 $fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
 $pdf->Output('I',$fileName);

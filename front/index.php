@@ -1,10 +1,9 @@
 <?php
-
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2022 by Junior Marcati
-   https://github.com/juniormarcati/glpi_os
+   Copyright (C) 2016-2024 by Junior Marcati
+   https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
    This file is part of Plugin OS project.
@@ -22,16 +21,16 @@
    @package   Plugin OS
    @author    Junior Marcati
    @co-author
-   @copyright Copyright (c) 2016-2022 OS Plugin Development team
+   @copyright Copyright (c) 2016-2024 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/glpi_os
+   @link      https://github.com/juniormarcati/os
    @since     2016
    ------------------------------------------------------------------------
  */
 include ('../../../inc/includes.php');
 global $DB;
-Session::checkLoginUser();
+Session::checkRight("config", UPDATE);
 Html::header('OS', "", "plugins", "os");
 ?>
 <html>
@@ -52,8 +51,6 @@ $CnpjPlugin = $Plugin['cnpj'];
 $EnderecoPlugin = $Plugin['address'];
 $TelefonePlugin = $Plugin['phone'];
 $CidadePlugin = $Plugin['city'];
-#$CorPlugin = $Plugin['color'];
-#$CorTextoPlugin = $Plugin['textcolor'];
 $SitePlugin = $Plugin['site'];
 ?>
 </head>

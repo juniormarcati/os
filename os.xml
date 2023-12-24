@@ -3,7 +3,7 @@
    <name>OS</name>
    <key>os</key>
    <state>beta</state>
-   <logo>https://github.com/juniormarcati/glpi_os/blob/master/pics/logo_os.png?raw=true</logo>
+   <logo>https://github.com/juniormarcati/os/blob/master/pics/logotipo.png</logo>
    <description>
       <short>
          <pt_BR><![CDATA[Plugin para gerar OS.]]></pt_BR>
@@ -12,16 +12,16 @@
          <pt_BR><![CDATA[Plugin para gerar Ordem de Serviço baseado em informações do ticket.]]></pt_BR>
          </long>
    </description>
-   <homepage>https://github.com/juniormarcati/glpi_os</homepage>
-   <download>https://github.com/juniormarcati/glpi_os/releases</download>
+   <homepage>https://github.com/juniormarcati/os</homepage>
+   <download>https://github.com/juniormarcati/os/releases</download>
    <authors>
       <author>Junior Marcati</author>
    </authors>
    <versions>
       <version>
-         <num>0.2.0-beta3</num>
+         <num>0.2.0-beta6</num>
          <compatibility>~10.1.1</compatibility>
-         <download_url>https://github.com/juniormarcati/glpi_os/archive/refs/tags/v0.2.0-beta3.tar.gz</download_url>
+         <download_url>https://github.com/juniormarcati/os/archive/refs/tags/v0.2.0-beta6.tar.gz</download_url>
       </version>
    <langs>
       <lang>pt_BR</lang>

@@ -2,8 +2,8 @@
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2022 by Junior Marcati
-   https://github.com/juniormarcati/glpi_os
+   Copyright (C) 2016-2024 by Junior Marcati
+   https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
    This file is part of Plugin OS project.
@@ -21,10 +21,10 @@
    @package   Plugin OS
    @author    Junior Marcati
    @co-author
-   @copyright Copyright (c) 2016-2022 OS Plugin Development team
+   @copyright Copyright (c) 2016-2024 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/glpi_os
+   @link      https://github.com/juniormarcati/os
    @since     2016
    ------------------------------------------------------------------------
  */
@@ -36,8 +36,6 @@ $CnpjPlugin = $Plugin['cnpj'];
 $EnderecoPlugin = $Plugin['address'];
 $TelefonePlugin = $Plugin['phone'];
 $CidadePlugin = $Plugin['city'];
-#$CorPlugin = $Plugin['color'];
-#$CorTextoPlugin = $Plugin['textcolor'];
 $SitePlugin = $Plugin['site'];
 $SelTicket = "SELECT * FROM glpi_tickets WHERE id = '".$_GET['id']."'";
 $ResTicket = $DB->query($SelTicket);
@@ -98,17 +96,17 @@ $EntidadePhone = $Empresa['phonenumber'];
 $SelEntityRn = "SELECT * FROM glpi_plugin_os_rn WHERE entities_id = '".$EntidadeId."'";
 $ResEntityRn = $DB->query($SelEntityRn);
 $EntityRnQuery = $DB->fetchAssoc($ResEntityRn);
-$EntityRn = $EntityRnQuery['rn'];
+$EntityRn = $EntityRnQuery['rn']  ?? "";
 $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
 $Email = $DB->fetchAssoc($ResEmail);
-$UserEmail = $Email['email'];
+$UserEmail = $Email['email'] ?? "";
 $SelCustoLista = "SELECT actiontime, sec_to_time(actiontime) AS Hora,name,cost_time,cost_fixed,cost_material,FORMAT(cost_time,2,'de_DE') AS cost_time2, FORMAT(cost_fixed,2,'de_DE') AS cost_fixed2, FORMAT(cost_material,2,'de_DE') AS cost_material2, SUM(cost_material + cost_fixed + cost_time * actiontime/3600) AS CustoItem FROM glpi_ticketcosts WHERE tickets_id = '".$OsId."' GROUP BY id";
 $ResCustoLista = $DB->query($SelCustoLista);
 $SelCusto = "SELECT SUM(cost_material + cost_fixed + cost_time * actiontime/3600) AS SomaTudo FROM glpi_ticketcosts WHERE tickets_id = '".$OsId."'";
 $ResCusto = $DB->query($SelCusto);
 $Custo = $DB->fetchAssoc($ResCusto);
-$CustoTotal =  $Custo['SomaTudo'];
+$CustoTotal =  $Custo['SomaTudo'] ?? 0;
 $CustoTotalFinal = number_format($CustoTotal, 2, ',', ' ');
 $SelTempoTotal = "SELECT SUM(actiontime) AS TempoTotal FROM glpi_ticketcosts WHERE tickets_id = '".$OsId."'";
 $ResTempoTotal = $DB->query($SelTempoTotal);
@@ -125,7 +123,7 @@ $LocationsId = $LocId['locations_id'];
 $SelNameLoc = "SELECT name FROM glpi_locations WHERE id = '".$LocationsId."'";
 $ResNameLoc = $DB->query($SelNameLoc);
 $Loc = $DB->fetchAssoc($ResNameLoc);
-$Locations = $Loc['name']; 
+$Locations = $Loc['name']  ?? ""; 
 $SelTicketUsers = "SELECT * FROM glpi_tickets_users WHERE tickets_id = '".$OsId."'";
 $ResTicketUsers = $DB->query($SelTicketUsers);
 $TicketUsers = $DB->fetchAssoc($ResTicketUsers);
@@ -141,28 +139,28 @@ $UserCep = $Users['phone2'];
 $SelEmail = "SELECT * FROM glpi_useremails WHERE users_id = '".$OsUserId."'";
 $ResEmail = $DB->query($SelEmail);
 $Email = $DB->fetchAssoc($ResEmail);
-$UserEmail = $Email['email'];
+$UserEmail = $Email['email'] ?? "";
 // select itens
 $SelItens = "SELECT * FROM glpi_items_tickets WHERE tickets_id = '".$OsId."'";
 $ResItens = $DB->query($SelItens);
 $ItensQuery = $DB->fetchAssoc($ResItens);
-$ItemType = $ItensQuery['itemtype'];
-$ItensId = $ItensQuery['items_id']; 
+$ItemType = $ItensQuery['itemtype'] ?? "";
+$ItensId = $ItensQuery['items_id'] ?? "";
 // select items computers
 $SelComputers = "SELECT * FROM glpi_computers WHERE id = '".$ItensId."'";
 $ResSelComputers = $DB->query($SelComputers);
 $ComputersQuery = $DB->fetchAssoc($ResSelComputers);
-$ComputerName = $ComputersQuery['name'];
-$ComputerSerial = $ComputersQuery['serial']; 
+$ComputerName = $ComputersQuery['name'] ?? "";
+$ComputerSerial = $ComputersQuery['serial'] ?? "";
 // select items monitor
 $SelMonitors = "SELECT * FROM glpi_monitors WHERE id = '".$ItensId."'";
 $ResSelMonitors = $DB->query($SelMonitors);
 $MonitorsQuery = $DB->fetchAssoc($ResSelMonitors);
-$MonitorName = $MonitorsQuery['name'];
-$MonitorSerial = $MonitorsQuery['serial']; 
+$MonitorName = $MonitorsQuery['name'] ?? "";
+$MonitorSerial = $MonitorsQuery['serial'] ?? "";
 // select items printers
 $SelPrinters = "SELECT * FROM glpi_printers WHERE id = '".$ItensId."'";
 $ResSelPrinters = $DB->query($SelPrinters);
 $PrintersQuery = $DB->fetchAssoc($ResSelPrinters);
-$PrinterName = $PrintersQuery['name'];
-$PrinterSerial = $PrintersQuery['serial']; 
+$PrinterName = $PrintersQuery['name'] ?? "";
+$PrinterSerial = $PrintersQuery['serial'] ?? "";
