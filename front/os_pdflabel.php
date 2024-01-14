@@ -80,7 +80,7 @@ $pdf->Ln();
 $pdf->SetFont('Arial','b',$fontSize);
 $pdf->Cell(50,2.5,utf8_decode("ITENS"),0,0,'L');
 $pdf->Ln();
-// Itens
+// Items
 if ( $ItensId == null ) {
 } else {
 	$pdf->SetFont('Arial','',$fontSize);
@@ -121,7 +121,6 @@ $height = 0;
 // Saves the current vertical position before adding the image.
 $currentPosition = $pdf->GetY();
 
-#$pdf->Image('../pics/qr.png',20,55,30);
 $pdf->Image('../pics/qr.png', $x = 20, $currentPosition + 2, $width, $height);
 // Generating pdf file
 $fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';

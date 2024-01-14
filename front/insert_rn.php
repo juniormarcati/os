@@ -48,13 +48,8 @@ if(isset($_POST["rn"])) {
 		INSERT INTO glpi_plugin_os_rn (entities_id, rn) 
 		VALUES ('$ent_id', '$rn') 
 		ON DUPLICATE KEY UPDATE rn='$rn'";
-		
-		
-		// INSERT INTO glpi_plugin_os_rn (entities_id, rn) 
-		// VALUES ('$ent_id', '$rn') 
-		// ON DUPLICATE KEY UPDATE rn=('$rn')";			 
-	
-	$DB->query($insert) or die ("Error inserting rn");
+
+    $DB->query($insert) or die ("Error inserting rn");
 	
 	echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=".$CFG_GLPI['root_doc']."/front/entity.form.php?id=".$ent_id."'>";
 }

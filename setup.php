@@ -29,7 +29,7 @@
    ------------------------------------------------------------------------
  */
 //plugin version
- define('PLUGIN_OS_VERSION', '0.2.0-beta6');
+ define('PLUGIN_OS_VERSION', '0.2.0-beta7');
 // Minimal GLPI version
 define('PLUGIN_OS_MIN_GLPI', '9.4');
 // Maximum GLPI version
@@ -39,8 +39,13 @@ function plugin_init_os() {
   global $PLUGIN_HOOKS, $CFG_GLPI, $LANG;
   $PLUGIN_HOOKS['csrf_compliant']['os'] = true;
 
-  Plugin::registerClass('PluginOsConfig', ['addtabon' => ['Ticket']]);
   Plugin::registerClass('PluginOsConfig', ['addtabon' => ['Entity']]);
+  Plugin::registerClass('PluginOsProfile', ['addtabon' => 'Profile']);
+  $PLUGIN_HOOKS['change_profile']['os'] = ['PluginOsProfile','initProfile'];
+
+  if (Session::haveRight('plugin_os', READ)) {
+    Plugin::registerClass('PluginOsConfig', ['addtabon' => 'Ticket']);
+ }
 
   $_SESSION["glpi_plugin_os_profile"]['os'] = 'w';
   if (isset($_SESSION["glpi_plugin_os_profile"])) {

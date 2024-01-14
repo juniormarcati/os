@@ -3,7 +3,7 @@
    <name>OS</name>
    <key>os</key>
    <state>beta</state>
-   <logo>https://github.com/juniormarcati/os/blob/master/pics/logotipo.png</logo>
+   <logo>https://raw.githubusercontent.com/juniormarcati/os/master/os.png</logo>
    <description>
       <short>
          <pt_BR><![CDATA[Plugin para gerar OS.]]></pt_BR>
@@ -19,9 +19,9 @@
    </authors>
    <versions>
       <version>
-         <num>0.2.0-beta6</num>
+         <num>0.2.0-beta7</num>
          <compatibility>~10.1.1</compatibility>
-         <download_url>https://github.com/juniormarcati/os/archive/refs/tags/v0.2.0-beta6.tar.gz</download_url>
+         <download_url>https://github.com/juniormarcati/os/archive/refs/tags/v0.2.0-beta7.tar.gz</download_url>
       </version>
    <langs>
       <lang>pt_BR</lang>
