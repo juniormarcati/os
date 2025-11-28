@@ -2,7 +2,7 @@
 Este Plug-in foi desenvolvido para gerar "Ordem de Serviço" baseado nos dados do ticket.
 
 Para instalar o Plug-in siga os passos abaixo:
-- Faça o download do projeto e extraia na pasta "plug-ins" que se encontra na raiz do GLPI;
+- Faça o download do projeto e extraia na pasta /marketplace que se encontra na raiz do GLPI;
 - Caso esteja diferente, renomeie a pasta para: “os”;
 - Acesse o GLPI, vá em Configurar > Plug-ins;
 - Encontre o Plug-in "OS" na lista e clique em Instalar;

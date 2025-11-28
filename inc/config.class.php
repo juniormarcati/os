@@ -102,15 +102,21 @@ class PluginOsConfig extends CommonDBTM {
    function showFormDisplayEntity() {
       global $CFG_GLPI, $DB;
       // geting rn on db
-      if(isset($_GET['id'])) {
-	      $query_rn = "SELECT * FROM glpi_plugin_os_rn WHERE entities_id = ".$_GET['id'];
-	      $result_rn = $DB->query($query_rn) or die ("erro");
-			$ent_info = $DB->fetchAssoc($result_rn);
-			$EmpresaRn = $ent_info['rn'];
-		}
-		else {
-			$EmpresaRn = '';
-		}
+      if (isset($_GET['id'])) {
+
+         $res = $DB->request([
+            'FROM'  => 'glpi_plugin_os_rn',
+            'WHERE' => [
+                  'entities_id' => $_GET['id']
+            ]
+         ]);
+
+         $ent_info = $res->current();
+         $EmpresaRn = $ent_info['rn'] ?? '';
+
+      } else {
+         $EmpresaRn = '';
+      }
       
       $canedit = Session::haveRight(Config::$rightname, UPDATE);
       if ($canedit) {

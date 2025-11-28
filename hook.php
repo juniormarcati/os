@@ -2,7 +2,7 @@
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2024 by Junior Marcati
+   Copyright (C) 2016-2024
    https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
@@ -20,66 +20,74 @@
    ------------------------------------------------------------------------
    @package   Plugin OS
    @author    Junior Marcati
-   @co-author
-   @copyright Copyright (c) 2016-2024 OS Plugin Development team
-   @license   AGPL License 3.0 or (at your option) any later version
-              http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/os
-   @since     2016
    ------------------------------------------------------------------------
- */
+*/
+
 function plugin_os_install() {
-  
-  global $DB, $LANG;
-  
-  function plugin_change_profile_os() {
-    if (Session::haveRight('config', UPDATE)) {
-       $_SESSION["glpi_plugin_os_profile"] = ['os' => 'w'];
- 
-    } else if (Session::haveRight('config', READ)) {
-       $_SESSION["glpi_plugin_os_profile"] = ['os' => 'r'];
- 
-    } else {
-       unset($_SESSION["glpi_plugin_os_profile"]);
-    }
- }
- 
+   global $DB;
 
-  // conf
-  $query_conf = "CREATE TABLE IF NOT EXISTS `glpi_plugin_os_config` (
-    `id` int(1) unsigned NOT NULL default '1',
-    `name` varchar(255) NOT NULL default '0',
-    `cnpj`  varchar(50) NOT NULL default '0',
-    `address` varchar(50) NOT NULL default '0',
-    `phone` varchar(255) NOT NULL default '0',
-    `city`  varchar(255) NOT NULL default '0',
-    `site`  varchar(50) NOT NULL default '0',
-    PRIMARY KEY (`id`))
-  ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;";
-  $DB->query($query_conf) or die("error creating table glpi_plugin_os_config " . $DB->error());
-  
-  // rn
-  $query_rn = "CREATE TABLE IF NOT EXISTS `glpi_plugin_os_rn` (
-	  `id` int(4) NOT NULL AUTO_INCREMENT,
-	  `entities_id` int(4) NOT NULL,
-	  `rn` varchar(50) NOT NULL,
-    PRIMARY KEY (`id`,`entities_id`))
-  ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;";
-  $DB->query($query_rn) or die("error creating table glpi_plugin_os_rn " . $DB->error());
-  $query_alt_rn = "ALTER TABLE `glpi_plugin_os_rn` ADD UNIQUE (`entities_id`); ";		
-	$DB->query($query_alt_rn) or die("error update table glpi_plugin_os_rn primary key " . $DB->error());
-  return true;
+   // Inicia migração com versão 1.0
+   $migration = new Migration(100);
+
+   // Criação da tabela de configuração
+   if (!$DB->tableExists('glpi_plugin_os_config')) {
+      $query_conf = "
+         CREATE TABLE `glpi_plugin_os_config` (
+            `id` INT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
+            `name` VARCHAR(255) NOT NULL DEFAULT '0',
+            `cnpj` VARCHAR(50) NOT NULL DEFAULT '0',
+            `address` VARCHAR(255) NOT NULL DEFAULT '0',
+            `phone` VARCHAR(255) NOT NULL DEFAULT '0',
+            `city` VARCHAR(255) NOT NULL DEFAULT '0',
+            `site` VARCHAR(255) NOT NULL DEFAULT '0',
+            PRIMARY KEY (`id`)
+         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+      ";
+      $migration->addPostQuery($query_conf);
+   }
+
+   // Criação da tabela de RN
+   if (!$DB->tableExists('glpi_plugin_os_rn')) {
+      $query_rn = "
+         CREATE TABLE `glpi_plugin_os_rn` (
+            `id` INT(11) NOT NULL AUTO_INCREMENT,
+            `entities_id` INT(11) NOT NULL,
+            `rn` VARCHAR(50) NOT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY (`entities_id`)
+         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+      ";
+      $migration->addPostQuery($query_rn);
+   }
+
+   $migration->executeMigration();
+   return true;
 }
-function plugin_os_uninstall(){
-  global $DB;
-  
-  // drop conf
-  $drop_config = "DROP TABLE glpi_plugin_os_config";
-	$DB->query($drop_config);
 
-  // drop rn
-  $drop_rn = "DROP TABLE glpi_plugin_os_rn";
-	$DB->query($drop_rn);
-	
-  return true;
+
+function plugin_os_uninstall() {
+   global $DB;
+
+   $migration = new Migration(100);
+
+   if ($DB->tableExists('glpi_plugin_os_config')) {
+      $migration->addPostQuery("DROP TABLE `glpi_plugin_os_config`;");
+   }
+
+   if ($DB->tableExists('glpi_plugin_os_rn')) {
+      $migration->addPostQuery("DROP TABLE `glpi_plugin_os_rn`;");
+   }
+
+   $migration->executeMigration();
+   return true;
+}
+
+function plugin_change_profile_os() {
+   if (Session::haveRight('config', UPDATE)) {
+      $_SESSION["glpi_plugin_os_profile"] = ['os' => 'w'];
+   } else if (Session::haveRight('config', READ)) {
+      $_SESSION["glpi_plugin_os_profile"] = ['os' => 'r'];
+   } else {
+      unset($_SESSION["glpi_plugin_os_profile"]);
+   }
 }

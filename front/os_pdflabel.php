@@ -3,7 +3,7 @@
    ------------------------------------------------------------------------
    Plugin OS
    Copyright (C) 2016-2024 by Junior Marcati
-   https://github.com/juniormarcati/os
+   https://github.com/juniormarcati/os  
    ------------------------------------------------------------------------
    LICENSE
    This file is part of Plugin OS project.
@@ -24,7 +24,7 @@
    @copyright Copyright (c) 2016-2024 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/os
+   @link      https://github.com/juniormarcati/os  
    @since     2016
    ------------------------------------------------------------------------
  */
@@ -33,22 +33,28 @@ include ('configOs.php');
 include ('../inc/pdf/fpdf.php');
 include ('../inc/qrcode/vendor/autoload.php');
 global $DB;
+global $OsId;
 Session::checkLoginUser();
+
 // font size definition
 $titleSize = 14;
 $titleSizeCn = 8;
 $fontSize = 7;
+
 // Print details
 $pdf = new FPDF('P','mm',array(95,70));
 $pdf->AddPage();
 $pdf->Ln(3);
+
 // Logo
 $pdf->Image('../pics/logo_os.png',15,0,40);
 $pdf->Ln();
+
 // Title
 $pdf->SetFont('Arial','B',$titleSize);
 $pdf->Cell(50,6,utf8_decode("OS Nº $OsId"),0,0,'C');
 $pdf->Ln();
+
 // Cabecalho
 $pdf->SetFont('Arial','B',$titleSizeCn);
 $pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'L');
@@ -80,6 +86,7 @@ $pdf->Ln();
 $pdf->SetFont('Arial','b',$fontSize);
 $pdf->Cell(50,2.5,utf8_decode("ITENS"),0,0,'L');
 $pdf->Ln();
+
 // Items
 if ( $ItensId == null ) {
 } else {
@@ -95,6 +102,7 @@ if ( $ItensId == null ) {
 		$pdf->Ln();
 	}
 }
+
 $pdf->SetFont('Arial','',$fontSize);
 $pdf->Cell(50,1,"-------------------------------------------------------------",0,0,'L');
 $pdf->Ln();
@@ -102,8 +110,10 @@ $pdf->Cell(50,2.5,"$SitePlugin",0,0,'C');
 $pdf->Ln(10);
 
 // QR Code
+global $CFG_GLPI;
 $url = $CFG_GLPI['url_base'];
-$url2 = "/front/ticket.form.php?id=".$_GET['id']."";
+$url2 = "/front/ticket.form.php?id=".$_GET['id'];
+
 use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
 $options = new QROptions([
@@ -112,7 +122,21 @@ $options = new QROptions([
   'outputType' => QRCode::OUTPUT_IMAGE_PNG,
   'imageBase64' => false
 ]);
-file_put_contents('../pics/qr.png',(new QRCode($options))->render("$url$url2"));
+
+$qrData = (new QRCode($options))->render("$url$url2");
+
+$tempDir = sys_get_temp_dir();
+do {
+    $tempQrFile = $tempDir . '/os_qr_' . bin2hex(random_bytes(8)) . '.png';
+} while (file_exists($tempQrFile));
+
+file_put_contents($tempQrFile, $qrData);
+
+register_shutdown_function(function() use ($tempQrFile) {
+    if (file_exists($tempQrFile)) {
+        @unlink($tempQrFile);
+    }
+});
 
 // Setting the image size.
 $width = 30;
@@ -121,7 +145,8 @@ $height = 0;
 // Saves the current vertical position before adding the image.
 $currentPosition = $pdf->GetY();
 
-$pdf->Image('../pics/qr.png', $x = 20, $currentPosition + 2, $width, $height);
+$pdf->Image($tempQrFile, 20, $currentPosition + 2, $width, $height);
+
 // Generating pdf file
 $fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
 $pdf->Output('I',$fileName);

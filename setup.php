@@ -2,8 +2,8 @@
 /*
    ------------------------------------------------------------------------
    Plugin OS
-   Copyright (C) 2016-2024 by Junior Marcati
-   https://github.com/juniormarcati/os
+   Copyright (C) 2016-2022 by Junior Marcati
+   https://github.com/juniormarcati/glpi_os
    ------------------------------------------------------------------------
    LICENSE
    This file is part of Plugin OS project.
@@ -21,55 +21,44 @@
    @package   Plugin OS
    @author    Junior Marcati
    @co-author
-   @copyright Copyright (c) 2016-2024 OS Plugin Development team
+   @copyright Copyright (c) 2016-2022 OS Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/os
+   @link      https://github.com/juniormarcati/glpi_os
    @since     2016
    ------------------------------------------------------------------------
  */
+
 //plugin version
- define('PLUGIN_OS_VERSION', '0.2.0-beta7');
+ define('PLUGIN_OS_VERSION', '0.3.0');
 // Minimal GLPI version
-define('PLUGIN_OS_MIN_GLPI', '9.4');
+define('PLUGIN_OS_MIN_GLPI', '11.0');
 // Maximum GLPI version
-define('PLUGIN_OS_MAX_GLPI', '10.1.1');
+define('PLUGIN_OS_MAX_GLPI', '11.99');
 
 function plugin_init_os() {
-  global $PLUGIN_HOOKS, $CFG_GLPI, $LANG;
+  global $PLUGIN_HOOKS, $LANG;
   $PLUGIN_HOOKS['csrf_compliant']['os'] = true;
 
+  Plugin::registerClass('PluginOsConfig', ['addtabon' => ['Ticket']]);
   Plugin::registerClass('PluginOsConfig', ['addtabon' => ['Entity']]);
-  Plugin::registerClass('PluginOsProfile', ['addtabon' => 'Profile']);
-  $PLUGIN_HOOKS['change_profile']['os'] = ['PluginOsProfile','initProfile'];
 
-  if (Session::haveRight('plugin_os', READ)) {
-    Plugin::registerClass('PluginOsConfig', ['addtabon' => 'Ticket']);
- }
-
-  $_SESSION["glpi_plugin_os_profile"]['os'] = 'w';
-  if (isset($_SESSION["glpi_plugin_os_profile"])) {
-    $PLUGIN_HOOKS["menu_toadd"]['os'] = array('plugins'  => 'PluginOsConfig');
-    }
-}
-
-// Config page
-if (Session::haveRight('config', UPDATE)) {
+  $PLUGIN_HOOKS["menu_toadd"]['os'] = array('plugins'  => 'PluginOsConfig');
   $PLUGIN_HOOKS['config_page']['os'] = 'front/index.php';
 }
-$PLUGIN_HOOKS['change_profile']['os'] = 'plugin_change_profile_os';
 
-function plugin_version_os() {
+function plugin_version_os(){
+  global $DB, $LANG;
   return [
-    'name'          => 'OS',
+    'name'          => __('OS','os'),
     'version'       => PLUGIN_OS_VERSION ,
-    'author'        => 'Junior Marcati',
+    'author'        => '<a href="mailto:junior@marcati.com.br"> Júnior Marcati </b> </a>',
     'license'       => 'AGPLv3+',
-    'homepage'      => 'https://github.com/juniormarcati/os',
+    'homepage'      => 'https://github.com/juniormarcati/glpi_os/',
     'requirements'  => [
-      'glpi'  => [
-        'min' => PLUGIN_OS_MIN_GLPI,
-        'max' => PLUGIN_OS_MAX_GLPI,
+      'glpi'        => [
+        'min'       => PLUGIN_OS_MIN_GLPI,
+        'max'       => PLUGIN_OS_MAX_GLPI,
       ]
     ]
   ];

@@ -28,16 +28,33 @@
    @since     2016
    ------------------------------------------------------------------------
  */
-session_start();
-include ("../../../inc/includes.php");
-include ("../../../config/config.php");
-$name_form = 	$_REQUEST["name_form"];
-$cnpj_form = 	$_REQUEST["cnpj_form"]; 
-$address_form =	$_REQUEST["address_form"];
-$phone_form =	$_REQUEST["phone_form"];
-$city_form =	$_REQUEST["city_form"];
-$site_form = 	$_REQUEST["site_form"];
-$query = "REPLACE INTO glpi_plugin_os_config (name, cnpj, address, phone, city, site)
-        VALUES ('".$name_form."', '".$cnpj_form."', '".$address_form."', '".$phone_form."', '".$city_form."', '".$site_form."')";
-$result = $DB->query($query);
-echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
+
+if (!defined('GLPI_ROOT')) {
+    die("Access denied.");
+}
+Session::checkLoginUser();
+if (!Session::haveRight("config", UPDATE)) {
+    Html::displayRightError();
+    exit;
+}
+
+global $DB;
+
+$data = [
+    'name'    => $_POST["name_form"] ?? '',
+    'cnpj'    => $_POST["cnpj_form"] ?? '',
+    'address' => $_POST["address_form"] ?? '',
+    'phone'   => $_POST["phone_form"] ?? '',
+    'city'    => $_POST["city_form"] ?? '',
+    'site'    => $_POST["site_form"] ?? ''
+];
+
+$existing = $DB->request('glpi_plugin_os_config')->current();
+if ($existing) {
+    $DB->update('glpi_plugin_os_config', $data, ['id' => $existing['id']]);
+} else {
+    $DB->insert('glpi_plugin_os_config', $data);
+}
+
+Session::addMessageAfterRedirect("Configuração salva com sucesso.", true, INFO);
+Html::redirect('index.php');
