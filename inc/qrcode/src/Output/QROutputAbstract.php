@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class QROutputAbstract
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QROutputAbstract.php
- * @created      09.12.2015
- * @package      chillerlan\QRCode\Output
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2015 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Output;
 
@@ -17,57 +40,24 @@ use chillerlan\Settings\SettingsContainerInterface;
 
 use function call_user_func, dirname, file_put_contents, get_called_class, in_array, is_writable, sprintf;
 
-/**
- * common output abstract
- */
 abstract class QROutputAbstract implements QROutputInterface{
 
-	/**
-	 * @var int
-	 */
 	protected $moduleCount;
 
-	/**
-	 * @param \chillerlan\QRCode\Data\QRMatrix $matrix
-	 */
 	protected $matrix;
 
-	/**
-	 * @var \chillerlan\QRCode\QROptions
-	 */
 	protected $options;
 
-	/**
-	 * @var string
-	 */
 	protected $outputMode;
 
-	/**
-	 * @var string;
-	 */
 	protected $defaultMode;
 
-	/**
-	 * @var int
-	 */
 	protected $scale;
 
-	/**
-	 * @var int
-	 */
 	protected $length;
 
-	/**
-	 * @var array
-	 */
 	protected $moduleValues;
 
-	/**
-	 * QROutputAbstract constructor.
-	 *
-	 * @param \chillerlan\Settings\SettingsContainerInterface $options
-	 * @param \chillerlan\QRCode\Data\QRMatrix      $matrix
-	 */
 	public function __construct(SettingsContainerInterface $options, QRMatrix $matrix){
 		$this->options     = $options;
 		$this->matrix      = $matrix;
@@ -84,25 +74,8 @@ abstract class QROutputAbstract implements QROutputInterface{
 		$this->setModuleValues();
 	}
 
-	/**
-	 * Sets the initial module values (clean-up & defaults)
-	 *
-	 * @return void
-	 */
 	abstract protected function setModuleValues():void;
 
-	/**
-	 * saves the qr data to a file
-	 *
-	 * @see file_put_contents()
-	 * @see \chillerlan\QRCode\QROptions::cachefile
-	 *
-	 * @param string $data
-	 * @param string $file
-	 *
-	 * @return bool
-	 * @throws \chillerlan\QRCode\Output\QRCodeOutputException
-	 */
 	protected function saveToFile(string $data, string $file):bool{
 
 		if(!is_writable(dirname($file))){
@@ -112,11 +85,7 @@ abstract class QROutputAbstract implements QROutputInterface{
 		return (bool)file_put_contents($file, $data);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function dump(string $file = null){
-		// call the built-in output method
 		$data = call_user_func([$this, $this->outputMode ?? $this->defaultMode]);
 		$file = $file ?? $this->options->cachefile;
 
@@ -128,3 +97,4 @@ abstract class QROutputAbstract implements QROutputInterface{
 	}
 
 }
+

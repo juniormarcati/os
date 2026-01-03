@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class QRImageTest
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRImageTest.php
- * @created      24.12.2017
- * @package      chillerlan\QRCodeTest\Output
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2017 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCodeTest\Output;
 
@@ -26,10 +49,6 @@ class QRImageTest extends QROutputTestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider types
-	 * @param $type
-	 */
 	public function testImageOutput($type){
 		$this->options->outputType  = $type;
 		$this->options->imageBase64 = false;
@@ -38,7 +57,7 @@ class QRImageTest extends QROutputTestAbstract{
 		$this->outputInterface->dump($this::cachefile.$type);
 		$img = $this->outputInterface->dump();
 
-		if($type === QRCode::OUTPUT_IMAGE_JPG){ // jpeg encoding may cause different results
+		if($type === QRCode::OUTPUT_IMAGE_JPG){ 
 			$this->markAsRisky();
 		}
 
@@ -48,14 +67,13 @@ class QRImageTest extends QROutputTestAbstract{
 	public function testSetModuleValues(){
 
 		$this->options->moduleValues = [
-			// data
 			1024 => [0, 0, 0],
 			4    => [255, 255, 255],
 		];
 
 		$this->setOutputInterface()->dump();
 
-		$this->assertTrue(true); // tricking the code coverage
+		$this->assertTrue(true); 
 	}
 
 	public function testOutputGetResource():void{
@@ -67,3 +85,4 @@ class QRImageTest extends QROutputTestAbstract{
 	}
 
 }
+

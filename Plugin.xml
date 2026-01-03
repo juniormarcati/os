@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <name>OS-Free</name>
+   <key>osfree</key>
+   <state>stable</state>
+   <logo>https://raw.githubusercontent.com/juniormarcati/os/master/os.png</logo>
+   <description>
+      <short>
+         <pt_BR><![CDATA[Plugin para gerar OS.]]></pt_BR>
+      </short>
+      <long>
+         <pt_BR><![CDATA[Plugin para gerar Ordem de Serviço baseado em informações do ticket.]]></pt_BR>
+      </long>
+   </description>
+   <homepage>https://github.com/juniormarcati/os</homepage>
+   <download>https://github.com/juniormarcati/os/releases</download>
+   <issues>https://github.com/juniormarcati/os/issues</issues>
+   <readme>https://github.com/juniormarcati/os/blob/master/Readme.md</readme>
+   <authors>
+      <author>Junior Marcati</author>
+   </authors>
+   <versions>
+      <version>
+         <num>0.3.0</num>
+         <compatibility>9.4</compatibility>
+         <compatibility>9.5</compatibility>
+         <compatibility>10.0</compatibility>
+         <compatibility>10.1</compatibility>
+         <compatibility>11.0</compatibility>
+         <download_url>https://github.com/juniormarcati/os/releases/download/v0.3.0/os-0.3.0.tar.gz</download_url>
+      </version>
+   </versions>
+   <langs>
+      <lang>pt_BR</lang>
+   </langs>
+   <license><![CDATA[AGPL v3+]]></license>
+   <tags>
+      <pt_BR>
+         <tag>ordem</tag>
+         <tag>serviço</tag>
+         <tag>pdf</tag>
+         <tag>ticket</tag>
+         <tag>assinatura</tag>
+      </pt_BR>
+   </tags>
+</root>

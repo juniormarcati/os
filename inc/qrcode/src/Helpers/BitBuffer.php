@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class BitBuffer
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   BitBuffer.php
- * @created      25.11.2015
- * @package      chillerlan\QRCode\Helpers
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2015 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Helpers;
 
@@ -16,19 +39,10 @@ use function count, floor;
 
 class BitBuffer{
 
-	/**
-	 * @var  int[]
-	 */
 	public $buffer = [];
 
-	/**
-	 * @var int
-	 */
 	public $length = 0;
 
-	/**
-	 * @return \chillerlan\QRCode\Helpers\BitBuffer
-	 */
 	public function clear():BitBuffer{
 		$this->buffer = [];
 		$this->length = 0;
@@ -36,12 +50,6 @@ class BitBuffer{
 		return $this;
 	}
 
-	/**
-	 * @param int $num
-	 * @param int $length
-	 *
-	 * @return \chillerlan\QRCode\Helpers\BitBuffer
-	 */
 	public function put(int $num, int $length):BitBuffer{
 
 		for($i = 0; $i < $length; $i++){
@@ -51,11 +59,6 @@ class BitBuffer{
 		return $this;
 	}
 
-	/**
-	 * @param bool $bit
-	 *
-	 * @return \chillerlan\QRCode\Helpers\BitBuffer
-	 */
 	public function putBit(bool $bit):BitBuffer{
 		$bufIndex = floor($this->length / 8);
 
@@ -73,3 +76,4 @@ class BitBuffer{
 	}
 
 }
+

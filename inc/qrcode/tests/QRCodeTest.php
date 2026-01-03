@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class QRCodeTest
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRCodeTest.php
- * @created      17.11.2017
- * @package      chillerlan\QRCodeTest
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2017 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCodeTest;
 
@@ -23,9 +46,6 @@ class QRCodeTest extends QRTestAbstract{
 
 	protected $FQCN = QRCode::class;
 
-	/**
-	 * @var \chillerlan\QRCode\QRCode
-	 */
 	protected $qrcode;
 
 	protected function setUp():void{
@@ -49,8 +69,6 @@ class QRCodeTest extends QRTestAbstract{
 		$this->assertFalse($this->qrcode->isKanji('Ã'));
 	}
 
-	// coverage
-
 	public function typeDataProvider(){
 		return [
 			'png'  => [QRCode::OUTPUT_IMAGE_PNG, 'data:image/png;base64,'],
@@ -63,10 +81,6 @@ class QRCodeTest extends QRTestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider typeDataProvider
-	 * @param $type
-	 */
 	public function testRenderImage($type, $expected){
 		$this->qrcode = $this->reflection->newInstanceArgs([new QROptions(['outputType' => $type])]);
 
@@ -89,7 +103,7 @@ class QRCodeTest extends QRTestAbstract{
 
 	public function testTrim() {
 		$m1 = $this->qrcode->getMatrix('hello');
-		$m2 = $this->qrcode->getMatrix('hello '); // added space
+		$m2 = $this->qrcode->getMatrix('hello '); 
 
 		$this->assertNotEquals($m1, $m2);
 	}
@@ -138,3 +152,4 @@ class QRCodeTest extends QRTestAbstract{
 	}
 
 }
+

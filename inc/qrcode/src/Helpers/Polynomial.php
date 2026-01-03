@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class Polynomial
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   Polynomial.php
- * @created      25.11.2015
- * @package      chillerlan\QRCode\Helpers
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2015 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Helpers;
 
@@ -16,14 +39,8 @@ use chillerlan\QRCode\QRCodeException;
 
 use function array_fill, count, sprintf;
 
-/**
- * @link http://www.thonky.com/qr-code-tutorial/error-correction-coding
- */
 class Polynomial{
 
-	/**
-	 * @link http://www.thonky.com/qr-code-tutorial/log-antilog-table
-	 */
 	protected const table = [
 		[  1,   0], [  2,   0], [  4,   1], [  8,  25], [ 16,   2], [ 32,  50], [ 64,  26], [128, 198],
 		[ 29,   3], [ 58, 223], [116,  51], [232, 238], [205,  27], [135, 104], [ 19, 199], [ 38,  75],
@@ -59,34 +76,16 @@ class Polynomial{
 		[ 27, 116], [ 54, 214], [108, 244], [216, 234], [173, 168], [ 71,  80], [142,  88], [  1, 175],
 	];
 
-	/**
-	 * @var array
-	 */
 	protected $num = [];
 
-	/**
-	 * Polynomial constructor.
-	 *
-	 * @param array|null $num
-	 * @param int|null   $shift
-	 */
 	public function __construct(array $num = null, int $shift = null){
 		$this->setNum($num ?? [1], $shift);
 	}
 
-	/**
-	 * @return array
-	 */
 	public function getNum():array{
 		return $this->num;
 	}
 
-	/**
-	 * @param array    $num
-	 * @param int|null $shift
-	 *
-	 * @return \chillerlan\QRCode\Helpers\Polynomial
-	 */
 	public function setNum(array $num, int $shift = null):Polynomial{
 		$offset = 0;
 		$numCount = count($num);
@@ -104,11 +103,6 @@ class Polynomial{
 		return $this;
 	}
 
-	/**
-	 * @param array $e
-	 *
-	 * @return \chillerlan\QRCode\Helpers\Polynomial
-	 */
 	public function multiply(array $e):Polynomial{
 		$n = array_fill(0, count($this->num) + count($e) - 1, 0);
 
@@ -126,11 +120,6 @@ class Polynomial{
 		return $this;
 	}
 
-	/**
-	 * @param array $e
-	 *
-	 * @return \chillerlan\QRCode\Helpers\Polynomial
-	 */
 	public function mod(array $e):Polynomial{
 		$n = $this->num;
 
@@ -149,12 +138,6 @@ class Polynomial{
 		return $this;
 	}
 
-	/**
-	 * @param int $n
-	 *
-	 * @return int
-	 * @throws \chillerlan\QRCode\QRCodeException
-	 */
 	public function glog(int $n):int{
 
 		if($n < 1){
@@ -164,11 +147,6 @@ class Polynomial{
 		return Polynomial::table[$n][1];
 	}
 
-	/**
-	 * @param int $n
-	 *
-	 * @return int
-	 */
 	public function gexp(int $n):int{
 
 		if($n < 0){
@@ -182,3 +160,4 @@ class Polynomial{
 	}
 
 }
+

@@ -1,0 +1,1003 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR OS Plugin Contributors
+# This file is distributed under the same license as the OS Plugin package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OS Plugin 0.3.0\n"
+"Report-Msgid-Bugs-To: contato@marcati.com.br\n"
+"POT-Creation-Date: 2025-11-02 12:06-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /home/jrm/Documentos/osfree/front/config.php:34
+msgid "Method Not Allowed"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/config.php:46
+msgid "Configuration saved successfully"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/config.php:54
+#, php-format
+msgid "Configuration changed by %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/config.php:58
+#: /home/jrm/Documentos/osfree/inc/config.class.php:327
+msgid "Error saving configuration"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/config.php:66
+msgid "Internal server error"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/entity.form.php:56
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:201
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:325
+msgid "Company name is too long (maximum 255 characters)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:38
+msgid ""
+"Error: Composer autoload not found. Run \\\"composer install\\\" in the "
+"plugin root directory."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:184
+#: /home/jrm/Documentos/osfree/inc/config.class.php:1018
+msgid "Document"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:200
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:158
+msgid "Not informed"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:305
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:661
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:226
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:443
+msgid "WO"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:309
+#, php-format
+msgid "Page %s of %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:331
+#, php-format
+msgid "EIN: %1$s · Phone: %2$s · %3$s, %4$s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:341
+msgid "WO Nº"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:359
+msgid "CUSTOMER DATA"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:371
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:644
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:378
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:407
+msgid "Customer"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:409
+#: /home/jrm/Documentos/osfree/front/index.php:876
+#: /home/jrm/Documentos/osfree/front/index.php:1114
+#: /home/jrm/Documentos/osfree/front/index.php:1297
+#: /home/jrm/Documentos/osfree/inc/config.class.php:409
+msgid "Phone"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:423
+msgid "Email"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:437
+msgid "ZIP"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:458
+#: /home/jrm/Documentos/osfree/front/index.php:871
+#: /home/jrm/Documentos/osfree/front/index.php:1292
+#: /home/jrm/Documentos/osfree/inc/config.class.php:397
+msgid "Address"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:475
+msgid "TICKET DETAILS"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:484
+msgid "Ticket Title"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:505
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:637
+msgid "Technician in Charge"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:519
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:387
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:415
+#: /home/jrm/Documentos/osfree/front/index.php:1244
+msgid "Requester"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:543
+msgid "Opening Date"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:557
+msgid "Closing Date"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:576
+msgid "PROBLEM DESCRIPTION"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:590
+msgid "SOLUTION"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:599
+msgid "Space for solution description"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:628
+msgid "SIGNATURES"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:654
+#, php-format
+msgid "%1$s | Generated on: %2$s | Use the QR Code to verify authenticity"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:677
+msgid "Error generating PDF"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:678
+#, php-format
+msgid "An error occurred while generating the PDF: %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdf.php:679
+msgid "Technical details:"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:34
+msgid "Invalid ID provided"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:63
+msgid "Ticket not found"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:67
+msgid "No permission to access this ticket"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:71
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:498
+msgid "No permission to access this entity"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:80
+msgid "Not finished"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:151
+msgid "Not assigned"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:261
+msgid "Error loading configuration"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:264
+msgid "Error loading ticket"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:266
+msgid "Error loading data"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/configOs.php:267
+msgid "Not available"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/save_all.php:34
+msgid "Configuration data not found!"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/save_all.php:79
+msgid "Error updating company settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/save_all.php:90
+msgid "Error inserting company settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/save_all.php:125
+msgid "Error updating color settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/save_all.php:131
+msgid "Error inserting color settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/save_all.php:140
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/save_all.php:144
+msgid "Error saving settings: "
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:141
+msgid "Composer autoload not found"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:226
+#, php-format
+msgid "%1$s #%2$s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:332
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:354
+#: /home/jrm/Documentos/osfree/front/index.php:866
+#: /home/jrm/Documentos/osfree/front/index.php:1114
+#: /home/jrm/Documentos/osfree/front/index.php:1223
+#: /home/jrm/Documentos/osfree/front/index.php:1287
+#: /home/jrm/Documentos/osfree/inc/config.class.php:381
+msgid "EIN"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:394
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:423
+#: /home/jrm/Documentos/osfree/front/index.php:1248
+msgid "Technician"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:443
+#, php-format
+msgid "%1$s-%2$s.pdf"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/os_pdflabel.php:460
+msgid "Error generating label"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:33
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:134
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:263
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:352
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:661
+#: /home/jrm/Documentos/osfree/inc/config.class.php:50
+#: /home/jrm/Documentos/osfree/inc/config.class.php:57
+#: /home/jrm/Documentos/osfree/inc/config.class.php:566
+#: /home/jrm/Documentos/osfree/inc/config.class.php:1009
+msgid "Work Order"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:774
+#: /home/jrm/Documentos/osfree/inc/config.class.php:988
+msgid "Premium"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:775
+#: /home/jrm/Documentos/osfree/inc/config.class.php:989
+msgid "Upgrade Your Work Orders"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:776
+#: /home/jrm/Documentos/osfree/inc/config.class.php:990
+msgid "Experience a smarter workflow with these premium highlights:"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:778
+#: /home/jrm/Documentos/osfree/inc/config.class.php:992
+msgid "Ticket cost insights"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:779
+#: /home/jrm/Documentos/osfree/inc/config.class.php:993
+msgid "Digital signatures"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:780
+#: /home/jrm/Documentos/osfree/inc/config.class.php:994
+msgid "Detailed ticket items"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:781
+#: /home/jrm/Documentos/osfree/inc/config.class.php:995
+msgid "Advanced interface"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:783
+#: /home/jrm/Documentos/osfree/inc/config.class.php:997
+msgid ""
+"Gain more accuracy, productivity, and professionalism across every operation."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:786
+#: /home/jrm/Documentos/osfree/inc/config.class.php:1000
+msgid "Discover Premium"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:795
+msgid "Plugin Logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:797
+msgid "Plugin Configuration"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:798
+msgid "Configure your company information for display in Work Orders"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:810
+#: /home/jrm/Documentos/osfree/front/index.php:853
+msgid "Company Information"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:820
+#: /home/jrm/Documentos/osfree/front/index.php:1103
+#: /home/jrm/Documentos/osfree/front/index.php:1105
+#: /home/jrm/Documentos/osfree/front/index.php:1335
+#: /home/jrm/Documentos/osfree/front/index.php:1338
+msgid "Logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:830
+msgid "Theme Colors"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:840
+#: /home/jrm/Documentos/osfree/inc/config.class.php:1021
+msgid "Label"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:846
+msgid "Finish"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:861
+#: /home/jrm/Documentos/osfree/front/index.php:1111
+#: /home/jrm/Documentos/osfree/front/index.php:1282
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:525
+#: /home/jrm/Documentos/osfree/inc/config.class.php:368
+msgid "Company Name"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:881
+#: /home/jrm/Documentos/osfree/front/index.php:1302
+msgid "City/State"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:886
+#: /home/jrm/Documentos/osfree/front/index.php:1307
+#: /home/jrm/Documentos/osfree/inc/config.class.php:435
+msgid "Website"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:892
+#: /home/jrm/Documentos/osfree/front/index.php:981
+#: /home/jrm/Documentos/osfree/front/index.php:1161
+#: /home/jrm/Documentos/osfree/front/index.php:1262
+#: /home/jrm/Documentos/osfree/front/index.php:1356
+msgid "Previous"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:896
+#: /home/jrm/Documentos/osfree/front/index.php:1165
+#: /home/jrm/Documentos/osfree/front/index.php:1266
+msgid "Next"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:906
+msgid "WO Logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:914
+msgid "Use current logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:915
+msgid "Keep the current logo without changes"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:923
+msgid "Upload new logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:924
+msgid "Upload a new logo for your company"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:931
+msgid "No Logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:932
+msgid "Continue without adding a logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:940
+#: /home/jrm/Documentos/osfree/front/index.php:971
+msgid "Current logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:944
+msgid "No logo found"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:950
+msgid "Upload the logo (recommended size: 300x100px)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:963
+msgid ""
+"Your logo will be stored in the plugin image folder inside the GLPI files "
+"directory."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:975
+msgid "This is the current logo that will be used in labels and WO"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:990
+#: /home/jrm/Documentos/osfree/front/index.php:1370
+msgid "Upload Logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:992
+#: /home/jrm/Documentos/osfree/front/index.php:1371
+msgid "Next Step"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1004
+msgid "Customize Colors"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1007
+msgid "Choose the colors that will be used in your Work Orders."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1011
+msgid "Default"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1021
+msgid "Green"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1031
+msgid "Purple"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1041
+msgid "Red"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1059
+msgid "Primary Color"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1060
+msgid "Used in headers and main elements"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1069
+msgid "Secondary Color"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1070
+msgid "Used in texts and secondary elements"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1079
+msgid "Title Color"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1080
+msgid "Used for company name and WO number."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1089
+msgid "Background Color"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1090
+msgid "Used as section background"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1095
+msgid "Preview"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1123
+msgid "WO No"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1141
+msgid "Section Header"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1146
+msgid "Field Label"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1149
+msgid "Field value"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1174
+msgid "Label Configuration"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1177
+msgid "Configure the size and custom text that will appear on the labels."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1184
+#: /home/jrm/Documentos/osfree/front/index.php:1323
+msgid "Label Size"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1185
+msgid "Select the label width you will use on the printer."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1188
+msgid "Label Width"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1207
+#: /home/jrm/Documentos/osfree/inc/config.class.php:512
+msgid "Custom Text"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1208
+msgid "Add custom text that will appear in the label footer (optional)."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1211
+msgid "Footer Text"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1212
+msgid "e.g.: Thank you for your preference!"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1216
+msgid "Label Preview"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1217
+msgid "This is an approximate preview of how your label will look."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1228
+msgid "QR Code"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1240
+msgid "Client"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1241
+msgid "Client Name"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1245
+msgid "Requester Name"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1249
+msgid "Technician Name"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1275
+msgid "Finish Configuration"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1279
+msgid "Information Summary"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1311
+msgid "Colors"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1329
+msgid "Label Text"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1340
+msgid "No logo"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1350
+msgid "Settings Ready!"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1351
+msgid ""
+"Review the information above and click \"Save and Finish\" to apply all "
+"settings."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1360
+msgid "Save and Finish"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1372
+msgid "Please select a file to upload."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1373
+msgid "Logo uploaded successfully!"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/index.php:1374
+msgid "Error uploading logo. Please try again."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/profile.form.php:35
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:152
+msgid "Access denied. You do not have permission to manage this plugin."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/profile.form.php:52
+msgid "Super-Admin rights cannot be modified for this plugin"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/profile.form.php:135
+msgid "Rights updated successfully"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/profile.form.php:141
+msgid "Error updating rights"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/profile.form.php:149
+msgid "Profile not found or access denied"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/front/profile.form.php:168
+msgid "Invalid request data"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/setup.php:144
+msgid "Work Order Free"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/setup.php:170
+#, php-format
+msgid "Plugin OS requires GLPI version %s to %s."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/setup.php:178
+msgid "Plugin OS requires PHP version 8.1 or higher."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/setup.php:185
+#, php-format
+msgid "Plugin OS requires PHP extension: %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:80
+msgid "Ticket Tab"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:81
+msgid "Access to service order tab in tickets"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:85
+msgid "Entity Tab"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:86
+msgid "Access to service order tab in entities"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:90
+msgid "Profile Tab"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:91
+msgid "Access to service order configuration in profiles"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:193
+msgid "Service Order Tab Permissions"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:199
+msgid "Super-Admin has full access to all plugin features"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:247
+msgid "Super-Admin rights cannot be modified"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:276
+msgid "You do not have permission to access this tab."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/profile.class.php:286
+msgid "You do not have permission to manage this plugin rights."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/rn.class.php:63
+msgid "RN Configuration"
+msgid_plural "RN Configurations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: /home/jrm/Documentos/osfree/inc/colors.class.php:42
+msgid "WO Color"
+msgid_plural "WO Colors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:72
+msgid "Entity WO Configuration"
+msgid_plural "Entity WO Configurations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:83
+msgid "CNPJ"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:85
+msgid "14 digits for CNPJ, or leave empty"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:94
+msgid "EIN (Employer Identification Number)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:96
+msgid "9 digits for EIN (XX-XXXXXXX format), or leave empty"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:165
+msgid "Invalid entity ID"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:181
+msgid "Invalid CNPJ format. Use 14 digits for CNPJ."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:184
+msgid "Invalid EIN format. Use 9 digits (XX-XXXXXXX format)."
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:226
+#, php-format
+msgid "Entity WO configuration created for entity %d by %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:240
+#, php-format
+msgid "Entity WO configuration updated for entity %d by %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:305
+#: /home/jrm/Documentos/osfree/inc/config.class.php:284
+msgid "No permission to change settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:367
+msgid "Entity configuration updated successfully"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:386
+msgid "Entity configuration created successfully"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:395
+msgid "Error saving entity configuration"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:408
+msgid "No permission to delete settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:446
+msgid "Entity configuration deleted successfully"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:453
+msgid "No configuration found to delete"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:462
+msgid "Error deleting entity configuration"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:488
+msgid "No permission to access root entity"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:520
+msgid "Entity WO Settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:526
+msgid "Full company or organization name"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:534
+msgid "Enter company name"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:568
+msgid "Created"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:575
+msgid "Last update"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:581
+msgid "Status"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:584
+msgid "Configured"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:586
+msgid "Not configured"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:607
+msgid "Are you sure you want to delete this configuration?"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/entity.class.php:671
+#: /home/jrm/Documentos/osfree/inc/config.class.php:576
+msgid "Access denied"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:45
+msgid "WO Configuration"
+msgid_plural "WO Configurations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:101
+msgid "Company name must be at least 2 characters long"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:115
+msgid "Incorrect record format"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:147
+msgid "Invalid website URL"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:164
+msgid "Invalid currency selected"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:201
+#, php-format
+msgid "WO configuration created by %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:215
+#, php-format
+msgid "WO configuration changed by %s"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:268
+msgid "Your Company"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:309
+msgid "Configuration updated successfully"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:318
+msgid "Configuration created successfully"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:337
+msgid "Internal system error"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:364
+msgid "Company Settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:423
+msgid "City"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:452
+msgid "Currency"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:456
+#: /home/jrm/Documentos/osfree/inc/config.class.php:473
+msgid "Brazilian Real (BRL)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:457
+#: /home/jrm/Documentos/osfree/inc/config.class.php:474
+msgid "US Dollar (USD)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:458
+#: /home/jrm/Documentos/osfree/inc/config.class.php:475
+msgid "Euro (EUR)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:459
+#: /home/jrm/Documentos/osfree/inc/config.class.php:476
+msgid "British Pound (GBP)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:460
+#: /home/jrm/Documentos/osfree/inc/config.class.php:477
+msgid "Argentine Peso (ARS)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:461
+#: /home/jrm/Documentos/osfree/inc/config.class.php:478
+msgid "Chilean Peso (CLP)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:462
+#: /home/jrm/Documentos/osfree/inc/config.class.php:479
+msgid "Colombian Peso (COP)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:463
+#: /home/jrm/Documentos/osfree/inc/config.class.php:480
+msgid "Peruvian Sol (PEN)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:464
+#: /home/jrm/Documentos/osfree/inc/config.class.php:481
+msgid "Uruguayan Peso (UYU)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:488
+msgid "Label settings"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:492
+msgid "Label Width (mm)"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:1026
+msgid "Print"
+msgstr ""
+
+#: /home/jrm/Documentos/osfree/inc/config.class.php:1040
+msgid "Loading document..."
+msgstr ""

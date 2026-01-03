@@ -1,16 +1,37 @@
 <?php
+
 /**
- * Class QRImagick
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRImagick.php
- * @created      04.07.2018
- * @package      chillerlan\QRCode\Output
- * @author       smiley <smiley@chillerlan.net>
- * @copyright    2018 smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @noinspection PhpComposerExtensionStubsInspection
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Output;
 
@@ -21,35 +42,19 @@ use Imagick, ImagickDraw, ImagickPixel;
 
 use function is_string;
 
-/**
- * ImageMagick output module
- * requires ext-imagick
- * @link http://php.net/manual/book.imagick.php
- * @link http://phpimagick.com
- */
 class QRImagick extends QROutputAbstract{
 
-	/**
-	 * @var \Imagick
-	 */
 	protected $imagick;
 
-	/**
-	 * @inheritDoc
-	 * @throws \chillerlan\QRCode\QRCodeException
-	 */
 	public function __construct(SettingsContainerInterface $options, QRMatrix $matrix){
 
 		if(!extension_loaded('imagick')){
-			throw new QRCodeException('ext-imagick not loaded'); // @codeCoverageIgnore
+			throw new QRCodeException('ext-imagick not loaded'); 
 		}
 
 		parent::__construct($options, $matrix);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function setModuleValues():void{
 
 		foreach($this::DEFAULT_MODULE_VALUES as $type => $defaultValue){
@@ -66,11 +71,6 @@ class QRImagick extends QROutputAbstract{
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 *
-	 * @return string|\Imagick
-	 */
 	public function dump(string $file = null){
 		$file          = $file ?? $this->options->cachefile;
 		$this->imagick = new Imagick;
@@ -97,9 +97,6 @@ class QRImagick extends QROutputAbstract{
 		return $imageData;
 	}
 
-	/**
-	 * @return void
-	 */
 	protected function drawImage():void{
 		$draw = new ImagickDraw;
 
@@ -121,3 +118,4 @@ class QRImagick extends QROutputAbstract{
 	}
 
 }
+
