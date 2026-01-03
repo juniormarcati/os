@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class PolynomialTest
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   PolynomialTest.php
- * @created      09.02.2016
- * @package      chillerlan\QRCodeTest\Helpers
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2015 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCodeTest\Helpers;
 
@@ -18,9 +41,6 @@ use chillerlan\QRCodeTest\QRTestAbstract;
 
 class PolynomialTest extends QRTestAbstract{
 
-	/**
-	 * @var \chillerlan\QRCode\Helpers\Polynomial
-	 */
 	protected $polynomial;
 
 	protected function setUp():void{
@@ -40,3 +60,4 @@ class PolynomialTest extends QRTestAbstract{
 		$this->polynomial->glog(0);
 	}
 }
+

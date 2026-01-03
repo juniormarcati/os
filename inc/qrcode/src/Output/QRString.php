@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class QRString
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRString.php
- * @created      05.12.2015
- * @package      chillerlan\QRCode\Output
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2015 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Output;
 
@@ -16,19 +39,10 @@ use chillerlan\QRCode\QRCode;
 
 use function implode, is_string, json_encode;
 
-/**
- * Converts the matrix data into string types
- */
 class QRString extends QROutputAbstract{
 
-	/**
-	 * @var string
-	 */
 	protected $defaultMode = QRCode::OUTPUT_STRING_TEXT;
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function setModuleValues():void{
 
 		foreach($this::DEFAULT_MODULE_VALUES as $M_TYPE => $defaultValue){
@@ -47,9 +61,6 @@ class QRString extends QROutputAbstract{
 
 	}
 
-	/**
-	 * @return string
-	 */
 	protected function text():string{
 		$str = [];
 
@@ -66,11 +77,9 @@ class QRString extends QROutputAbstract{
 		return implode($this->options->eol, $str);
 	}
 
-	/**
-	 * @return string
-	 */
 	protected function json():string{
 		return json_encode($this->matrix->matrix());
 	}
 
 }
+

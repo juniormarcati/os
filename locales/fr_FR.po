@@ -1,0 +1,1039 @@
+# French translations for OS Plugin package.
+# Copyright (C) 2025 OS Plugin Contributors
+# This file is distributed under the same license as the OS Plugin package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OS Plugin 0.3.0\n"
+"Report-Msgid-Bugs-To: contato@marcati.com.br\n"
+"POT-Creation-Date: 2025-11-02 12:06-0300\n"
+"PO-Revision-Date: 2025-10-13 20:58-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: config.php:34
+msgid "Method Not Allowed"
+msgstr "Méthode non autorisée"
+
+#: config.php:46
+msgid "Configuration saved successfully"
+msgstr "Configuration enregistrée avec succès"
+
+#: config.php:54
+#, php-format
+msgid "Configuration changed by %s"
+msgstr "Configuration modifiée par %s"
+
+#: config.php:58
+#: config.class.php:327
+msgid "Error saving configuration"
+msgstr "Erreur lors de l'enregistrement de la configuration"
+
+#: config.php:66
+msgid "Internal server error"
+msgstr "Erreur interne du serveur"
+
+#: entity.form.php:56
+#: entity.class.php:201
+#: entity.class.php:325
+msgid "Company name is too long (maximum 255 characters)"
+msgstr "Le nom de l'entreprise est trop long (maximum 255 caractères)"
+
+#: os_pdf.php:38
+msgid ""
+"Error: Composer autoload not found. Run \\\"composer install\\\" in the "
+"plugin root directory."
+msgstr ""
+"Erreur : chargement automatique du compositeur introuvable. Exécutez \\"
+"\"composer install\\\" dans le répertoire racine du plugin."
+
+#: os_pdf.php:184
+#: config.class.php:1018
+msgid "Document"
+msgstr "Document"
+
+#: os_pdf.php:200
+#: os_pdflabel.php:158
+msgid "Not informed"
+msgstr "Non renseigné"
+
+#: os_pdf.php:305
+#: os_pdf.php:661
+#: os_pdflabel.php:226
+#: os_pdflabel.php:443
+msgid "WO"
+msgstr "OT"
+
+#: os_pdf.php:309
+#, php-format
+msgid "Page %s of %s"
+msgstr "Page %s de %s"
+
+#: os_pdf.php:331
+#, php-format
+msgid "EIN: %1$s · Phone: %2$s · %3$s, %4$s"
+msgstr "SIREN : %1$s · Téléphone : %2$s · %3$s, %4$s"
+
+#: os_pdf.php:341
+msgid "WO Nº"
+msgstr "Numéro d'OT"
+
+#: os_pdf.php:359
+msgid "CUSTOMER DATA"
+msgstr "DONNÉES CLIENT"
+
+#: os_pdf.php:371
+#: os_pdf.php:644
+#: os_pdflabel.php:378
+#: os_pdflabel.php:407
+msgid "Customer"
+msgstr "Client"
+
+#: os_pdf.php:409
+#: index.php:876
+#: index.php:1114
+#: index.php:1297
+#: config.class.php:409
+msgid "Phone"
+msgstr "Téléphone"
+
+#: os_pdf.php:423
+msgid "Email"
+msgstr "E-mail"
+
+#: os_pdf.php:437
+msgid "ZIP"
+msgstr "Code postal"
+
+#: os_pdf.php:458
+#: index.php:871
+#: index.php:1292
+#: config.class.php:397
+msgid "Address"
+msgstr "Adresse"
+
+#: os_pdf.php:475
+msgid "TICKET DETAILS"
+msgstr "DÉTAILS DU TICKET"
+
+#: os_pdf.php:484
+msgid "Ticket Title"
+msgstr "Titre du ticket"
+
+#: os_pdf.php:505
+#: os_pdf.php:637
+msgid "Technician in Charge"
+msgstr "Technicien en charge"
+
+#: os_pdf.php:519
+#: os_pdflabel.php:387
+#: os_pdflabel.php:415
+#: index.php:1244
+msgid "Requester"
+msgstr "Demandeur"
+
+#: os_pdf.php:543
+msgid "Opening Date"
+msgstr "Date d'ouverture"
+
+#: os_pdf.php:557
+msgid "Closing Date"
+msgstr "Date de clôture"
+
+#: os_pdf.php:576
+msgid "PROBLEM DESCRIPTION"
+msgstr "DESCRIPTION DU PROBLEME"
+
+#: os_pdf.php:590
+msgid "SOLUTION"
+msgstr "SOLUTION"
+
+#: os_pdf.php:599
+msgid "Space for solution description"
+msgstr "Espace pour la description de la solution"
+
+#: os_pdf.php:628
+msgid "SIGNATURES"
+msgstr "SIGNATURES"
+
+#: os_pdf.php:654
+#, php-format
+msgid "%1$s | Generated on: %2$s | Use the QR Code to verify authenticity"
+msgstr ""
+"%1$s | Généré le : %2$s | Utilisez le code QR pour vérifier l'authenticité"
+
+#: os_pdf.php:677
+msgid "Error generating PDF"
+msgstr "Erreur lors de la génération du PDF"
+
+#: os_pdf.php:678
+#, php-format
+msgid "An error occurred while generating the PDF: %s"
+msgstr "Une erreur s'est produite lors de la génération du PDF : %s"
+
+#: os_pdf.php:679
+msgid "Technical details:"
+msgstr "Détails techniques :"
+
+#: configOs.php:34
+msgid "Invalid ID provided"
+msgstr "Identifiant fourni invalide"
+
+#: configOs.php:63
+msgid "Ticket not found"
+msgstr "Ticket introuvable"
+
+#: configOs.php:67
+msgid "No permission to access this ticket"
+msgstr "Vous n'avez pas l'autorisation d'accéder à ce ticket"
+
+#: configOs.php:71
+#: entity.class.php:498
+msgid "No permission to access this entity"
+msgstr "Aucune autorisation pour accéder à cette entité"
+
+#: configOs.php:80
+msgid "Not finished"
+msgstr "Pas fini"
+
+#: configOs.php:151
+msgid "Not assigned"
+msgstr "Non attribué"
+
+#: configOs.php:261
+msgid "Error loading configuration"
+msgstr "Erreur lors du chargement de la configuration"
+
+#: configOs.php:264
+msgid "Error loading ticket"
+msgstr "Erreur lors du chargement du ticket"
+
+#: configOs.php:266
+msgid "Error loading data"
+msgstr "Erreur de chargement des données"
+
+#: configOs.php:267
+msgid "Not available"
+msgstr "Pas disponible"
+
+#: save_all.php:34
+msgid "Configuration data not found!"
+msgstr "Données de configuration introuvables !"
+
+#: save_all.php:79
+msgid "Error updating company settings"
+msgstr "Erreur lors de la mise à jour des paramètres de l'entreprise"
+
+#: save_all.php:90
+msgid "Error inserting company settings"
+msgstr "Erreur lors de l'insertion des paramètres de l'entreprise"
+
+#: save_all.php:125
+msgid "Error updating color settings"
+msgstr "Erreur lors de la mise à jour des paramètres de couleur"
+
+#: save_all.php:131
+msgid "Error inserting color settings"
+msgstr "Erreur lors de l'insertion des paramètres de couleur"
+
+#: save_all.php:140
+msgid "Settings saved successfully!"
+msgstr "Paramètres enregistrés avec succès !"
+
+#: save_all.php:144
+msgid "Error saving settings: "
+msgstr "Erreur lors de l'enregistrement des paramètres :"
+
+#: os_pdflabel.php:141
+msgid "Composer autoload not found"
+msgstr "Chargement automatique du compositeur introuvable"
+
+#: os_pdflabel.php:226
+#, php-format
+msgid "%1$s #%2$s"
+msgstr "%1$s #%2$s"
+
+#: os_pdflabel.php:332
+#: os_pdflabel.php:354
+#: index.php:866
+#: index.php:1114
+#: index.php:1223
+#: index.php:1287
+#: config.class.php:381
+msgid "EIN"
+msgstr "SIREN"
+
+#: os_pdflabel.php:394
+#: os_pdflabel.php:423
+#: index.php:1248
+msgid "Technician"
+msgstr "Technicien"
+
+#: os_pdflabel.php:443
+#, php-format
+msgid "%1$s-%2$s.pdf"
+msgstr "%1$s-%2$s.pdf"
+
+#: os_pdflabel.php:460
+msgid "Error generating label"
+msgstr "Erreur lors de la génération de l'étiquette"
+
+#: index.php:33
+#: profile.class.php:134
+#: profile.class.php:263
+#: profile.class.php:352
+#: entity.class.php:661
+#: config.class.php:50
+#: config.class.php:57
+#: config.class.php:566
+#: config.class.php:1009
+msgid "Work Order"
+msgstr "OT"
+
+#: index.php:774
+#: config.class.php:988
+msgid "Premium"
+msgstr "Premium"
+
+#: index.php:775
+#: config.class.php:989
+msgid "Upgrade Your Work Orders"
+msgstr "Optimisez vos OT"
+
+#: index.php:776
+#: config.class.php:990
+msgid "Experience a smarter workflow with these premium highlights:"
+msgstr "Découvrez un flux de travail plus intelligent grâce à ces atouts premium :"
+
+#: index.php:778
+#: config.class.php:992
+msgid "Ticket cost insights"
+msgstr "Analyse des coûts du ticket"
+
+#: index.php:779
+#: config.class.php:993
+msgid "Digital signatures"
+msgstr "Signatures numériques"
+
+#: index.php:780
+#: config.class.php:994
+msgid "Detailed ticket items"
+msgstr "Éléments détaillés du ticket"
+
+#: index.php:781
+#: config.class.php:995
+msgid "Advanced interface"
+msgstr "Interface avancée"
+
+#: index.php:783
+#: config.class.php:997
+msgid ""
+"Gain more accuracy, productivity, and professionalism across every operation."
+msgstr "Gagnez en précision, en productivité et en professionnalisme pour chaque intervention."
+
+#: index.php:786
+#: config.class.php:1000
+msgid "Discover Premium"
+msgstr "Découvrir Premium"
+
+#: index.php:795
+msgid "Plugin Logo"
+msgstr "Logo du plugin"
+
+#: index.php:797
+msgid "Plugin Configuration"
+msgstr "Configuration du plugin"
+
+#: index.php:798
+msgid "Configure your company information for display in Work Orders"
+msgstr ""
+"Configurez les informations de votre entreprise pour les afficher dans les "
+"OT"
+
+#: index.php:810
+#: index.php:853
+msgid "Company Information"
+msgstr "Informations sur l'entreprise"
+
+#: index.php:820
+#: index.php:1103
+#: index.php:1105
+#: index.php:1335
+#: index.php:1338
+msgid "Logo"
+msgstr "Logo"
+
+#: index.php:830
+msgid "Theme Colors"
+msgstr "Couleurs du thème"
+
+#: index.php:840
+#: config.class.php:1021
+msgid "Label"
+msgstr "Étiquette"
+
+#: index.php:846
+msgid "Finish"
+msgstr "Finition"
+
+#: index.php:861
+#: index.php:1111
+#: index.php:1282
+#: entity.class.php:525
+#: config.class.php:368
+msgid "Company Name"
+msgstr "Nom de l'entreprise"
+
+#: index.php:881
+#: index.php:1302
+msgid "City/State"
+msgstr "Ville/État"
+
+#: index.php:886
+#: index.php:1307
+#: config.class.php:435
+msgid "Website"
+msgstr "Site web"
+
+#: index.php:892
+#: index.php:981
+#: index.php:1161
+#: index.php:1262
+#: index.php:1356
+msgid "Previous"
+msgstr "Précédent"
+
+#: index.php:896
+#: index.php:1165
+#: index.php:1266
+msgid "Next"
+msgstr "Suivant"
+
+#: index.php:906
+msgid "WO Logo"
+msgstr "Logo de l'OT"
+
+#: index.php:914
+msgid "Use current logo"
+msgstr "Utiliser le logo actuel"
+
+#: index.php:915
+msgid "Keep the current logo without changes"
+msgstr "Conserver le logo actuel sans modifications"
+
+#: index.php:923
+msgid "Upload new logo"
+msgstr "Télécharger un nouveau logo"
+
+#: index.php:924
+msgid "Upload a new logo for your company"
+msgstr "Téléchargez un nouveau logo pour votre entreprise"
+
+#: index.php:931
+msgid "No Logo"
+msgstr "Pas de logo"
+
+#: index.php:932
+msgid "Continue without adding a logo"
+msgstr "Continuer sans ajouter de logo"
+
+#: index.php:940
+#: index.php:971
+msgid "Current logo"
+msgstr "Logo actuel"
+
+#: index.php:944
+msgid "No logo found"
+msgstr "Aucun logo trouvé"
+
+#: index.php:950
+msgid "Upload the logo (recommended size: 300x100px)"
+msgstr "Téléchargez le logo (taille recommandée : 300x100px)"
+
+#: index.php:963
+msgid ""
+"Your logo will be stored in the plugin image folder inside the GLPI files "
+"directory."
+msgstr "Votre logo sera stocké dans le dossier d'images du plugin dans le répertoire files de GLPI."
+
+#: index.php:975
+msgid "This is the current logo that will be used in labels and WO"
+msgstr "C'est le logo actuel qui sera utilisé dans les étiquettes et les OT"
+
+#: index.php:990
+#: index.php:1370
+msgid "Upload Logo"
+msgstr "Télécharger le logo"
+
+#: index.php:992
+#: index.php:1371
+msgid "Next Step"
+msgstr "Étape suivante"
+
+#: index.php:1004
+msgid "Customize Colors"
+msgstr "Personnaliser les couleurs"
+
+#: index.php:1007
+msgid "Choose the colors that will be used in your Work Orders."
+msgstr "Choisissez les couleurs qui seront utilisées dans vos OT."
+
+#: index.php:1011
+msgid "Default"
+msgstr "Défaut"
+
+#: index.php:1021
+msgid "Green"
+msgstr "Vert"
+
+#: index.php:1031
+msgid "Purple"
+msgstr "Violet"
+
+#: index.php:1041
+msgid "Red"
+msgstr "Rouge"
+
+#: index.php:1059
+msgid "Primary Color"
+msgstr "Couleur primaire"
+
+#: index.php:1060
+msgid "Used in headers and main elements"
+msgstr "Utilisé dans les en-têtes et les éléments principaux"
+
+#: index.php:1069
+msgid "Secondary Color"
+msgstr "Couleur secondaire"
+
+#: index.php:1070
+msgid "Used in texts and secondary elements"
+msgstr "Utilisé dans les textes et les éléments secondaires"
+
+#: index.php:1079
+msgid "Title Color"
+msgstr "Couleur du titre"
+
+#: index.php:1080
+msgid "Used for company name and WO number."
+msgstr "Utilisé pour le nom de l'entreprise et le numéro d'OT."
+
+#: index.php:1089
+msgid "Background Color"
+msgstr "Couleur d'arrière-plan"
+
+#: index.php:1090
+msgid "Used as section background"
+msgstr "Utilisé comme arrière-plan de section"
+
+#: index.php:1095
+msgid "Preview"
+msgstr "Aperçu"
+
+#: index.php:1123
+msgid "WO No"
+msgstr "Nº d'OT"
+
+#: index.php:1141
+msgid "Section Header"
+msgstr "En-tête de section"
+
+#: index.php:1146
+msgid "Field Label"
+msgstr "Libellé du champ"
+
+#: index.php:1149
+msgid "Field value"
+msgstr "Valeur du champ"
+
+#: index.php:1174
+msgid "Label Configuration"
+msgstr "Configuration des étiquettes"
+
+#: index.php:1177
+msgid "Configure the size and custom text that will appear on the labels."
+msgstr ""
+"Configurez la taille et le texte personnalisé qui apparaîtra sur les "
+"étiquettes."
+
+#: index.php:1184
+#: index.php:1323
+msgid "Label Size"
+msgstr "Taille de l'étiquette"
+
+#: index.php:1185
+msgid "Select the label width you will use on the printer."
+msgstr ""
+"Sélectionnez la largeur d'étiquette que vous utiliserez sur l'imprimante."
+
+#: index.php:1188
+msgid "Label Width"
+msgstr "Largeur de l'étiquette"
+
+#: index.php:1207
+#: config.class.php:512
+msgid "Custom Text"
+msgstr "Texte personnalisé"
+
+#: index.php:1208
+msgid "Add custom text that will appear in the label footer (optional)."
+msgstr ""
+"Ajoutez un texte personnalisé qui apparaîtra dans le pied de page de "
+"l'étiquette (facultatif)."
+
+#: index.php:1211
+msgid "Footer Text"
+msgstr "Texte du pied de page"
+
+#: index.php:1212
+msgid "e.g.: Thank you for your preference!"
+msgstr "Ex : Merci pour votre préférence !"
+
+#: index.php:1216
+msgid "Label Preview"
+msgstr "Aperçu de l'étiquette"
+
+#: index.php:1217
+msgid "This is an approximate preview of how your label will look."
+msgstr "Il s'agit d'un aperçu approximatif de l'apparence de votre étiquette."
+
+#: index.php:1228
+msgid "QR Code"
+msgstr "Code QR"
+
+#: index.php:1240
+msgid "Client"
+msgstr "Client"
+
+#: index.php:1241
+msgid "Client Name"
+msgstr "Nom du client"
+
+#: index.php:1245
+msgid "Requester Name"
+msgstr "Nom du demandeur"
+
+#: index.php:1249
+msgid "Technician Name"
+msgstr "Nom du technicien"
+
+#: index.php:1275
+msgid "Finish Configuration"
+msgstr "Terminer la configuration"
+
+#: index.php:1279
+msgid "Information Summary"
+msgstr "Résumé des informations"
+
+#: index.php:1311
+msgid "Colors"
+msgstr "Couleurs"
+
+#: index.php:1329
+msgid "Label Text"
+msgstr "Texte de l'étiquette"
+
+#: index.php:1340
+msgid "No logo"
+msgstr "Pas de logo"
+
+#: index.php:1350
+msgid "Settings Ready!"
+msgstr "Paramètres prêts !"
+
+#: index.php:1351
+msgid ""
+"Review the information above and click \"Save and Finish\" to apply all "
+"settings."
+msgstr ""
+"Passez en revue les informations ci-dessus et cliquez sur « Enregistrer et "
+"terminer » pour appliquer tous les paramètres."
+
+#: index.php:1360
+msgid "Save and Finish"
+msgstr "Enregistrer et terminer"
+
+#: index.php:1372
+msgid "Please select a file to upload."
+msgstr "Veuillez sélectionner un fichier à télécharger."
+
+#: index.php:1373
+msgid "Logo uploaded successfully!"
+msgstr "Logo téléchargé avec succès !"
+
+#: index.php:1374
+msgid "Error uploading logo. Please try again."
+msgstr "Erreur lors du téléchargement du logo. Veuillez réessayer."
+
+#: profile.form.php:35
+#: profile.class.php:152
+msgid "Access denied. You do not have permission to manage this plugin."
+msgstr "Accès refusé. Vous n'avez pas la permission de gérer ce plugin."
+
+#: profile.form.php:52
+msgid "Super-Admin rights cannot be modified for this plugin"
+msgstr ""
+"Les droits de super-administrateur ne peuvent pas être modifiés pour ce "
+"plugin"
+
+#: profile.form.php:135
+msgid "Rights updated successfully"
+msgstr "Droits mis à jour avec succès"
+
+#: profile.form.php:141
+msgid "Error updating rights"
+msgstr "Erreur lors de la mise à jour des droits"
+
+#: profile.form.php:149
+msgid "Profile not found or access denied"
+msgstr "Profil introuvable ou accès refusé"
+
+#: profile.form.php:168
+msgid "Invalid request data"
+msgstr "Données de demande invalides"
+
+#: setup.php:144
+msgid "Work Order Free"
+msgstr "OT gratuite"
+
+#: setup.php:170
+#, php-format
+msgid "Plugin OS requires GLPI version %s to %s."
+msgstr "Le Plugin OS nécessite la version GLPI %s à %s."
+
+#: setup.php:178
+msgid "Plugin OS requires PHP version 8.1 or higher."
+msgstr ""
+"Le système d’exploitation du plugin nécessite PHP version 8.1 ou supérieure."
+
+#: setup.php:185
+#, php-format
+msgid "Plugin OS requires PHP extension: %s"
+msgstr "Le système d'exploitation du plugin nécessite l'extension PHP : %s"
+
+#: profile.class.php:80
+msgid "Ticket Tab"
+msgstr "Onglet Ticket"
+
+#: profile.class.php:81
+msgid "Access to service order tab in tickets"
+msgstr "Accès à l'onglet OT dans les tickets"
+
+#: profile.class.php:85
+msgid "Entity Tab"
+msgstr "Onglet Entité"
+
+#: profile.class.php:86
+msgid "Access to service order tab in entities"
+msgstr "Accès à l'onglet OT dans les entités"
+
+#: profile.class.php:90
+msgid "Profile Tab"
+msgstr "Onglet Profil"
+
+#: profile.class.php:91
+msgid "Access to service order configuration in profiles"
+msgstr "Accès à la configuration des OT dans les profils"
+
+#: profile.class.php:193
+msgid "Service Order Tab Permissions"
+msgstr "Autorisations de l'onglet Ordre de service"
+
+#: profile.class.php:199
+msgid "Super-Admin has full access to all plugin features"
+msgstr "Super-Admin a un accès complet à toutes les fonctionnalités du plugin"
+
+#: profile.class.php:247
+msgid "Super-Admin rights cannot be modified"
+msgstr "Les droits de super-administrateur ne peuvent pas être modifiés"
+
+#: profile.class.php:276
+msgid "You do not have permission to access this tab."
+msgstr "Vous n'êtes pas autorisé à accéder à cet onglet."
+
+#: profile.class.php:286
+msgid "You do not have permission to manage this plugin rights."
+msgstr "Vous n'avez pas la permission de gérer les droits de ce plugin."
+
+#: rn.class.php:63
+msgid "RN Configuration"
+msgid_plural "RN Configurations"
+msgstr[0] "Configuration infirmière autorisée"
+msgstr[1] "Configurations d'infirmière autorisée"
+
+#: colors.class.php:42
+msgid "WO Color"
+msgid_plural "WO Colors"
+msgstr[0] "Couleur d'OT"
+msgstr[1] "Couleurs d'OT"
+
+#: entity.class.php:72
+msgid "Entity WO Configuration"
+msgid_plural "Entity WO Configurations"
+msgstr[0] "Configuration d'OT de l'entité"
+msgstr[1] "Configurations d'OT de l'entité"
+
+#: entity.class.php:83
+msgid "CNPJ"
+msgstr "CNPJ"
+
+#: entity.class.php:85
+msgid "14 digits for CNPJ, or leave empty"
+msgstr "14 chiffres pour CNPJ, ou laisser vide"
+
+#: entity.class.php:94
+msgid "EIN (Employer Identification Number)"
+msgstr "SIREN (Système d'identification du répertoire des entreprises)"
+
+#: entity.class.php:96
+msgid "9 digits for EIN (XX-XXXXXXX format), or leave empty"
+msgstr "9 chiffres pour le SIREN (format XXXXXXXXX), ou laissez vide"
+
+#: entity.class.php:165
+msgid "Invalid entity ID"
+msgstr "ID d'entité invalide"
+
+#: entity.class.php:181
+msgid "Invalid CNPJ format. Use 14 digits for CNPJ."
+msgstr "Format CNPJ invalide. Utilisez 14 chiffres pour CNPJ."
+
+#: entity.class.php:184
+msgid "Invalid EIN format. Use 9 digits (XX-XXXXXXX format)."
+msgstr "Format SIREN invalide. Utilisez 9 chiffres (format XXXXXXXXX)."
+
+#: entity.class.php:226
+#, php-format
+msgid "Entity WO configuration created for entity %d by %s"
+msgstr "Configuration d'OT de l'entité créée pour l'entité %d par %s"
+
+#: entity.class.php:240
+#, php-format
+msgid "Entity WO configuration updated for entity %d by %s"
+msgstr "Configuration d'OT de l'entité mise à jour pour l'entité %d par %s"
+
+#: entity.class.php:305
+#: config.class.php:284
+msgid "No permission to change settings"
+msgstr "Aucune autorisation pour modifier les paramètres"
+
+#: entity.class.php:367
+msgid "Entity configuration updated successfully"
+msgstr "La configuration de l'entité a été mise à jour avec succès"
+
+#: entity.class.php:386
+msgid "Entity configuration created successfully"
+msgstr "Configuration d'entité créée avec succès"
+
+#: entity.class.php:395
+msgid "Error saving entity configuration"
+msgstr "Erreur lors de l'enregistrement de la configuration de l'entité"
+
+#: entity.class.php:408
+msgid "No permission to delete settings"
+msgstr "Aucune autorisation pour supprimer les paramètres"
+
+#: entity.class.php:446
+msgid "Entity configuration deleted successfully"
+msgstr "La configuration de l'entité a été supprimée avec succès"
+
+#: entity.class.php:453
+msgid "No configuration found to delete"
+msgstr "Aucune configuration trouvée à supprimer"
+
+#: entity.class.php:462
+msgid "Error deleting entity configuration"
+msgstr "Erreur lors de la suppression de la configuration de l'entité"
+
+#: entity.class.php:488
+msgid "No permission to access root entity"
+msgstr "Aucune autorisation pour accéder à l'entité racine"
+
+#: entity.class.php:520
+msgid "Entity WO Settings"
+msgstr "Paramètres d'OT de l'entité"
+
+#: entity.class.php:526
+msgid "Full company or organization name"
+msgstr "Nom complet de l'entreprise ou de l'organisation"
+
+#: entity.class.php:534
+msgid "Enter company name"
+msgstr "Entrez le nom de l'entreprise"
+
+#: entity.class.php:568
+msgid "Created"
+msgstr "Créé"
+
+#: entity.class.php:575
+msgid "Last update"
+msgstr "Dernière mise à jour"
+
+#: entity.class.php:581
+msgid "Status"
+msgstr "Statut"
+
+#: entity.class.php:584
+msgid "Configured"
+msgstr "Configuré"
+
+#: entity.class.php:586
+msgid "Not configured"
+msgstr "Non configuré"
+
+#: entity.class.php:607
+msgid "Are you sure you want to delete this configuration?"
+msgstr "Êtes-vous sûr de vouloir supprimer cette configuration ?"
+
+#: entity.class.php:671
+#: config.class.php:576
+msgid "Access denied"
+msgstr "Accès refusé"
+
+#: config.class.php:45
+msgid "WO Configuration"
+msgid_plural "WO Configurations"
+msgstr[0] "Configuration d'OT"
+msgstr[1] "Configurations d'OT"
+
+#: config.class.php:101
+msgid "Company name must be at least 2 characters long"
+msgstr "Le nom de l'entreprise doit comporter au moins 2 caractères"
+
+#: config.class.php:115
+msgid "Incorrect record format"
+msgstr "Format d'enregistrement incorrect"
+
+#: config.class.php:147
+msgid "Invalid website URL"
+msgstr "URL de site Web invalide"
+
+#: config.class.php:164
+msgid "Invalid currency selected"
+msgstr "Devise sélectionnée non valide"
+
+#: config.class.php:201
+#, php-format
+msgid "WO configuration created by %s"
+msgstr "Configuration d'OT créée par %s"
+
+#: config.class.php:215
+#, php-format
+msgid "WO configuration changed by %s"
+msgstr "Configuration d'OT modifiée par %s"
+
+#: config.class.php:268
+msgid "Your Company"
+msgstr "Votre entreprise"
+
+#: config.class.php:309
+msgid "Configuration updated successfully"
+msgstr "Configuration mise à jour avec succès"
+
+#: config.class.php:318
+msgid "Configuration created successfully"
+msgstr "Configuration créée avec succès"
+
+#: config.class.php:337
+msgid "Internal system error"
+msgstr "Erreur système interne"
+
+#: config.class.php:364
+msgid "Company Settings"
+msgstr "Paramètres de l'entreprise"
+
+#: config.class.php:423
+msgid "City"
+msgstr "Ville"
+
+#: config.class.php:452
+msgid "Currency"
+msgstr "Devise"
+
+#: config.class.php:456
+#: config.class.php:473
+msgid "Brazilian Real (BRL)"
+msgstr "Réal brésilien (BRL)"
+
+#: config.class.php:457
+#: config.class.php:474
+msgid "US Dollar (USD)"
+msgstr "Dollar américain (USD)"
+
+#: config.class.php:458
+#: config.class.php:475
+msgid "Euro (EUR)"
+msgstr "euros (EUR)"
+
+#: config.class.php:459
+#: config.class.php:476
+msgid "British Pound (GBP)"
+msgstr "Livre sterling (GBP)"
+
+#: config.class.php:460
+#: config.class.php:477
+msgid "Argentine Peso (ARS)"
+msgstr "Peso argentin (ARS)"
+
+#: config.class.php:461
+#: config.class.php:478
+msgid "Chilean Peso (CLP)"
+msgstr "Peso Chilien (CLP)"
+
+#: config.class.php:462
+#: config.class.php:479
+msgid "Colombian Peso (COP)"
+msgstr "Peso Colombien (COP)"
+
+#: config.class.php:463
+#: config.class.php:480
+msgid "Peruvian Sol (PEN)"
+msgstr "Sol péruvien (PEN)"
+
+#: config.class.php:464
+#: config.class.php:481
+msgid "Uruguayan Peso (UYU)"
+msgstr "Peso uruguayen (UYU)"
+
+#: config.class.php:488
+msgid "Label settings"
+msgstr "Paramètres d'étiquette"
+
+#: config.class.php:492
+msgid "Label Width (mm)"
+msgstr "Largeur de l'étiquette (mm)"
+
+#: config.class.php:1026
+msgid "Print"
+msgstr "Imprimer"
+
+#: config.class.php:1040
+msgid "Loading document..."
+msgstr "Chargement du document..."
+
+#~ msgid "PluginOS - Free Version"
+#~ msgstr "PluginOS - Version gratuite"
+
+#~ msgid "You are using the free version of the PluginOS."
+#~ msgstr "Vous utilisez la version gratuite du PluginOS."
+
+#~ msgid "For advanced features,contact us to get the premium version!"
+#~ msgstr ""
+#~ "Pour des fonctionnalités avancées, contactez-nous pour obtenir la version "
+#~ "premium !"
+
+#~ msgid "I want to know more"
+#~ msgstr "je veux en savoir plus"
+
+#~ msgid "The \"pics\" folder needs write permission."
+#~ msgstr "Le dossier \"pics\" nécessite une autorisation en écriture."
+
+#~ msgid "Cor OS"
+#~ msgid_plural "Cores OS"
+#~ msgstr[0] "Système d'exploitation Cor"
+#~ msgstr[1] "Cœurs du système d'exploitation"

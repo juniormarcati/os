@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class QRMatrixTest
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRMatrixTest.php
- * @created      17.11.2017
- * @package      chillerlan\QRCodeTest\Data
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2017 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCodeTest\Data;
 
@@ -24,9 +47,6 @@ class QRMatrixTest extends QRTestAbstract{
 
 	protected $version = 7;
 
-	/**
-	 * @var \chillerlan\QRCode\Data\QRMatrix
-	 */
 	protected $matrix;
 
 	protected function setUp():void{
@@ -199,14 +219,11 @@ class QRMatrixTest extends QRTestAbstract{
 		$o->addQuietzone = false;
 
 		$matrix = (new QRCode($o))->getMatrix('testdata');
-		// also testing size adjustment to uneven numbers
 		$matrix->setLogoSpace(20, 14);
 
-		// NW corner
 		$this::assertNotSame(QRMatrix::M_LOGO, $matrix->get(17, 20));
 		$this::assertSame(QRMatrix::M_LOGO, $matrix->get(18, 21));
 
-		// SE corner
 		$this::assertSame(QRMatrix::M_LOGO, $matrix->get(38, 35));
 		$this::assertNotSame(QRMatrix::M_LOGO, $matrix->get(39, 36));
 	}
@@ -220,7 +237,6 @@ class QRMatrixTest extends QRTestAbstract{
 
 		$m = (new QRCode($o))->getMatrix('testdata');
 
-		// logo space should not overwrite quiet zone & function patterns
 		$m->setLogoSpace(21, 21, -10, -10);
 		$this::assertSame(QRMatrix::M_QUIETZONE, $m->get(9, 9));
 		$this::assertSame(QRMatrix::M_FINDER << 8, $m->get(10, 10));
@@ -231,8 +247,6 @@ class QRMatrixTest extends QRTestAbstract{
 		$this::assertSame(QRMatrix::M_LOGO, $m->get(20, 20));
 		$this::assertNotSame(QRMatrix::M_LOGO, $m->get(21, 21));
 
-		// i just realized that setLogoSpace() could be called multiple times
-		// on the same instance and i'm not going to do anything about it :P
 		$m->setLogoSpace(21, 21, 45, 45);
 		$this::assertNotSame(QRMatrix::M_LOGO, $m->get(54, 54));
 		$this::assertSame(QRMatrix::M_LOGO, $m->get(55, 55));
@@ -258,3 +272,4 @@ class QRMatrixTest extends QRTestAbstract{
 	}
 
 }
+

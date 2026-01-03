@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class QRMarkupTest
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRMarkupTest.php
- * @created      24.12.2017
- * @package      chillerlan\QRCodeTest\Output
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2017 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCodeTest\Output;
 
@@ -25,10 +48,6 @@ class QRMarkupTest extends QROutputTestAbstract{
 		];
 	}
 
-	/**
-	 * @dataProvider types
-	 * @param $type
-	 */
 	public function testMarkupOutputFile($type){
 		$this->options->outputType = $type;
 		$this->options->cachefile  = $this::cachefile.$type;
@@ -38,21 +57,15 @@ class QRMarkupTest extends QROutputTestAbstract{
 		$this->assertSame($data, file_get_contents($this->options->cachefile));
 	}
 
-	/**
-	 * @dataProvider types
-	 * @param $type
-	 */
 	public function testMarkupOutput($type){
 		$this->options->imageBase64 = false;
 		$this->options->outputType  = $type;
 		$this->setOutputInterface();
 
 		$expected = explode($this->options->eol, file_get_contents($this::cachefile.$type));
-		// cut off the doctype & head
 		array_shift($expected);
 
 		if($type === QRCode::OUTPUT_MARKUP_HTML){
-			// cut off the </body> tag
 			array_pop($expected);
 		}
 
@@ -65,7 +78,6 @@ class QRMarkupTest extends QROutputTestAbstract{
 
 		$this->options->imageBase64  = false;
 		$this->options->moduleValues = [
-			// data
 			1024 => '#4A6000',
 			4    => '#ECF9BE',
 		];
@@ -77,3 +89,4 @@ class QRMarkupTest extends QROutputTestAbstract{
 	}
 
 }
+

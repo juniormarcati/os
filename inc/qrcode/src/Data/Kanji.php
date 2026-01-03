@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class Kanji
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   Kanji.php
- * @created      25.11.2015
- * @package      chillerlan\QRCode\Data
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2015 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Data;
 
@@ -16,31 +39,16 @@ use chillerlan\QRCode\QRCode;
 
 use function mb_strlen, ord, sprintf, strlen;
 
-/**
- * Kanji mode: double-byte characters from the Shift JIS character set
- */
 class Kanji extends QRDataAbstract{
 
-	/**
-	 * @inheritdoc
-	 */
 	protected $datamode = QRCode::DATA_KANJI;
 
-	/**
-	 * @inheritdoc
-	 */
 	protected $lengthBits = [8, 10, 12];
 
-	/**
-	 * @inheritdoc
-	 */
 	protected function getLength(string $data):int{
 		return mb_strlen($data, 'SJIS');
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	protected function write(string $data):void{
 		$len = strlen($data);
 
@@ -68,3 +76,4 @@ class Kanji extends QRDataAbstract{
 	}
 
 }
+

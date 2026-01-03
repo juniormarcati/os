@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class MaskPatternTesterTest
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   MaskPatternTesterTest.php
- * @created      24.11.2017
- * @package      chillerlan\QRCodeTest\Data
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2017 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCodeTest\Data;
 
@@ -19,7 +42,6 @@ class MaskPatternTesterTest extends QRTestAbstract{
 
 	protected $FQCN = MaskPatternTester::class;
 
-	// coverage
 	public function testMaskpattern(){
 		$matrix = (new Byte(new QROptions(['version' => 10]), 'test'))->initMatrix(3, true);
 
@@ -27,3 +49,4 @@ class MaskPatternTesterTest extends QRTestAbstract{
 	}
 
 }
+

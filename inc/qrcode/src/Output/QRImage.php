@@ -1,16 +1,37 @@
 <?php
+
 /**
- * Class QRImage
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRImage.php
- * @created      05.12.2015
- * @package      chillerlan\QRCode\Output
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2015 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @noinspection PhpComposerExtensionStubsInspection
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Output;
 
@@ -23,11 +44,6 @@ use function array_values, base64_encode, call_user_func, count, imagecoloralloc
 	imagecreatetruecolor, imagedestroy, imagefilledrectangle, imagegif, imagejpeg, imagepng, in_array,
 	is_array, ob_end_clean, ob_get_contents, ob_start, range, sprintf;
 
-/**
- * Converts the matrix into GD images, raw or base64 output
- * requires ext-gd
- * @link http://php.net/manual/book.image.php
- */
 class QRImage extends QROutputAbstract{
 
 	protected const TRANSPARENCY_TYPES = [
@@ -35,34 +51,19 @@ class QRImage extends QROutputAbstract{
 		QRCode::OUTPUT_IMAGE_GIF,
 	];
 
-	/**
-	 * @var string
-	 */
 	protected $defaultMode = QRCode::OUTPUT_IMAGE_PNG;
 
-	/**
-	 * @see imagecreatetruecolor()
-	 * @var resource
-	 */
 	protected $image;
 
-	/**
-	 * @inheritDoc
-	 *
-	 * @throws \chillerlan\QRCode\QRCodeException
-	 */
 	public function __construct(SettingsContainerInterface $options, QRMatrix $matrix){
 
 		if(!extension_loaded('gd')){
-			throw new QRCodeException('ext-gd not loaded'); // @codeCoverageIgnore
+			throw new QRCodeException('ext-gd not loaded'); 
 		}
 
 		parent::__construct($options, $matrix);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function setModuleValues():void{
 
 		foreach($this::DEFAULT_MODULE_VALUES as $M_TYPE => $defaultValue){
@@ -81,16 +82,9 @@ class QRImage extends QROutputAbstract{
 
 	}
 
-	/**
-	 * @inheritDoc
-	 *
-	 * @return string|resource
-	 */
 	public function dump(string $file = null){
 		$this->image = imagecreatetruecolor($this->length, $this->length);
 
-		// avoid: Indirect modification of overloaded property $imageTransparencyBG has no effect
-		// https://stackoverflow.com/a/10455217
 		$tbg = $this->options->imageTransparencyBG;
 		$background  = imagecolorallocate($this->image, ...$tbg);
 
@@ -119,13 +113,6 @@ class QRImage extends QROutputAbstract{
 		return $imageData;
 	}
 
-	/**
-	 * @param int   $x
-	 * @param int   $y
-	 * @param array $rgb
-	 *
-	 * @return void
-	 */
 	protected function setPixel(int $x, int $y, array $rgb):void{
 		imagefilledrectangle(
 			$this->image,
@@ -137,13 +124,6 @@ class QRImage extends QROutputAbstract{
 		);
 	}
 
-	/**
-	 * @param string|null $file
-	 *
-	 * @return string
-
-	 * @throws \chillerlan\QRCode\Output\QRCodeOutputException
-	 */
 	protected function dumpImage(string $file = null):string{
 		$file = $file ?? $this->options->cachefile;
 
@@ -152,12 +132,9 @@ class QRImage extends QROutputAbstract{
 		try{
 			call_user_func([$this, $this->outputMode ?? $this->defaultMode]);
 		}
-		// not going to cover edge cases
-		// @codeCoverageIgnoreStart
 		catch(Exception $e){
 			throw new QRCodeOutputException($e->getMessage());
 		}
-		// @codeCoverageIgnoreEnd
 
 		$imageData = ob_get_contents();
 		imagedestroy($this->image);
@@ -171,9 +148,6 @@ class QRImage extends QROutputAbstract{
 		return $imageData;
 	}
 
-	/**
-	 * @return void
-	 */
 	protected function png():void{
 		imagepng(
 			$this->image,
@@ -184,17 +158,10 @@ class QRImage extends QROutputAbstract{
 		);
 	}
 
-	/**
-	 * Jiff - like... JitHub!
-	 * @return void
-	 */
 	protected function gif():void{
 		imagegif($this->image);
 	}
 
-	/**
-	 * @return void
-	 */
 	protected function jpg():void{
 		imagejpeg(
 			$this->image,
@@ -206,3 +173,4 @@ class QRImage extends QROutputAbstract{
 	}
 
 }
+

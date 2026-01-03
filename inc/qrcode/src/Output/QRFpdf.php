@@ -1,16 +1,37 @@
 <?php
+
 /**
- * Class QRFpdf
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * https://github.com/chillerlan/php-qrcode/pull/49
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @filesource   QRFpdf.php
- * @created      03.06.2020
- * @package      chillerlan\QRCode\Output
- * @author       Maximilian Kresse
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
  *
- * @license      MIT
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Output;
 
@@ -21,30 +42,19 @@ use FPDF;
 
 use function array_values, class_exists, count, is_array;
 
-/**
- * QRFpdf output module (requires fpdf)
- *
- * @see https://github.com/Setasign/FPDF
- * @see http://www.fpdf.org/
- */
 class QRFpdf extends QROutputAbstract{
 
 	public function __construct(SettingsContainerInterface $options, QRMatrix $matrix){
 
 		if(!class_exists(FPDF::class)){
-			// @codeCoverageIgnoreStart
 			throw new QRCodeException(
 				'The QRFpdf output requires FPDF as dependency but the class "\FPDF" couldn\'t be found.'
 			);
-			// @codeCoverageIgnoreEnd
 		}
 
 		parent::__construct($options, $matrix);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function setModuleValues():void{
 
 		foreach($this::DEFAULT_MODULE_VALUES as $M_TYPE => $defaultValue){
@@ -63,11 +73,6 @@ class QRFpdf extends QROutputAbstract{
 
 	}
 
-	/**
-	 * @inheritDoc
-	 *
-	 * @return string|\FPDF
-	 */
 	public function dump(string $file = null){
 		$file = $file ?? $this->options->cachefile;
 
@@ -79,7 +84,7 @@ class QRFpdf extends QROutputAbstract{
 		foreach($this->matrix->matrix() as $y => $row){
 
 			foreach($row as $x => $M_TYPE){
-				/** @var int $M_TYPE */
+				
 				$color = $this->moduleValues[$M_TYPE];
 
 				if($prevColor === null || $prevColor !== $color){
@@ -110,3 +115,4 @@ class QRFpdf extends QROutputAbstract{
 	}
 
 }
+

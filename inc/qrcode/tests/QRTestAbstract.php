@@ -1,14 +1,37 @@
 <?php
+
 /**
- * Class QRTestAbstract
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   QRTestAbstract.php
- * @created      17.11.2017
- * @package      chillerlan\QRCodeTest
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2017 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCodeTest;
 
@@ -17,25 +40,14 @@ use ReflectionClass, ReflectionMethod, ReflectionProperty;
 
 abstract class QRTestAbstract extends TestCase{
 
-	/**
-	 * @var \ReflectionClass
-	 */
 	protected $reflection;
 
-	/**
-	 * @var string
-	 */
 	protected $FQCN;
 
 	protected function setUp():void{
 		$this->reflection = new ReflectionClass($this->FQCN);
 	}
 
-	/**
-	 * @param string $method
-	 *
-	 * @return \ReflectionMethod
-	 */
 	protected function getMethod(string $method):ReflectionMethod {
 		$method = $this->reflection->getMethod($method);
 		$method->setAccessible(true);
@@ -43,11 +55,6 @@ abstract class QRTestAbstract extends TestCase{
 		return $method;
 	}
 
-	/**
-	 * @param string $property
-	 *
-	 * @return \ReflectionProperty
-	 */
 	protected function getProperty(string $property):ReflectionProperty{
 		$property = $this->reflection->getProperty($property);
 		$property->setAccessible(true);
@@ -55,18 +62,11 @@ abstract class QRTestAbstract extends TestCase{
 		return $property;
 	}
 
-	/**
-	 * @param        $object
-	 * @param string $property
-	 * @param        $value
-	 *
-	 * @return void
-	 */
 	protected function setProperty($object, string $property, $value){
 		$property = $this->getProperty($property);
 		$property->setAccessible(true);
 		$property->setValue($object, $value);
 	}
 
-
 }
+

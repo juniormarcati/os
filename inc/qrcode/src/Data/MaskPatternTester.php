@@ -1,59 +1,53 @@
 <?php
+
 /**
- * Class MaskPatternTester
+ * ------------------------------------------------------------------------
+ * Plugin OS – Community Edition
+ * Copyright (C) 2016-2026 Marcati
+ * https://github.com/juniormarcati
+ * ------------------------------------------------------------------------
+ * This file is part of Plugin OS.
  *
- * @filesource   MaskPatternTester.php
- * @created      22.11.2017
- * @package      chillerlan\QRCode\Data
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2017 Smiley
- * @license      MIT
+ * Plugin OS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Plugin OS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Plugin OS. If not, see <https://www.gnu.org/licenses/>.
+ * ------------------------------------------------------------------------
+ *
+ * @package   PluginOS
+ * @author    Marcati
+ * @copyright 2016-2026 Marcati
+ * @license   AGPL-3.0-or-later
+ * @link      https://github.com/juniormarcati/os
+ * @since     2016
+ * ------------------------------------------------------------------------
  */
+
+
 
 namespace chillerlan\QRCode\Data;
 
 use function abs, call_user_func_array;
 
-/**
- * The sole purpose of this class is to receive a QRMatrix object and run the pattern tests on it.
- *
- * @link http://www.thonky.com/qr-code-tutorial/data-masking
- */
 class MaskPatternTester{
 
-	/**
-	 * @var \chillerlan\QRCode\Data\QRMatrix
-	 */
 	protected $matrix;
 
-	/**
-	 * @var int
-	 */
 	protected $moduleCount;
 
-	/**
-	 * Receives the matrix an sets the module count
-	 *
-	 * @see \chillerlan\QRCode\QROptions::$maskPattern
-	 * @see \chillerlan\QRCode\Data\QRMatrix::$maskPattern
-	 * @see \chillerlan\QRCode\QRCode::getBestMaskPattern()
-	 *
-	 * @param \chillerlan\QRCode\Data\QRMatrix $matrix
-	 */
 	public function __construct(QRMatrix $matrix){
 		$this->matrix      = $matrix;
 		$this->moduleCount = $this->matrix->size();
 	}
 
-	/**
-	 * Returns the penalty for the given mask pattern
-	 *
-	 * @see \chillerlan\QRCode\QROptions::$maskPattern
-	 * @see \chillerlan\QRCode\Data\QRMatrix::$maskPattern
-	 * @see \chillerlan\QRCode\QRCode::getBestMaskPattern()
-	 *
-	 * @return int
-	 */
 	public function testPattern():int{
 		$penalty  = 0;
 
@@ -64,11 +58,6 @@ class MaskPatternTester{
 		return (int)$penalty;
 	}
 
-	/**
-	 * Checks for each group of five or more same-colored modules in a row (or column)
-	 *
-	 * @return int
-	 */
 	protected function testLevel1(array $m):int{
 		$penalty = 0;
 
@@ -105,11 +94,6 @@ class MaskPatternTester{
 		return $penalty;
 	}
 
-	/**
-	 * Checks for each 2x2 area of same-colored modules in the matrix
-	 *
-	 * @return int
-	 */
 	protected function testLevel2(array $m):int{
 		$penalty = 0;
 
@@ -138,11 +122,6 @@ class MaskPatternTester{
 		return 3 * $penalty;
 	}
 
-	/**
-	 * Checks if there are patterns that look similar to the finder patterns (1:1:3:1:1 ratio)
-	 *
-	 * @return int
-	 */
 	protected function testLevel3(array $m):int{
 		$penalties = 0;
 
@@ -181,11 +160,6 @@ class MaskPatternTester{
 		return $penalties * 40;
 	}
 
-	/**
-	 * Checks if more than half of the modules are dark or light, with a larger penalty for a larger difference
-	 *
-	 * @return float
-	 */
 	protected function testLevel4(array $m):float{
 		$count = 0;
 
@@ -201,3 +175,4 @@ class MaskPatternTester{
 	}
 
 }
+
