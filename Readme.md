@@ -26,7 +26,7 @@ git clone https://github.com/juniormarcati/os/os.git
 2. Copy the project to:
 `glpi/plugins/`
 
-3. Ensure the final folder name is `os`.
+3. Ensure the final folder name is `osfree`.
 
 4. In GLPI, go to:  
 **Setup > Plugins > Install > Enable**
@@ -72,7 +72,7 @@ Este plugin gera **Ordem de Serviço (OS)** com base nos dados do ticket no GLPI
 
 Instalação:
 - Faça o download/clone e extraia em `glpi/plugins/`.
-- Renomeie a pasta para `os`, se necessário.
+- Renomeie a pasta para `osfree`, se necessário.
 - No GLPI: **Configurar > Plug-ins > Instalar > Habilitar**.
 
 Configuração:
@@ -91,7 +91,7 @@ Este complemento genera una **Orden de Servicio (OS)** basada en los datos del t
 
 Instalación:
 - Descargue o clone y extraiga en `glpi/plugins/`.
-- Renombre la carpeta a `os` si es necesario.
+- Renombre la carpeta a `osfree` si es necesario.
 - En GLPI: **Configurar > Plugins > Instalar > Habilitar**.
 
 Configuración:
@@ -110,7 +110,7 @@ This plugin generates a **Service Order (OS)** based on GLPI ticket data.
 
 Installation:
 - Download/clone and extract into `glpi/plugins/`.
-- Rename the folder to `os` if needed.
+- Rename the folder to `osfree` if needed.
 - In GLPI: **Setup > Plugins > Install > Enable**.
 
 Configuration:
@@ -129,7 +129,7 @@ Ce plugin génère un **Bon de Service (OS)** à partir des données d’un tick
 
 Installation :
 - Téléchargez/clonez et extrayez dans `glpi/plugins/`.
-- Renommez le dossier en `os` si nécessaire.
+- Renommez le dossier en `osfree` si nécessaire.
 - GLPI : **Configuration > Plugins > Installer > Activer**.
 
 Configuration :
